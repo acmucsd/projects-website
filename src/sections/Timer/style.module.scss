@@ -1,1 +1,42 @@
-@use "..\styles\vars.scss" as v; // allows you to use pre-defined colors
+@use "../../styles/vars.scss" as v; // allows you to use pre-defined colors
+
+.hero {
+  &__timer {
+    padding: 0 !important;
+    margin: 100px 0;
+    background-color: v.$blue;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &__grid {
+      width: 100% !important;
+      display: grid;
+      &__header {
+        h1 {
+          font-size: 40px;
+          font-weight: 700;
+        }
+
+        p {
+          font-size: 25px;
+          font-weight: 400;
+        }
+      }
+      
+    }
+
+    @media only screen and (max-width: 1050px) {
+      padding: 3em !important;
+    }
+
+    @media only screen and (max-width: 500px) {
+      margin: 40px 0;
+
+      .home__communities__grid {
+        padding: 0;
+      }
+    }
+ 
+  }
+}
