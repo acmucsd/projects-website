@@ -1,28 +1,71 @@
 @use "../../styles/vars.scss" as v; // allows you to use pre-defined colors
 
 .hero {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  font-family: 'DM Sans';
+  font-size: 22px;
+
+
   &__timer {
     padding: 0 !important;
-    margin: 100px 0;
+    margin-top: 85px;
     background-color: v.$blue;
     justify-content: center;
     align-items: center;
     text-align: center;
+    display:flex;
+    height: 400px;
 
-    &__grid {
+    &__header {
       width: 100% !important;
-      display: grid;
-      &__header {
-        h1 {
-          font-size: 40px;
-          font-weight: 700;
-        }
+      margin-top: 20px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      h1 {
+        font-size: 52px;
+        font-weight: 700;
+      }
 
-        p {
-          font-size: 25px;
-          font-weight: 400;
+      p {
+        font-size: 41px;
+        font-weight: 300;
+      }
+    }
+
+    &__time {
+      width: 100% !important;
+      display:flex;
+      flex-direction: row;
+      justify-content: center;
+      height: 150px;
+      padding: 8px;
+
+      &__segment {
+        display:flex;
+        flex-direction: column;
+        text-align: center;
+        width: 90px;
+
+        &__digits {
+          font-size: 66px;
+          font-weight: 800;
+          height: 50px;
+        }
+        &__label {
+          font-size: 20px;
+          font-weight: 500;
+          height: 50px;
         }
       }
+      &__divider {
+        font-size: 66px;
+        font-weight: 800;
+        height: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+      };
       
     }
 
@@ -38,5 +81,37 @@
       }
     }
  
+  }
+}
+
+.description {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  &__info {
+    width: 550px !important;
+    padding: 20px;
+    text-align: left;
+    font-size: 18px;
+    
+    button {
+      width: 100% !important;
+      height: 80px;
+      border-radius: 40px;
+      border: none;
+      font-size: 32px;
+      color: gray;
+    }
+    p {
+      text-align: center;
+      padding: 10px;
+      color: v.$red-warning;
+    }
+    &__logo {
+      width: 240px;
+      margin: 0px auto;
+    }
   }
 }
