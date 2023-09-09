@@ -34,25 +34,7 @@ const NavigationBar: React.FC = () => {
 
   return (
     <div className={s.navbarWrapper}>
-      <div className={s.navbar}>
-        {/* Navbar ACM Logo */}
-        <div className={s.left}>
-            <a>
-              <img src={ACMLogo.src} alt="ACM Logo" />
-              <p>Projects</p>
-            </a>
-        </div>
-
-        {/* Desktop Nav Links */}
-        <div className={`${s.right} ${mobile && s.hidden}`}>
-          {navLinks.map((link, key) => (
-              <a className={s.navItem}>{link.text}</a>
-          ))}
-        </div>
-      </div>
-
-      {/* Bottom Rainbow */}
-      <div className={s.rainbow} />
+      
     </div>
   );
 };
