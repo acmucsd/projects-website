@@ -4,7 +4,7 @@ import ProjectCards from '../../components/project-card';
 const Archive: React.FC = () => {
     return (
         <div className={s.container}>
-            <h1>Project Archives</h1>
+            <h1 className={s.header}>Project Archives</h1>
             <ProjectCards/>
         </div>
     )

@@ -1,5 +1,7 @@
 import s from "./style.module.scss";
 
+// Images for embed links and other logos
+
 const default_pic = "/assets/acm_logo.svg";
 const figma = "/assets/embeds/figma.png";
 const github = "/assets/embeds/github.png";
@@ -105,7 +107,7 @@ const ProjectCards: React.FC = () => {
             {projects_data.map((project, index) => (
                 <div className={s.projectItem} key={index}>
                     <div className={s.header}>
-                    <h1>{project.subgroup} {project.team_name}</h1>
+                    <h1 className={`${s[project.subgroup]}`}>{project.quarter} {project.subgroup} {project.team_name}</h1>
                     <h3>{project.project_title}</h3>
                     </div>
                     <img className={s.logo} src={project.logo || default_pic} alt="Project Logo" />

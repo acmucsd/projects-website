@@ -23,6 +23,15 @@
     }
     .header {
         text-align: center;
+        .AI {
+            color: vars.$red;
+        }
+        .Hack {
+            color: vars.$orange;
+        }
+        .Design {
+            color: vars.$pink;
+        }
     }
     .logo {
         object-fit: contain;
