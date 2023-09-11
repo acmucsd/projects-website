@@ -9,9 +9,9 @@ import TimerHero from '@/src/sections/Timer';
 const Home: NextPage = () => {
   return (
     <main>
-      <About />
       <NavigationBar />
       <TimerHero />
+      <About />
       <Archive/>
     </main>
   );
