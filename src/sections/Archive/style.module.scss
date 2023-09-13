@@ -1,9 +1,8 @@
 @use "../../styles/vars.scss" as vars; // allows you to use pre-defined colors
 
 .container {
-    .header {
-        margin-top: 2rem;
-        margin-left: 2rem;
-        color: vars.$blue-ap;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
 }
