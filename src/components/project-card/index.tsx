@@ -7,6 +7,9 @@ const figma = "/assets/embeds/figma.png";
 const github = "/assets/embeds/github.png";
 const slides = "/assets/embeds/slides.png";
 const other_links = "/assets/embeds/other_links.png";
+const hack_logo = "/assets/hack.svg";
+const design_logo = "/assets/design.svg";
+const ai_logo = "/assets/ai.svg";
 
 const projects_data = [
     {"quarter": "Fall 2022",
@@ -101,13 +104,23 @@ const projects_data = [
     },
 ];
 
-const ProjectCards: React.FC = () => {
+interface ProjectProps {
+    quarter: string;
+}
+
+const ProjectCards: React.FC<ProjectProps> = ({quarter}) => {
+    const filteredProjects = projects_data.filter((project) =>
+    project.quarter === quarter
+  );
     return (
         <div className={s.container}>
-            {projects_data.map((project, index) => (
+            {filteredProjects && filteredProjects.map((project, index) => (
                 <div className={s.projectItem} key={index}>
                     <div className={s.header}>
-                    <h1 className={`${s[project.subgroup]}`}>{project.quarter} {project.subgroup} {project.team_name}</h1>
+                        <div className={s.team}>
+                            <img className={s.community_logo} src={project.subgroup === "AI" ? ai_logo : project.subgroup === "Hack" ? hack_logo : project.subgroup === "Design" ? design_logo : default_pic} alt="Community Logo"/>
+                            <h1 className={`${s[project.subgroup]}`}>{project.subgroup} {project.team_name}</h1>
+                        </div>
                     <h3>{project.project_title}</h3>
                     </div>
                     <img className={s.logo} src={project.logo || default_pic} alt="Project Logo" />
@@ -123,7 +136,7 @@ const ProjectCards: React.FC = () => {
                         <a href={project.project_link}><img className={s.links} 
                         src={project.subgroup === "Hack" || project.subgroup === "AI" ? github : project.subgroup === "Design" ? figma : default_pic} alt="Project Repo Logo"/></a>
                         {project.other_links && (
-                            <a href={project.other_links}><img className={s.links} src={other_links}/></a>
+                            <a href={project.other_links}><img className={s.links} src={other_links} alt="Other Links Logo"/></a>
                         )}
                     </div>
                 </div>
