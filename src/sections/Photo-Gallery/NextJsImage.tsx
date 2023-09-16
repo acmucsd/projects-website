@@ -1,8 +1,7 @@
-"use server"
 import Image from "next/image";
 import type { RenderPhotoProps } from "react-photo-album";
 
-export default async function NextJsImage({
+export default function NextJsImage({
     photo,
     imageProps: { alt, title, sizes, className, onClick },
     wrapperStyle,
