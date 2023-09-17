@@ -1,5 +1,7 @@
 import Image from "next/image";
 import type { RenderPhotoProps } from "react-photo-album";
+import { CldImage } from 'next-cloudinary';
+import s from "./style.module.scss"
 
 export default function NextJsImage({
     photo,
@@ -8,11 +10,12 @@ export default function NextJsImage({
 }: RenderPhotoProps) {
     return (
         <div style={{ ...wrapperStyle, position: "relative" }}>
-            <Image
+            <CldImage
                 fill
-                src={photo}
+                src={ photo.src }
+                className={s.image}
                 placeholder={"blurDataURL" in photo ? "blur" : undefined}
-                {...{ alt, title, sizes, className, onClick }}
+                {...{ alt, title, sizes, onClick }}
             />
         </div>
     );
