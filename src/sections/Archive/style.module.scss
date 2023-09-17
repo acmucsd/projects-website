@@ -1,1 +1,8 @@
-@use "..\styles\vars.scss" as v; // allows you to use pre-defined colors
+@use "../../styles/vars.scss" as vars; // allows you to use pre-defined colors
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
