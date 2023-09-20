@@ -14,25 +14,28 @@ const NavigationBar: React.FC = () => {
       <div className={s.navbar}>
         {/* Navbar ACM Logo */}
         <div className={s.left}>
-            <a>
+            <a href="https://acmucsd.com/">
               <img src={ACMLogo.src} alt="ACM Logo" />
               <p>Projects</p>
             </a>
             <div className={s.divider}>
               <span>|</span>
             </div>
-            <a>
+            <Link href={"/#home"}>
               <p>Home</p>
-            </a>
-            <a>
-              <p>Application</p>
-            </a>
-            <a>
+            </Link>
+
+            <Link href={"/#apply"}>
+              <p>Apply</p>
+            </Link>
+
+            <Link href={"/#about"}>
               <p>About</p>
-            </a>
-            <a>
+            </Link>
+
+            <Link href={"/#archive"}>
               <p>Archive</p>
-            </a>
+            </Link>
             <a>
               <p>Gallery</p>
             </a>
