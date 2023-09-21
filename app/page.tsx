@@ -7,7 +7,6 @@ import Archive from '../src/sections/Archive';
 import NavigationBar from '@/src/components/navbar';
 import TimerHero from '@/src/sections/Timer';
 import PhotoGallery from '@/src/sections/Photo-Gallery';
-import Gallery from "@/src/components/gallery";
 // here we will compile all the sections of the website together
 const Home: NextPage = () => {
   return (
@@ -17,10 +16,8 @@ const Home: NextPage = () => {
       <About />
       <Archive/>
       <PhotoGallery />
-      <Gallery />
     </main>
   );
 };
 
 export default Home;
-

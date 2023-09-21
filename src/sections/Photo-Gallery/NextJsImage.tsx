@@ -11,8 +11,8 @@ export default function NextJsImage({
     return (
         <div style={{ ...wrapperStyle, position: "relative" }}>
             <CldImage
-                fill
-                src={ photo.src }
+                fill 
+                src={photo.src}
                 className={s.image}
                 placeholder={"blurDataURL" in photo ? "blur" : undefined}
                 {...{ alt, title, sizes, onClick }}
