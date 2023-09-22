@@ -15,7 +15,7 @@ const About: React.FC = () => {
       ];
 
     return (
-        <div className={s.aboutSection}>
+        <div className={s.aboutSection} id="about">
             <div className={s.container} >
                 <Carousel className={s.carousel} showStatus={false} showThumbs={false} autoPlay={true} infiniteLoop={true}>
                   {images_arr.map((image, index) => (
