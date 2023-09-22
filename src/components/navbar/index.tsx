@@ -36,9 +36,9 @@ const NavigationBar: React.FC = () => {
             <Link href={"/#archive"}>
               <p>Archive</p>
             </Link>
-            <a>
+            <Link href={"/#gallery"}>
               <p>Gallery</p>
-            </a>
+            </Link>
         </div>
       </div>
 
