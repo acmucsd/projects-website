@@ -1,1 +1,21 @@
 @use "/src/styles/vars.scss" as vars; // allows you to use pre-defined color
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    select {
+        border-radius: 0.25rem;
+        margin-bottom: 1rem;
+    }
+
+    h1 {
+        color: vars.$blue-dark;
+    }
+}
+
+.image {
+    border-radius: 0.5rem;
+}
