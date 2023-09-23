@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import ACMLogo from "../../../public/assets/acm_logo.svg";
+import ProjLogo from "../../../public/assets/proj_logo.png";
 import s from "../navbar/Navbar.module.scss";
 import { Size, useWindowSize } from "../../utils/general";
 
@@ -15,8 +15,8 @@ const NavigationBar: React.FC = () => {
         {/* Navbar ACM Logo */}
         <div className={s.left}>
             <a href="https://acmucsd.com/">
-              <img src={ACMLogo.src} alt="ACM Logo" />
-              <p>Projects</p>
+              <img src={ProjLogo.src} alt="ACM Logo" />
+              <p>ACM Projects</p>
             </a>
             <div className={s.divider}>
               <span>|</span>
@@ -36,9 +36,9 @@ const NavigationBar: React.FC = () => {
             <Link href={"/#archive"}>
               <p>Archive</p>
             </Link>
-            <a>
+            <Link href={"/#gallery"}>
               <p>Gallery</p>
-            </a>
+            </Link>
         </div>
       </div>
 
