@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import s from "../Timer/style.module.scss";
-import ACMLogo from "../../../public/assets/acm_logo.svg"
+import ACMLogo from "../../../public/assets/acm_logo.png"
 
 
 const TimerHero: React.FC = () => {
@@ -42,7 +42,7 @@ const TimerHero: React.FC = () => {
 
   return (
     <section>
-      <div className={s.hero__timer}>
+      <div className={s.hero__timer} id="home">
         <div className={s.hero__timer__header}>
           <div className={s.hero__timer__header}>
             <p>Countdown To</p>
@@ -76,7 +76,7 @@ const TimerHero: React.FC = () => {
       </div>
 
 
-      <div className={s.description}>
+      <div className={s.description} id="apply">
         <div className={s.description__info}>
           <button>
           Apply Now

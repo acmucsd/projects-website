@@ -7,11 +7,13 @@
 }
 
 .aboutSection h1 {
-    font-weight: 600;
+  margin-top: 0.5rem;
+  margin-bottom: 0.1rem;
+  font-weight: 600;
 }
 
 .carousel {
-  width: 200%!important;
+  width: 250%!important;
   margin: 1rem;
   border-radius: 0.5rem;
   @media only screen and (max-width: 1050px) {
@@ -50,6 +52,7 @@
     min-height: 600px;
     overflow: hidden;
     margin: 0.5rem;
+
 
     img {
         width: 100%;

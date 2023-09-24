@@ -1,7 +1,7 @@
 import s from "./style.module.scss";
 import Image from 'next/image'
 
-const default_pic = "/assets/acm_logo.svg"
+const default_pic = "/assets/acm_logo.png"
 
 const project_people = [
     {
@@ -36,18 +36,21 @@ const project_people = [
         name: "Jackie Piepkorn",
         role: "VP AI Events",
         discord: "devitoinaspeedo",
+        picture: "/assets/team_photos/jackie.png",
         alt: "Jackie Picture"
     },
     {
         name: "Cindy Peng",
         role: "Design TED",
         discord: "cinpen#3504",
+        picture: "/assets/team_photos/cindy.jpg",
         alt: "Cindy Picture"
     },
     {
         name: "Nicole Gong",
         role: "Design TED",
         discord: "lalanicole",
+        picture: "/assets/team_photos/nicole.jpg",
         alt: "Nicole Picture"
     },
     {
@@ -60,12 +63,14 @@ const project_people = [
         name: "Angela Hu",
         role: "Hack TED",
         discord: "angela.__.hu",
+        picture: "/assets/team_photos/angela.jpg",
         alt: "Angela Picture"
     },
     {
         name: "Khushi Patel",
         role: "Hack TED",
         discord: "dolphin2765",
+        picture: "/assets/team_photos/khushi.jpg",
         alt: "Khushi Picture"
     }
 ]
@@ -77,12 +82,23 @@ const TeamCards: React.FC = () => {
         <div className={s.container}>
             {project_people.map((person, index) => (
                 <div className={`${s.personItem}`} key={index} >
-                        <img className={s.profilePic} src={person.picture || default_pic} alt={person.alt} />
-                        <div className={s.textContainer}>
-                            <h3 className={s.personName}>{person.name}</h3>
+                    {/* right now I am manually cropping to 3:4 */}
+                    <img className={s.profilePic} src={person.picture || default_pic} alt={person.alt} />
+                    {/* trying to set the picture so that it automatically goes to 3:4 aspect ratio with Image, but doesnt work */}
+                    {/* <div className={s.picContainer}>
+                        <Image src={person.picture || default_pic} alt={person.alt} fill sizes='100vw' />
+                    </div> */}
+                    <div className={s.textContainer}>
+                        <h3 className={s.personName}>{person.name}</h3>
+                        <div className={s.logo_text}>
+                            <Image className={s.icon} src="assets/embeds/role_icon.svg" alt="role icon" width={20} height={20} />
                             <h5>{person.role}</h5>
+                        </div>
+                        <div className={s.logo_text}>
+                            <Image className={s.icon} src="assets/embeds/discord.svg" alt="discord icon" width={20} height={20} />
                             <h5>{person.discord}</h5>
                         </div>
+                    </div>
                 </div>
             ))}
         </div>

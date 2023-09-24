@@ -1,47 +1,68 @@
-@use "src/styles/vars" as colors;
+@use "../../styles/vars.scss" as vars;
 
 .navbarWrapper {
   position: fixed;
   top: 0;
+  font-weight: 400;
   width: 100%;
-  font-weight: bold;
   z-index: 10;
   white-space: nowrap;
 
   // container for fixed navbar (desktop and mobile)
   .navbar {
-    background-color: colors.$white;
+    background-color: vars.$white;
     z-index: 20;
     font-size: 18px;
     width: 100%;
 
     height: 78px;
-    display: flex;
     justify-content: space-between;
     align-items: center;
 
     // left side of navbar is just the acm logo
     .left {
       height: 78px;
-      padding-top: 9px;
-      padding-bottom: 9px;
+      //padding-top: 9px;
+      //padding-bottom: 9px;
+      padding: 16px 30px 16px 30px;
       margin-left: 32px;
+      display: flex;
+
       a {
         display: flex;
-        flex-direction: row;
         align-items: center;
         text-decoration: none;
+        padding: 0px 16px 0px 16px;
+        flex-shrink: 0;
+        
         > img {
-          height: 60px;
+          height: 48px;
           margin: 0;
         }
         > p {
-          font-size: 24px;
-          color: colors.$black;
+          font-size: 23px;
+          color: vars.$black;
           margin-left: 4px;
           margin-bottom: 2px;
         }
       }
+      a:hover {
+        cursor: pointer
+      }
+      
+      .divider {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        padding-right: 16px;
+        span {
+          font-size: 23px;
+          color: vars.$black;
+          margin-left: 4px;
+          margin-bottom: 2px;
+        }
+      }
+      
     }
 
     // navbar right side contains all navlinks on desktop
@@ -55,7 +76,7 @@
         display: flex;
         align-items: center;
         text-decoration: none;
-        color: colors.$black;
+        color: vars.$black;
         margin-right: 32px;
       }
 
@@ -71,8 +92,8 @@
         height: 35px;
         width: 150px;
 
-        color: colors.$white;
-        background-color: colors.$black;
+        color: vars.$white;
+        background-color: vars.$black;
         border-radius: 0.5em;
         margin-right: 32px;
 
@@ -93,14 +114,14 @@
       height: 20px;
       margin: 0 30px;
       padding: 0;
-      background-color: colors.$white;
+      background-color: vars.$white;
 
       // the toggle icon is composed of two bars we can separately animate between a hamburger icon and an x icon (default is hamburger, we have .open class we can toggle to rotate into the shape of an x)
       .bar1 {
         width: 40px;
         height: 5px;
         border-radius: 2px;
-        background-color: colors.$black;
+        background-color: vars.$black;
         position: absolute;
         top: 1.5px;
         transition: 0.3s ease-in-out all;
@@ -115,7 +136,7 @@
         width: 23px;
         height: 5px;
         border-radius: 2px;
-        background-color: colors.$black;
+        background-color: vars.$black;
         position: absolute;
         right: 0;
         bottom: 1.5px;
@@ -141,12 +162,12 @@
     bottom: -0.4em;
     background: linear-gradient(
       270deg,
-      colors.$red 0%,
-      colors.$orange 18.75%,
-      colors.$green-success 36.98%,
-      colors.$blue-ap 55.73%,
-      colors.$blue 75%,
-      colors.$purple 100%
+      vars.$red 0%,
+      vars.$orange 18.75%,
+      vars.$green-success 36.98%,
+      vars.$blue-ap 55.73%,
+      vars.$blue 75%,
+      vars.$purple 100%
     );
   }
 }

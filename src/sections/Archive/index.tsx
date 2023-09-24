@@ -6,7 +6,7 @@ import ProjectCards from '../../components/project-card';
 const Archive: React.FC = () => {
     const [quarter, setQuarter] = useState<string>('Spring 2023');
     return (
-        <div className={s.container}>
+        <div className={s.container} id="archive">
             <h1 className={s.header}>Past Project Archives</h1>
             <div className={s.dropdown}>
             <select name="project_select" 
