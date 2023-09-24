@@ -1,11 +1,12 @@
 @use "../../styles/vars.scss" as v; // allows you to use pre-defined colors
 
 .hero {
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-family: 'DM Sans';
   font-size: 22px;
-
+  word-wrap: normal;
+  
 
   &__timer {
     padding: 0 !important;
@@ -19,18 +20,31 @@
 
     &__header {
       width: 100% !important;
+      word-wrap: normal;
       margin-top: 20px;
-      padding: 25px;
+      padding: 5px;
       display: flex;
       flex-direction: column;
       h1 {
         font-size: 52px;
         font-weight: 700;
       }
+      @media screen and (max-width: 768px) {
+        h1 {
+          font-size: 35px;
+          font-weight: 700;
+        }
+      }
 
       p {
         font-size: 41px;
         font-weight: 300;
+      }
+      @media screen and (max-width: 768px) {
+        p {
+          font-size: 35px;
+          font-weight: 300;
+        }
       }
     }
 
@@ -53,10 +67,26 @@
           font-weight: 800;
           height: 50px;
         }
+        @media screen and (max-width: 768px) {
+          &__digits {
+            font-size: 55px;
+            font-weight: 800;
+            height: 50px;
+          }
+        }
+
         &__label {
           font-size: 20px;
           font-weight: 500;
           height: 50px;
+        }
+
+        @media screen and (max-width: 768px) {
+          &__label {
+            font-size: 18px;
+            font-weight: 500;
+            height: 50px;
+          }
         }
       }
       &__divider {
@@ -66,7 +96,15 @@
         margin-left: 10px;
         margin-right: 10px;
       };
-      
+      @media screen and (max-width: 768px) {
+        &__divider {
+          font-size: 55px;
+          font-weight: 800;
+          height: 50px;
+          margin-left: 10px;
+          margin-right: 10px;
+        };
+      }
     }
 
     @media only screen and (max-width: 1050px) {
@@ -90,6 +128,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  @media screen and (max-width: 699px) {
+    flex-direction: column;
+  }
   &__info {
     width: 550px !important;
     padding: 20px;
