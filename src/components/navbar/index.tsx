@@ -14,10 +14,10 @@ const NavigationBar: React.FC = () => {
       <div className={s.navbar}>
         {/* Navbar ACM Logo */}
         <div className={s.left}>
-            <a href="https://acmucsd.com/">
+            <Link href="#">
               <img src={ProjLogo.src} alt="ACM Logo" />
-              <p>ACM Projects</p>
-            </a>
+                <p>Projects</p>
+            </Link>
             <div className={s.divider}>
               <span>|</span>
             </div>

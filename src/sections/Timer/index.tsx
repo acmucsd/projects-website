@@ -88,7 +88,20 @@ const TimerHero: React.FC = () => {
           </div>
         </div>
         <div className={s.description__info}>
-        ACM Projects is our quarterly projects program where students work in a tight knit team. The program gives students the opportunity to be hands-on outside of courses in fields such as AI, design, and software engineering. The program culminates in a projects showcase and the finished product looks great on resumes. We welcome all skill levels to apply!
+        
+        You could apply for either AI, Design, Hack, or Advanced teams. AI focuses on topics in AI like machine learning, large language models, computer vision, etc. Design focuses on either redesigning an existing platform or creating designs for an entirely new one using Figma. Hack focuses on software development for websites where students can be frontend, backend, or fullstack developers learning about the Agile process. Advanced combines all three teams and focuses on developing a product that involves all of AI, Design, and Hack. 
+
+          <br /><br />
+          <b>AI</b><br />
+          Roles: AI Engineer<br />
+          Team Size: 6<br />
+          <b>Design</b><br />
+          Roles: Team Lead, Visual Designer, UX Researcher, UX Designer, UI Designer<br />
+          Team Size: 4<br />
+          <b>Hack</b><br />
+          Roles: Frontend, Backend, Fullstack, Team Lead, Scrummaster<br />
+          Team Size: 6<br />
+
         </div>
       </div>
       
