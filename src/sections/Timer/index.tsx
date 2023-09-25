@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import s from "../Timer/style.module.scss";
 import ACMLogo from "../../../public/assets/acm_logo.png"
 
-const projects_app = "https://forms.gle/zsb6w4Yaq1xWFzcB9";
+const projects_app = "https://acmurl.com/fall-project-apps";
 
 
 const TimerHero: React.FC = () => {
