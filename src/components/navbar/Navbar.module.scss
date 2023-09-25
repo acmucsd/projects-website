@@ -27,6 +27,17 @@
       padding: 16px 30px 16px 30px;
       margin-left: 32px;
       display: flex;
+      flex-flow: row nowrap;
+      
+      .navLinks {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+
+        &.hidden {
+          display: none;
+        }
+      }
 
       a {
         display: flex;
@@ -62,7 +73,6 @@
           margin-bottom: 2px;
         }
       }
-      
     }
 
     // navbar right side contains all navlinks on desktop
@@ -109,12 +119,22 @@
 
     // toggle button for mobile menu is only visible on mobile, otherwise hidden
     .toggleIcon {
-      position: relative;
+      // position: relative;
+      // width: 40px;
+      // height: 20px;
+      // margin: 0 30px;
+      // padding: 0;
+      // background-color: vars.$white;
+      position: absolute;
+      top: 30px;
+      right: 0;
       width: 40px;
       height: 20px;
       margin: 0 30px;
       padding: 0;
+      border: none;
       background-color: vars.$white;
+
 
       // the toggle icon is composed of two bars we can separately animate between a hamburger icon and an x icon (default is hamburger, we have .open class we can toggle to rotate into the shape of an x)
       .bar1 {
@@ -150,6 +170,35 @@
       }
       &.hidden {
         display: none;
+      }
+    }
+  }
+
+
+  .mobileNav {
+    width: 100vw;
+    background-color: vars.$white;
+    position: relative;
+    z-index: -1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    line-height: 300%;
+    transition: 0.3s ease-in-out;
+    // mobile menu is hidden by positioning under fixed navbar, we open it by sliding it out
+    margin-top: -22rem;
+    &.open {
+      margin-top: 0;
+    }
+    .navItem {
+      width: 100%;
+      text-align: center;
+      color: vars.$black;
+      transition: 0.3s ease-in-out all;
+      text-decoration: underline solid transparent;
+      &:hover {
+        text-decoration: underline solid currentColor;
       }
     }
   }
