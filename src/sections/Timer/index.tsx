@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import s from "../Timer/style.module.scss";
 import ACMLogo from "../../../public/assets/acm_logo.png"
 
+const projects_app = "https://forms.gle/zsb6w4Yaq1xWFzcB9";
+
 
 const TimerHero: React.FC = () => {
 
@@ -21,17 +23,29 @@ const TimerHero: React.FC = () => {
       const now = new Date()
       const difference = target.getTime() - now.getTime()
 
-      const d = Math.floor(difference / (1000 * 60 * 60 * 24))
-      setDays(d)
+      if (difference <= 0) {
+        // The target date has passed, set all values to zero
+        setDays(0);
+        setHours(0);
+        setMinutes(0);
+        setSeconds(0);
+        clearInterval(interval);
+      }
+      else {
 
-      const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      setHours(h)
-    
-      const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      setMinutes(m);
+        const d = Math.floor(difference / (1000 * 60 * 60 * 24))
+        setDays(d)
 
-      const s = Math.floor((difference % (1000 * 60)) / 1000);
-      setSeconds(s);
+        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        setHours(h)
+      
+        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        setMinutes(m);
+
+        const s = Math.floor((difference % (1000 * 60)) / 1000);
+        setSeconds(s);
+
+      }
     }, 1000)
 
 
@@ -78,10 +92,10 @@ const TimerHero: React.FC = () => {
 
       <div className={s.description} id="apply">
         <div className={s.description__info}>
-          <button>
+          <a href={projects_app} target="_blank"><button>
           Apply Now
-          </button>
-          <p>The application for ACM Projects is now closed. Applications will reopen in Fall 2023.</p>
+          </button></a>
+          {/* <p>The application for ACM Projects is now closed. Applications will reopen in Fall 2023.</p> */}
           <div className={s.description__info__logo}>
             <img src={ACMLogo.src} alt="ACM Logo" />
 

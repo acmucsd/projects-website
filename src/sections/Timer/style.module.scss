@@ -148,8 +148,14 @@
       height: 80px;
       border-radius: 40px;
       border: none;
+      margin-bottom: 2rem;
       font-size: 32px;
-      color: gray;
+      color: v.$darker-white;
+      background-color: v.$blue-ap;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 90%;
     }
     p {
       text-align: center;
