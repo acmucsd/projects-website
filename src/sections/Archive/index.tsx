@@ -4,7 +4,7 @@ import s from './style.module.scss';
 import ProjectCards from '../../components/project-card';
 
 const Archive: React.FC = () => {
-    const [quarter, setQuarter] = useState<string>('Spring 2023');
+    const [quarter, setQuarter] = useState<string>('All');
     return (
         <div className={s.container} id="archive">
             <h1 className={s.header}>Past Project Archives</h1>
@@ -13,6 +13,7 @@ const Archive: React.FC = () => {
             className={s.project_selector} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                 setQuarter(e.target.value);
             }}>
+                <option value="All">All Projects</option>
                 <option value="Spring 2023">Spring 2023</option>
                 <option value="Winter 2023">Winter 2023</option>
                 <option value="Fall 2022">Fall 2022</option>
