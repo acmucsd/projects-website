@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import s from "../Timer/style.module.scss";
-import ACMLogo from "../../../public/assets/acm_logo.svg"
+import ACMLogo from "../../../public/assets/acm_logo.png"
 
 
 const TimerHero: React.FC = () => {

@@ -87,6 +87,7 @@ const PhotoGallery: React.FC = () => {
                     {options}
                 </select>
             </div>
+            
             <PhotoAlbum
                 photos={photos}
                 layout="rows"

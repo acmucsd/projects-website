@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import ACMLogo from "../../../public/assets/acm_logo.svg";
+import ProjLogo from "../../../public/assets/proj_logo.png";
 import s from "../navbar/Navbar.module.scss";
 import { Size, useWindowSize } from "../../utils/general";
 
@@ -15,7 +15,7 @@ const NavigationBar: React.FC = () => {
         {/* Navbar ACM Logo */}
         <div className={s.left}>
             <Link href="#">
-              <img src={ACMLogo.src} alt="ACM Logo" />
+              <img src={ProjLogo.src} alt="ACM Logo" />
                 <p>Projects</p>
             </Link>
             <div className={s.divider}>

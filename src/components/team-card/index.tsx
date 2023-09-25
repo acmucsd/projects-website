@@ -1,7 +1,7 @@
 import s from "./style.module.scss";
 import Image from 'next/image'
 
-const default_pic = "/assets/acm_logo.svg"
+const default_pic = "/assets/acm_logo.png"
 
 const project_people = [
     {
@@ -90,8 +90,14 @@ const TeamCards: React.FC = () => {
                     </div> */}
                     <div className={s.textContainer}>
                         <h3 className={s.personName}>{person.name}</h3>
-                        <h5>{person.role}</h5>
-                        <h5>{person.discord}</h5>
+                        <div className={s.logo_text}>
+                            <Image className={s.icon} src="assets/embeds/role_icon.svg" alt="role icon" width={20} height={20} />
+                            <h5>{person.role}</h5>
+                        </div>
+                        <div className={s.logo_text}>
+                            <Image className={s.icon} src="assets/embeds/discord.svg" alt="discord icon" width={20} height={20} />
+                            <h5>{person.discord}</h5>
+                        </div>
                     </div>
                 </div>
             ))}
