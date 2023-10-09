@@ -59,8 +59,8 @@ const TimerHero: React.FC = () => {
       <div className={s.hero__timer} id="home">
         <div className={s.hero__timer__header}>
           <div className={s.hero__timer__header}>
-            <p>Countdown To</p>
-            <h1>Fall 2023 Project Application Opening</h1>          
+            {/* <p>Countdown To</p> */}
+            <h1>Fall 2023 Project Application Closed</h1>          
           </div>
           
           <div className={s.hero__timer__time}>
@@ -93,9 +93,9 @@ const TimerHero: React.FC = () => {
       <div className={s.description} id="apply">
         <div className={s.description__info}>
           <a href={projects_app} target="_blank"><button>
-          Apply Now
+          Closed
           </button></a>
-          {/* <p>The application for ACM Projects is now closed. Applications will reopen in Fall 2023.</p> */}
+          <p>The application for ACM Projects is now closed. Applications will reopen in Fall 2023.</p>
           <div className={s.description__info__logo}>
             <img src={ACMLogo.src} alt="ACM Logo" />
 
