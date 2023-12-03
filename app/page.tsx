@@ -16,6 +16,7 @@ const Home: NextPage = () => {
       <About />
       <Archive/>
       <PhotoGallery />
+      <About />
     </main>
   );
 };
