@@ -8,11 +8,11 @@ import { Size, useWindowSize } from "../../utils/general";
 
 
 const navLinks = [
-  { href: "/#home", label: "Home" },
-  { href: "/#apply", label: "Apply" },
-  { href: "/#about", label: "About" },
-  { href: "/#archive", label: "Archive" },
-  { href: "/#gallery", label: "Gallery" },
+  { href: "/", label: "Home" },
+  { href: "/", label: "Apply" },
+  { href: "/about", label: "About" },
+  { href: "/archive", label: "Archive" },
+  { href: "/gallery", label: "Gallery" },
 ];
 
 const NavigationBar: React.FC = () => {

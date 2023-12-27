@@ -81,6 +81,7 @@ const PhotoGallery: React.FC = () => {
 
     return (
         <>
+            <div></div>
             <div className={s.container} id="gallery">
                 <h1>Photo Gallery</h1>
                 <select name="project_select" onChange={handleChange}>
