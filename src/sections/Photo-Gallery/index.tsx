@@ -100,7 +100,7 @@ const PhotoGallery: React.FC = () => {
                         { viewport: "(max-width: 1199px)", size: "calc(90vw - 30px)" },
                     ],
                 }}
-            /> 
+            />
         </>
     );
 }

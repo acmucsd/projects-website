@@ -93,9 +93,9 @@ const TimerHero: React.FC = () => {
       <div className={s.description} id="apply">
         <div className={s.description__info}>
           <a href={projects_app} target="_blank"><button>
-          Closed
+          Open
           </button></a>
-          <p>The application for ACM Projects is now closed. Applications will reopen in Fall 2023.</p>
+          {/* <p>The application for ACM Projects is now closed. Applications will reopen in Spring 2024.</p> */}
           <div className={s.description__info__logo}>
             <img src={ACMLogo.src} alt="ACM Logo" />
 
