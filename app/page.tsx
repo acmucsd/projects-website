@@ -13,9 +13,9 @@ const Home: NextPage = () => {
     <main>
       <NavigationBar />
       <TimerHero />
-      <About />
+      {/* <About />
       <Archive/>
-      <PhotoGallery />
+      <PhotoGallery /> */}
     </main>
   );
 };

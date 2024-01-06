@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import s from "../Timer/style.module.scss";
 import ACMLogo from "../../../public/assets/acm_logo.png"
 
-const projects_app = "https://acmurl.com/fall-project-apps";
+const projects_app = "https://acmurl.com/winter-project-apps";
 
 
 const TimerHero: React.FC = () => {
@@ -17,7 +17,7 @@ const TimerHero: React.FC = () => {
 
   useEffect(() => {
 
-    const target = new Date("9/25/2023 08:00:00")
+    const target = new Date("01/21/2024 23:59:59")
 
     const interval = setInterval(() =>{
       const now = new Date()
@@ -60,7 +60,7 @@ const TimerHero: React.FC = () => {
         <div className={s.hero__timer__header}>
           <div className={s.hero__timer__header}>
             {/* <p>Countdown To</p> */}
-            <h1>Fall 2023 Project Application Closed</h1>          
+            <h1>Winter 2023 Project Application Closes In</h1>          
           </div>
           
           <div className={s.hero__timer__time}>
@@ -93,9 +93,9 @@ const TimerHero: React.FC = () => {
       <div className={s.description} id="apply">
         <div className={s.description__info}>
           <a href={projects_app} target="_blank"><button>
-          Closed
+          Open
           </button></a>
-          <p>The application for ACM Projects is now closed. Applications will reopen in Fall 2023.</p>
+          {/* <p>The application for ACM Projects is now closed. Applications will reopen in Spring 2024.</p> */}
           <div className={s.description__info__logo}>
             <img src={ACMLogo.src} alt="ACM Logo" />
 
