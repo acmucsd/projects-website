@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
-
+import "src/components/footer/styles.scss";
 import FacebookIcon from "public/assets/embeds/facebook.svg";
 import MediumIcon from "public/assets/embeds/medium.svg";
 import GithubIcon from "public/assets/embeds/github.svg";
@@ -41,10 +41,6 @@ const cardContents = [
     icon: YoutubeIcon,
   },
 ];
-function isValidEmail(input) {
-  const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return reg.test(String(input).toLowerCase());
-}
 const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
   return (
