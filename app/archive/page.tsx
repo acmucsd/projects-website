@@ -4,6 +4,8 @@ import '@/src/styles/reset.scss';
 
 import NavigationBar from '@/src/components/navbar';
 import Archive from '@/src/sections/Archive';
+import Footer from '@/src/components/footer'
+
 // here we will compile all the sections of the website together
 
 const ArchivePage: NextPage = () => {
@@ -11,6 +13,7 @@ const ArchivePage: NextPage = () => {
     <main>
       <NavigationBar />
       <Archive />
+      <Footer />
     </main>
   );
 };

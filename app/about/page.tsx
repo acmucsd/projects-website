@@ -4,6 +4,7 @@ import '@/src/styles/reset.scss';
 
 import About from '@/src/sections/About-Projects';
 import NavigationBar from '@/src/components/navbar';
+import Footer from '@/src/components/footer'
 // here we will compile all the sections of the website together
 
 const AboutPage: NextPage = () => {
@@ -11,6 +12,7 @@ const AboutPage: NextPage = () => {
     <main>
       <NavigationBar />
       <About />
+      <Footer />
     </main>
   );
 };
