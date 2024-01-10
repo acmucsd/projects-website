@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import s from "./style.module.scss";
 import PhotoAlbum from "react-photo-album";
 import NextJsImage from "./NextJsImage";
-
 const qtr_yr = [
     {value:"wtr_23", text: "Winter 2023", length: 16},
     {value: "spr_23", text: "Spring 2023", length: 24, vertical:[7, 24, 22]},
