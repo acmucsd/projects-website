@@ -49,10 +49,10 @@ const PhotoGallery: React.FC = () => {
         const numPhotos = selectedQtrYr?.length ?? 0;
         const indexVertical = selectedQtrYr?.vertical ?? [];
         for (let i = 1; i <= numPhotos; i++) {
-            const newPhoto = {src: `${selectedOption}_showcase_${i}.jpg`, width:4032, height:3024};
+            const newPhoto = {src: `${selectedOption}_showcase_${i}.jpg`, width:2016, height:1512};
             if (indexVertical.includes(i)) {
-                newPhoto.width = 4000;
-                newPhoto.height = 6000;
+                newPhoto.width = 2000;
+                newPhoto.height = 3000;
             }
             // trying to dynamically read the images from cloudinary
             // cloudinary.uploader.explicit(newPhoto.src, {type: 'fetch'}, function(error: string, result: any) {

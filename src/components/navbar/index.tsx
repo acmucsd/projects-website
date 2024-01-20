@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/archive", label: "Archive" },
   { href: "/gallery", label: "Gallery" },
+
 ];
 
 const NavigationBar: React.FC = () => {
