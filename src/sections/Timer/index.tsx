@@ -17,7 +17,7 @@ const TimerHero: React.FC = () => {
 
   useEffect(() => {
 
-    const target = new Date("01/21/2024 23:59:59")
+    const target = new Date("01/20/2024 23:59:59")
 
     const interval = setInterval(() =>{
       const now = new Date()
