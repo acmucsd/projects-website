@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import s from "../Timer/style.module.scss";
 import ACMLogo from "../../../public/assets/acm_logo.png"
 
-const projects_app = "https://forms.gle/PMiMmJquoDP4yHk97";
+const projects_app = "";
 
 
 const TimerHero: React.FC = () => {
@@ -60,7 +60,9 @@ const TimerHero: React.FC = () => {
         <div className={s.hero__timer__header}>
           <div className={s.hero__timer__header}>
             {/* <p>Countdown To</p> */}
-            <h1>Winter 2023 Project Application Closes In</h1>          
+            {/* <h1>Winter 2023 Project Application Closes In</h1>*/}
+            <h1>Project Applications are Closed</h1>
+
           </div>
           
           <div className={s.hero__timer__time}>
@@ -93,9 +95,10 @@ const TimerHero: React.FC = () => {
       <div className={s.description} id="apply">
         <div className={s.description__info}>
           <a href={projects_app} target="_blank"><button>
-          Open
+          {/* Open */}
+          Close
           </button></a>
-          {/* <p>The application for ACM Projects is now closed. Applications will reopen in Spring 2024.</p> */}
+          <p>The application for ACM Projects is now closed. Applications will reopen in Spring 2024.</p>
           <div className={s.description__info__logo}>
             <img src={ACMLogo.src} alt="ACM Logo" />
 
