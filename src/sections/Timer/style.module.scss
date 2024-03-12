@@ -1,9 +1,24 @@
 @use "../../styles/vars.scss" as v; // allows you to use pre-defined colors
 
+.hack {
+  font-weight: bold;
+  color: #f9a857;
+}
+
+.ai {
+  font-weight: bold;
+  color: #ff6f6f;
+}
+
+.design {
+  font-weight: bold;
+  color: #ff94b4;
+}
+
 .hero {
   padding-top: 10px;
   padding-bottom: 10px;
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-size: 22px;
   word-wrap: normal;
 
@@ -13,7 +28,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    display:flex;
+    display: flex;
     height: 400px;
     background-color: v.$blue !important;
 
@@ -57,14 +72,14 @@
 
     &__time {
       width: 100% !important;
-      display:flex;
+      display: flex;
       flex-direction: row;
       justify-content: center;
       height: 150px;
       padding: 8px;
 
       &__segment {
-        display:flex;
+        display: flex;
         flex-direction: column;
         text-align: center;
         width: 90px;
@@ -102,7 +117,7 @@
         height: 50px;
         margin-left: 10px;
         margin-right: 10px;
-      };
+      }
       @media screen and (max-width: 768px) {
         &__divider {
           font-size: 55px;
@@ -110,7 +125,7 @@
           height: 50px;
           margin-left: 10px;
           margin-right: 10px;
-        };
+        }
       }
     }
 
@@ -119,12 +134,25 @@
     }
 
     @media only screen and (max-width: 500px) {
-
       .home__communities__grid {
         padding: 0;
       }
     }
   }
+}
+
+.projecttypes {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  text-align: left;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.projectdescription {
+  max-width: 20rem;
+  padding: 1rem;
 }
 
 .description {
@@ -133,15 +161,17 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   @media screen and (max-width: 699px) {
     flex-direction: column;
   }
   &__info {
     width: 100%;
     padding: 20px;
-    text-align: left;
+    text-align: center;
+    align-items: center;
     font-size: 18px;
-    
+
     button {
       width: 100%;
       height: 80px;
@@ -149,9 +179,10 @@
       border: none;
       margin-bottom: 2rem;
       font-size: 32px;
+      max-width: 20rem;
       color: v.$darker-white;
-      // background-color: v.$blue-ap; for when it is open
-      background-color: v.$red-warning;
+      background-color: v.$blue-ap; // for when it is open
+      // background-color: v.$red-warning;
       cursor: pointer;
     }
     button:hover {
@@ -171,6 +202,6 @@
   @media only screen and (max-width: 800px) {
     flex-direction: column;
     align-items: center;
-    justify-items: flex-start
+    justify-items: flex-start;
   }
 }

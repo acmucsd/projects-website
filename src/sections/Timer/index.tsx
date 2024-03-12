@@ -1,27 +1,23 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from "react";
 import s from "../Timer/style.module.scss";
-import ACMLogo from "../../../public/assets/acm_logo.png"
+import ACMLogo from "../../../public/assets/acm_logo.png";
 
 const projects_app = "";
 
-
 const TimerHero: React.FC = () => {
-
-
-  const [days, setDays] = useState(0)
-  const [hours, setHours] = useState(0)
-  const [minutes, setMinutes] = useState(0)
-  const [seconds, setSeconds] = useState(0)
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
+    const target = new Date("04/02/2024 23:59:59");
 
-    const target = new Date("01/20/2024 23:59:59")
-
-    const interval = setInterval(() =>{
-      const now = new Date()
-      const difference = target.getTime() - now.getTime()
+    const interval = setInterval(() => {
+      const now = new Date();
+      const difference = target.getTime() - now.getTime();
 
       if (difference <= 0) {
         // The target date has passed, set all values to zero
@@ -30,29 +26,25 @@ const TimerHero: React.FC = () => {
         setMinutes(0);
         setSeconds(0);
         clearInterval(interval);
-      }
-      else {
+      } else {
+        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+        setDays(d);
 
-        const d = Math.floor(difference / (1000 * 60 * 60 * 24))
-        setDays(d)
+        const h = Math.floor(
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        setHours(h);
 
-        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-        setHours(h)
-      
         const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         setMinutes(m);
 
         const s = Math.floor((difference % (1000 * 60)) / 1000);
         setSeconds(s);
-
       }
-    }, 1000)
+    }, 1000);
 
-
-
-    return () => clearInterval(interval)
-
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section>
@@ -60,68 +52,78 @@ const TimerHero: React.FC = () => {
         <div className={s.hero__timer__header}>
           <div className={s.hero__timer__header}>
             {/* <p>Countdown To</p> */}
-            {/* <h1>Winter 2023 Project Application Closes In</h1>*/}
-            <h1>Project Applications are Closed</h1>
+            <h1>Spring 2024 Project Application Closes In</h1>
+            {/* <h1>Project Applications are Closed</h1> */}
+          </div>
 
-          </div>
-          
           <div className={s.hero__timer__time}>
-                <div className={s.hero__timer__time__segment}>
-                  <span className={s.hero__timer__time__segment__digits}>{days}</span>
-                  <span className={s.hero__timer__time__segment__label}>days</span>
-                </div>
-                <span className={s.hero__timer__time__divider}>:</span>
-                <div className={s.hero__timer__time__segment}>
-                  <span className={s.hero__timer__time__segment__digits}>{hours}</span>
-                  <span className={s.hero__timer__time__segment__label}>hours</span>
-                </div>
-                <span className={s.hero__timer__time__divider}>:</span>
-                <div className={s.hero__timer__time__segment}>
-                  <span className={s.hero__timer__time__segment__digits}>{minutes}</span>
-                  <span className={s.hero__timer__time__segment__label}>mins</span>
-                </div>
-                <span className={s.hero__timer__time__divider}>:</span>
-                <div className={s.hero__timer__time__segment}>
-                  <span className={s.hero__timer__time__segment__digits}>{seconds}</span>
-                  <span className={s.hero__timer__time__segment__label}>secs</span>
-                </div>
-            
+            <div className={s.hero__timer__time__segment}>
+              <span className={s.hero__timer__time__segment__digits}>
+                {days}
+              </span>
+              <span className={s.hero__timer__time__segment__label}>days</span>
+            </div>
+            <span className={s.hero__timer__time__divider}>:</span>
+            <div className={s.hero__timer__time__segment}>
+              <span className={s.hero__timer__time__segment__digits}>
+                {hours}
+              </span>
+              <span className={s.hero__timer__time__segment__label}>hours</span>
+            </div>
+            <span className={s.hero__timer__time__divider}>:</span>
+            <div className={s.hero__timer__time__segment}>
+              <span className={s.hero__timer__time__segment__digits}>
+                {minutes}
+              </span>
+              <span className={s.hero__timer__time__segment__label}>mins</span>
+            </div>
+            <span className={s.hero__timer__time__divider}>:</span>
+            <div className={s.hero__timer__time__segment}>
+              <span className={s.hero__timer__time__segment__digits}>
+                {seconds}
+              </span>
+              <span className={s.hero__timer__time__segment__label}>secs</span>
+            </div>
           </div>
-          
+          <div className={s.description__info}>
+            <a href={projects_app} target="_blank">
+              <button>
+                Apply Now!
+                {/* Close */}
+              </button>
+            </a>
+            {/* <div className={s.description__info__logo}>
+            <img src={ACMLogo.src} alt="ACM Logo" />
+          </div> */}
+          </div>
         </div>
       </div>
-
 
       <div className={s.description} id="apply">
         <div className={s.description__info}>
-          <a href={projects_app} target="_blank"><button>
-          {/* Open */}
-          Close
-          </button></a>
-          <p>The application for ACM Projects is now closed. Applications will reopen in Spring 2024.</p>
-          <div className={s.description__info__logo}>
-            <img src={ACMLogo.src} alt="ACM Logo" />
+          Interested in projects? Apply now for a Hack, Design or AI Team!
+          <br />
+          <br />
+          <div className={s.projecttypes}>
+            <div className={s.projectdescription}>
+              <text className={s.ai}>AI</text> projects focus on all things AI,
+              from natural language processing to computer vision and more!{" "}
+            </div>
+            <div className={s.projectdescription}>
+              <text className={s.hack}>Hack</text> projects works through a full
+              software engineering project, working to build a full MERN stack
+              website, emulating a software engineering team working on the
+              Agile process!
+            </div>
 
+            <div className={s.projectdescription}>
+              <text className={s.design}>Design</text> projects work on creating
+              or redesigning a platform, working through the design process from
+              research to prototyping and more!
+            </div>
           </div>
         </div>
-        <div className={s.description__info}>
-        
-        You could apply for either AI, Design, Hack, or Advanced teams. AI focuses on topics in AI like machine learning, large language models, computer vision, etc. Design focuses on either redesigning an existing platform or creating designs for an entirely new one using Figma. Hack focuses on software development for websites where students can be frontend, backend, or fullstack developers learning about the Agile process. Advanced combines all three teams and focuses on developing a product that involves all of AI, Design, and Hack. 
-
-          <br /><br />
-          <b>AI</b><br />
-          Roles: AI Engineer<br />
-          Team Size: 6<br />
-          <b>Design</b><br />
-          Roles: Team Lead, Visual Designer, UX Researcher, UX Designer, UI Designer<br />
-          Team Size: 4<br />
-          <b>Hack</b><br />
-          Roles: Frontend, Backend, Fullstack, Team Lead, Scrummaster<br />
-          Team Size: 6<br />
-
-        </div>
       </div>
-      
     </section>
   );
 };
