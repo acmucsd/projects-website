@@ -98,7 +98,6 @@ const TimerHero: React.FC = () => {
           </div>
         </div>
       </div>
-
       <div className={s.description} id="apply">
         <div className={s.description__info}>
           Interested in projects? Apply now for a Hack, Design or AI Team!
@@ -106,14 +105,14 @@ const TimerHero: React.FC = () => {
           <br />
           <div className={s.projecttypes}>
             <div className={s.projectdescription}>
-              <text className={s.ai}>AI</text> projects focus on all things AI,
-              from natural language processing to computer vision and more!{" "}
+              <text className={s.ai}>AI</text> projects focus on building a
+              project related to all things AI, from natural language processing
+              to computer vision and more!{" "}
             </div>
             <div className={s.projectdescription}>
-              <text className={s.hack}>Hack</text> projects works through a full
-              software engineering project, working to build a full MERN stack
-              website, emulating a software engineering team working on the
-              Agile process!
+              <text className={s.hack}>Hack</text> projects works to build a
+              full MERN stack website, emulating a software engineering team
+              working on the Agile process!
             </div>
 
             <div className={s.projectdescription}>
@@ -123,6 +122,10 @@ const TimerHero: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className={s.endText}>
+        Make sure to put your top choice as first! All tracks will prioritize
+        people who put them first!
       </div>
     </section>
   );
