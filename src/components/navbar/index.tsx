@@ -71,9 +71,10 @@ const NavigationBar: React.FC = () => {
           </Link>
         ))}
       </div>
-      <Banner />
+
       {/* Bottom Rainbow */}
       <div className={s.rainbow} />
+      <Banner />
     </div>
   );
 };
