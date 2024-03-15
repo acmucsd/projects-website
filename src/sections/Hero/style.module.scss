@@ -1,0 +1,46 @@
+@use "../../styles/vars.scss" as v; // allows you to use pre-defined colors
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+    align-items: flex-start;
+  }
+}
+
+.hero {
+  margin: 0rem 10rem;
+  font-size: 20px;
+  word-wrap: normal;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 200;
+}
+
+.hero_left {
+  padding-right: 100px;
+}
+
+.image {
+  width: 50%;
+  border-radius: 10px;
+}
+
+.button {
+  background-color: v.$acm-blue;
+  color: v.$white;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-width: 0;
+}

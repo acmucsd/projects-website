@@ -7,13 +7,16 @@ import Archive from "../src/sections/Archive";
 import NavigationBar from "@/src/components/navbar";
 import TimerHero from "@/src/sections/Timer";
 import Footer from "@/src/components/footer";
-import PhotoGallery from "@/src/sections/Photo-Gallery";
+import Description from "@/src/sections/description";
+import Hero from "@/src/sections/Hero";
 // here we will compile all the sections of the website together
 const Home: NextPage = () => {
   return (
     <main>
       <NavigationBar />
-      <TimerHero />
+      <Hero />
+      {/* <TimerHero /> */}
+      <Description />
       <Footer />
     </main>
   );
