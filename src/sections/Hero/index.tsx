@@ -10,7 +10,7 @@ const Hero = () => {
     <div className={styles.container}>
       <div className={styles.pageContent}>
         <div className={styles.hero}>
-          <div className={styles.hero_left}>
+          <div className={styles.hero_text}>
             <h1 className={styles.title}>ACM Projects</h1>
             <p className={styles.description}>
               ACM Projects is our quarterly projects program where students work
@@ -20,25 +20,26 @@ const Hero = () => {
               showcase and the finished product looks great on resumes. We
               welcome all skill levels to apply!
             </p>
-            <div className={styles.application}>
-              <a href={projects_app} target="_blank">
-                <button className={styles.button}>
-                  Apply Now!
-                  {/* Close */}
-                </button>
-              </a>
-              <div>
-                Applications Due <text>April 4th, 11:59PM!</text>
-              </div>
-            </div>
           </div>
           <img
             className={styles.image}
             src="/assets/nicole_team.jpg"
             alt="ACM Projects"
           />
+          <div className={styles.application}>
+            <a href={projects_app} target="_blank">
+              <button className={styles.button}>
+                Apply Now!
+                {/* Close */}
+              </button>
+            </a>
+            <div className={styles.deadline}>
+              Applications Due <text>April 4th, 11:59PM!</text>
+            </div>
+          </div>
         </div>
       </div>
+      <Description />
     </div>
   );
 };

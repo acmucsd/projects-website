@@ -32,7 +32,6 @@ const NavigationBar: React.FC = () => {
 
   return (
     <div className={s.navbarWrapper}>
-      <Banner />
       <div className={s.navbar}>
         {/* Navbar ACM Logo */}
         <div className={`${s.left}`}>
@@ -72,6 +71,7 @@ const NavigationBar: React.FC = () => {
           </Link>
         ))}
       </div>
+      <Banner />
       {/* Bottom Rainbow */}
       <div className={s.rainbow} />
     </div>

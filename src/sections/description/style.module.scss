@@ -19,11 +19,21 @@
   display: flex;
   justify-content: space-between;
   text-align: left;
-  flex-flow: row wrap;
-  margin: 0rem 10rem;
-  padding-top: 5rem;
+  //   flex-flow: row wrap;
+  margin: auto;
+  max-width: 1000px;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .projecttypes {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .projectdescription {
-  max-width: 33%;
+  flex: auto;
+  //   max-width: 33%;
 }
