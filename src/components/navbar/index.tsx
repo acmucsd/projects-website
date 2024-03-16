@@ -34,14 +34,13 @@ const NavigationBar: React.FC = () => {
     <div className={s.navbarWrapper}>
       <div className={s.navbar}>
         {/* Navbar ACM Logo */}
-        <div className={`${s.left}`}>
+        <div className={s.left}>
           <Link href={"/"}>
-            <img src={ProjLogo.src} alt="ACM Logo" />
-            <p>ACM Projects</p>
+            <img src={ProjLogo.src} className={s.logo} alt="ACM Logo" />
+            <p className={s.logoText}>at UC San Diego</p>
           </Link>
-          <div className={s.divider}>
-            <span>|</span>
-          </div>
+        </div>
+        <div className={s.right}>
           <div className={`${s.navLinks} ${mobile && s.hidden}`}>
             {navLinks.map((link, key) => (
               <Link key={key} href={link.href}>

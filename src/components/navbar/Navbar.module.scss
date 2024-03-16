@@ -13,117 +13,140 @@
     background-color: vars.$white;
     z-index: 20;
     font-size: 18px;
-    width: 100%;
-
+    width: 100vw;
     height: 78px;
     justify-content: space-between;
     align-items: center;
+    display: flex;
+    flex-direction: row;
 
     // left side of navbar is just the acm logo
     .left {
-      height: 78px;
-      //padding-top: 9px;
-      //padding-bottom: 9px;
-      padding: 16px 30px 16px 30px;
+      height: 60px;
+      margin-left: 2rem;
       display: flex;
       flex-flow: row nowrap;
+    }
 
-      .navLinks {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
+    .logoText {
+      font-size: 16px;
+    }
 
-        &.hidden {
-          display: none;
-        }
+    .navLinks {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      gap: 1rem;
+
+      &.hidden {
+        display: none;
       }
+    }
 
-      a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        padding: 0px 16px 0px 16px;
-        flex-shrink: 0;
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
 
-        > img {
-          height: 48px;
-          margin: 0;
-        }
-        > p {
-          font-size: 23px;
-          color: vars.$black;
-          margin-left: 4px;
-          margin-bottom: 2px;
-        }
+      > img {
+        height: 60px;
+        margin: 0;
       }
-      a:hover {
-        cursor: pointer;
+      > p {
+        font-size: 18px;
+        font-weight: 800;
+        color: vars.$black;
+        margin-left: 4px;
+        margin-bottom: 2px;
       }
-
-      .divider {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        padding-right: 16px;
-        span {
-          font-size: 23px;
-          color: vars.$black;
-          margin-left: 4px;
-          margin-bottom: 2px;
-        }
-      }
+    }
+    a:hover {
+      cursor: pointer;
     }
 
     // navbar right side contains all navlinks on desktop
     .right {
       display: flex;
       flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
+      margin-right: 2rem;
 
-      .navItem {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: vars.$black;
-        margin-right: 32px;
-      }
+      // justify-content: center;
+      // align-items: center;
 
-      .loginButton {
-        height: 100%;
-        align-self: center;
+      //   a {
+      //     display: flex;
+      //     align-items: center;
+      //     text-decoration: none;
+      //     // padding: 0px 16px 0px 16px;
+      //     flex-shrink: 0;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
+      //     > img {
+      //       height: 60px;
+      //       margin: 0;
+      //     }
+      //     > p {
+      //       font-size: 23px;
+      //       color: vars.$black;
+      //       margin-left: 4px;
+      //       margin-bottom: 2px;
+      //     }
+      //   }
+      //   a:hover {
+      //     cursor: pointer;
+      //   }
 
-        height: 35px;
-        width: 150px;
+      //   .divider {
+      //     display: flex;
+      //     align-items: center;
+      //     text-decoration: none;
+      //     padding-right: 16px;
+      //     span {
+      //       font-size: 23px;
+      //       color: vars.$black;
+      //       margin-left: 4px;
+      //       margin-bottom: 2px;
+      //     }
+      //   }
 
-        color: vars.$white;
-        background-color: vars.$black;
-        border-radius: 0.5em;
-        margin-right: 32px;
+      //   .navItem {
+      //     display: flex;
+      //     align-items: center;
+      //     flex-flow: row nowrap;
+      //     text-decoration: none;
+      //     color: vars.$black;
+      //     margin-right: 32px;
+      //   }
 
-        &:hover {
-          opacity: 0.85;
-          transition: 0.3s;
-        }
-      }
-      &.hidden {
-        display: none;
-      }
+      //   .loginButton {
+      //     height: 100%;
+      //     align-self: center;
+
+      //     display: flex;
+      //     justify-content: center;
+      //     align-items: center;
+      //     text-decoration: none;
+
+      //     height: 35px;
+      //     width: 150px;
+
+      //     color: vars.$white;
+      //     background-color: vars.$black;
+      //     border-radius: 0.5em;
+      //     margin-right: 32px;
+
+      //     &:hover {
+      //       opacity: 0.85;
+      //       transition: 0.3s;
+      //     }
+      //   }
+      //   &.hidden {
+      //     display: none;
+      //   }
     }
 
     // toggle button for mobile menu is only visible on mobile, otherwise hidden
     .toggleIcon {
-      // position: relative;
-      // width: 40px;
-      // height: 20px;
-      // margin: 0 30px;
-      // padding: 0;
-      // background-color: vars.$white;
       position: absolute;
       top: 30px;
       right: 0;
