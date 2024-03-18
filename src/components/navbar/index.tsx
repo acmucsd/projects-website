@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ProjLogo from "../../../public/assets/proj_logo.png";
 import s from "./Navbar.module.scss";
 import { Size, useWindowSize } from "../../utils/general";
-
+import Banner from "../banner";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -34,42 +34,46 @@ const NavigationBar: React.FC = () => {
     <div className={s.navbarWrapper}>
       <div className={s.navbar}>
         {/* Navbar ACM Logo */}
-        <div className={`${s.left}`}>
-            <Link href={"/"}>
-              <img src={ProjLogo.src} alt="ACM Logo" />
-              <p>ACM Projects</p>
-            </Link>
-            <div className={s.divider}>
-              <span>|</span>
-            </div>
-            <div className={`${s.navLinks} ${mobile && s.hidden}`}>
-              {navLinks.map((link, key) => (
-                <Link key={key} href={link.href}>
-                  <p>{link.label}</p>
-                </Link>
-              ))}
-            </div>
+        <div className={s.left}>
+          <Link href={"/"}>
+            <img src={ProjLogo.src} className={s.logo} alt="ACM Logo" />
+            <p className={s.logoText}>at UC San Diego</p>
+          </Link>
+        </div>
+        <div className={s.right}>
+          <div className={`${s.navLinks} ${mobile && s.hidden}`}>
+            {navLinks.map((link, key) => (
+              <Link key={key} href={link.href}>
+                <p>{link.label}</p>
+              </Link>
+            ))}
+          </div>
         </div>
 
-            {/* Mobile Navbar Toggle */}
-          <button className={`${s.toggleIcon} ${!mobile && s.hidden}`} onClick={toggleMenu}>
-            <div className={`${s.bar1} ${menuOpen && s.open}`} />
-            <div className={`${s.bar2} ${menuOpen && s.open}`} />
-          </button>   
-        </div>
+        {/* Mobile Navbar Toggle */}
+        <button
+          className={`${s.toggleIcon} ${!mobile && s.hidden}`}
+          onClick={toggleMenu}
+        >
+          <div className={`${s.bar1} ${menuOpen && s.open}`} />
+          <div className={`${s.bar2} ${menuOpen && s.open}`} />
+        </button>
+      </div>
 
-        {/* Mobile Menu Dropdown */}
-        <div className={`${s.mobileNav} ${menuOpen && s.open}`}>
-          {navLinks.map((link, key) => (
-            <Link key={key} href={link.href}>
-              <p className={`${s.navItem}`} onClick={() => setMenuOpen(false)}>
-                {link.label}
-              </p>
-            </Link>
-          ))}
-        </div>
+      {/* Mobile Menu Dropdown */}
+      <div className={`${s.mobileNav} ${menuOpen && s.open}`}>
+        {navLinks.map((link, key) => (
+          <Link key={key} href={link.href}>
+            <p className={`${s.navItem}`} onClick={() => setMenuOpen(false)}>
+              {link.label}
+            </p>
+          </Link>
+        ))}
+      </div>
+
       {/* Bottom Rainbow */}
       <div className={s.rainbow} />
+      <Banner />
     </div>
   );
 };

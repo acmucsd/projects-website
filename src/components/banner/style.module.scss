@@ -1,0 +1,18 @@
+@use "../../styles/vars.scss" as v; // allows you to use pre-defined colors
+
+.bannerbg {
+  background-color: v.$acm-blue-30 !important;
+  text-align: center;
+  padding: 0.3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .bannerbg {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.date {
+  font-weight: 700;
+}

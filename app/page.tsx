@@ -1,23 +1,17 @@
-"use client"
-import type { NextPage } from 'next';
-import '../src/styles/reset.scss';
+"use client";
+import type { NextPage } from "next";
+import "../src/styles/reset.scss";
 
-import About from '../src/sections/About-Projects';
-import Archive from '../src/sections/Archive';
-import NavigationBar from '@/src/components/navbar';
-import TimerHero from '@/src/sections/Timer';
-import Footer from '@/src/components/footer'
-import PhotoGallery from '@/src/sections/Photo-Gallery';
+import NavigationBar from "@/src/components/navbar";
+import Footer from "@/src/components/footer";
+import Hero from "@/src/sections/Hero";
 // here we will compile all the sections of the website together
 const Home: NextPage = () => {
   return (
     <main>
       <NavigationBar />
-      <TimerHero />
+      <Hero />
       <Footer />
-      {/* <About />
-      <Archive/>
-      <PhotoGallery /> */}
     </main>
   );
 };

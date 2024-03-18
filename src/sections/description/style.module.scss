@@ -1,0 +1,39 @@
+@use "../../styles/vars.scss" as v; // allows you to use pre-defined colors
+
+.hack {
+  font-weight: bold;
+  color: #f9a857;
+}
+
+.ai {
+  font-weight: bold;
+  color: #ff6f6f;
+}
+
+.design {
+  font-weight: bold;
+  color: #ff94b4;
+}
+
+.projecttypes {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  //   flex-flow: row wrap;
+  margin: auto;
+  max-width: 1000px;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .projecttypes {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.projectdescription {
+  flex: auto;
+  //   max-width: 33%;
+}

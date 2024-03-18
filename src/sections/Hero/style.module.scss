@@ -1,0 +1,74 @@
+@use "../../styles/vars.scss" as v; // allows you to use pre-defined colors
+
+.container {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+    align-items: flex-start;
+  }
+}
+
+.hero {
+  margin: auto;
+  max-width: 1000px;
+  padding: 2rem;
+  font-size: 20px;
+  word-wrap: normal;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "about image"
+    "button image";
+  align-items: start;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.title {
+  font-size: 56px;
+  font-weight: 200;
+}
+
+.hero_text {
+  grid-area: about;
+}
+
+.image {
+  grid-area: image;
+  border-radius: 10px;
+}
+
+.button {
+  background-color: v.$acm-blue;
+  color: v.$white;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-width: 0;
+  grid-area: button;
+}
+
+.deadline {
+  padding-top: 1rem;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  .button {
+    justify-content: center;
+    align-self: center;
+  }
+}
