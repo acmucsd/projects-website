@@ -34,7 +34,7 @@ const Hero = () => {
               </button>
             </a>
             <div className={styles.deadline}>
-              Applications Due <text>April 4th, 11:59PM!</text>
+              Applications Due <text>April 2nd, 11:59PM!</text>
             </div>
           </div>
         </div>
