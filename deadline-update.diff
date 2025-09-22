@@ -1,0 +1,248 @@
+diff --git a/README.md b/README.md
+index 52bf3e0..ec8543d 100644
+--- a/README.md
++++ b/README.md
+@@ -14,6 +14,12 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
+ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+ 
++## Configuration
++
++### Application deadline
++
++The homepage countdown and hero call-to-action read the upcoming application deadline from the `NEXT_PUBLIC_APPLICATION_DEADLINE` environment variable. Provide this value in ISO-8601 format (for example, `2025-10-03T23:59:59-07:00` for October 3, 2025 at 11:59 PM PT). When the variable is omitted or invalid, the site falls back to that same October 3 deadline.
++
+ ## Learn More
+ 
+ To learn more about Next.js, take a look at the following resources:
+ 
+diff --git a/src/components/banner/index.tsx b/src/components/banner/index.tsx
+index 9ed6fcc..d74126b 100644
+--- a/src/components/banner/index.tsx
++++ b/src/components/banner/index.tsx
+@@ -1,6 +1,10 @@
+ "use client";
+ 
+-import { useState, useEffect } from "react";
++import { useState, useEffect, useMemo } from "react";
++import {
++  applicationDeadline,
++  isUpcomingDeadline,
++} from "@/src/config/applicationDeadline";
+ import styles from "./style.module.scss";
+ 
+ const Banner = () => {
+@@ -8,11 +12,17 @@ const Banner = () => {
+   const [hours, setHours] = useState(0);
+   const [minutes, setMinutes] = useState(0);
+   const [seconds, setSeconds] = useState(0);
++  const [isExpired, setIsExpired] = useState(() => !isUpcomingDeadline());
++
++  const target = useMemo(() => applicationDeadline, []);
+ 
+   useEffect(() => {
+-    const target = new Date("04/02/2024 23:59:59");
++    if (!target) {
++      setIsExpired(true);
++      return;
++    }
+ 
+-    const interval = setInterval(() => {
++    const updateCountdown = () => {
+       const now = new Date();
+       const difference = target.getTime() - now.getTime();
+ 
+@@ -22,7 +32,7 @@ const Banner = () => {
+         setHours(0);
+         setMinutes(0);
+         setSeconds(0);
+-        clearInterval(interval);
++        setIsExpired(true);
+       } else {
+         const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+         setDays(d);
+@@ -37,19 +47,28 @@ const Banner = () => {
+ 
+         const s = Math.floor((difference % (1000 * 60)) / 1000);
+         setSeconds(s);
++        setIsExpired(false);
+       }
+-    }, 1000);
++    };
++
++    updateCountdown();
++
++    const interval = setInterval(updateCountdown, 1000);
+ 
+     return () => clearInterval(interval);
+-  }, []);
++  }, [target]);
++
++  if (!target || isExpired) {
++    return null;
++  }
+ 
+   return (
+     <div>
+       <div className={styles.bannerbg}>
+         Projects applications close in{" "}
+-        <text className={styles.date}>
++        <span className={styles.date}>
+           {days} days {hours} hours {minutes} minutes {seconds} seconds
+-        </text>
++        </span>
+       </div>
+     </div>
+   );
+ 
+diff --git a/src/config/applicationDeadline.ts b/src/config/applicationDeadline.ts
+new file mode 100644
+index 0000000..0100ff9
+--- /dev/null
++++ b/src/config/applicationDeadline.ts
+@@ -0,0 +1,43 @@
++const FALLBACK_DEADLINE = "2025-10-03T23:59:59-07:00";
++const DEADLINE_TIME_ZONE = "America/Los_Angeles";
++
++const parseDeadline = (raw?: string | null): Date | null => {
++  if (!raw) return null;
++
++  const parsed = new Date(raw);
++  return Number.isNaN(parsed.getTime()) ? null : parsed;
++};
++
++const resolveDeadline = (): Date | null => {
++  const fromEnv = parseDeadline(
++    process.env.NEXT_PUBLIC_APPLICATION_DEADLINE ?? null
++  );
++
++  if (fromEnv) return fromEnv;
++
++  return parseDeadline(FALLBACK_DEADLINE);
++};
++
++const formatDeadline = (deadline: Date | null): string | null => {
++  if (!deadline) return null;
++
++  try {
++    return new Intl.DateTimeFormat("en-US", {
++      month: "long",
++      day: "numeric",
++      hour: "numeric",
++      minute: "2-digit",
++      hour12: true,
++      timeZone: DEADLINE_TIME_ZONE,
++      timeZoneName: "short",
++    }).format(deadline);
++  } catch (error) {
++    return deadline.toLocaleString();
++  }
++};
++
++export const applicationDeadline: Date | null = resolveDeadline();
++export const formattedApplicationDeadline: string | null =
++  formatDeadline(applicationDeadline);
++
++export const isUpcomingDeadline = (reference = new Date()): boolean => {
++  return !!(
++    applicationDeadline && applicationDeadline.getTime() > reference.getTime()
++  );
++};
+ 
+diff --git a/src/sections/Hero/index.tsx b/src/sections/Hero/index.tsx
+index 6b8d483..0ff44a6 100644
+--- a/src/sections/Hero/index.tsx
++++ b/src/sections/Hero/index.tsx
+@@ -1,10 +1,17 @@
+ "use client";
+-import Image from "next/image";
+ import styles from "./style.module.scss";
+ import Description from "../description";
++import {
++  formattedApplicationDeadline,
++  isUpcomingDeadline,
++} from "@/src/config/applicationDeadline";
+ 
+ const Hero = () => {
+   const projects_app = "https://acmurl.com/projects-app";
++  const hasUpcomingDeadline = isUpcomingDeadline();
++  const applicationCopy = hasUpcomingDeadline
++    ? `Applications Due ${formattedApplicationDeadline}`
++    : "Applications currently closed";
+ 
+   return (
+     <div className={styles.container}>
+@@ -34,7 +41,7 @@ const Hero = () => {
+               </button>
+             </a>
+             <div className={styles.deadline}>
+-              Applications Due <text>April 2nd, 11:59PM!</text>
++              <span>{applicationCopy}</span>
+             </div>
+           </div>
+         </div>
+ 
+diff --git a/src/sections/Photo-Gallery/NextJsImage.tsx b/src/sections/Photo-Gallery/NextJsImage.tsx
+index d2cc0d4..6de3dd6 100644
+--- a/src/sections/Photo-Gallery/NextJsImage.tsx
++++ b/src/sections/Photo-Gallery/NextJsImage.tsx
+@@ -1,21 +1,26 @@
+-import Image from "next/image";
+ import type { RenderPhotoProps } from "react-photo-album";
+-import { CldImage } from 'next-cloudinary';
+-import s from "./style.module.scss"
++import { CldImage } from "next-cloudinary";
++
++import s from "./style.module.scss";
+ 
+ export default function NextJsImage({
+     photo,
+     imageProps: { alt, title, sizes, className, onClick },
+     wrapperStyle,
+ }: RenderPhotoProps) {
++    const combinedClassName = className ? `${className} ${s.image}` : s.image;
++
+     return (
+         <div style={{ ...wrapperStyle, position: "relative" }}>
+             <CldImage
+-                fill
++                fill
+                 src={photo.src}
+-                className={s.image}
++                className={combinedClassName}
+                 placeholder={"blurDataURL" in photo ? "blur" : undefined}
+-                {...{ alt, title, sizes, onClick }}
++                alt={alt}
++                title={title}
++                sizes={sizes}
++                onClick={onClick}
+             />
+         </div>
+     );
+ 
+diff --git a/src/sections/description/index.tsx b/src/sections/description/index.tsx
+index ad3f286..359f098 100644
+--- a/src/sections/description/index.tsx
++++ b/src/sections/description/index.tsx
+@@ -6,18 +6,18 @@ const Description = () => {
+   return (
+     <div className={s.projecttypes}>
+       <div className={s.projectdescription}>
+-        <text className={s.ai}>AI</text> projects focus on building a project
++        <span className={s.ai}>AI</span> projects focus on building a project
+         related to all things AI, from natural language processing to computer
+         vision and more!{" "}
+       </div>
+       <div className={s.projectdescription}>
+-        <text className={s.hack}>Hack</text> projects works to build a full MERN
++        <span className={s.hack}>Hack</span> projects works to build a full MERN
+         stack website, emulating a software engineering team working on the
+         Agile process!
+       </div>
+ 
+       <div className={s.projectdescription}>
+-        <text className={s.design}>Design</text> projects work on creating or
++        <span className={s.design}>Design</span> projects work on creating or
+         redesigning a platform, working through the design process from research
+         to prototyping and more!
+       </div>
+

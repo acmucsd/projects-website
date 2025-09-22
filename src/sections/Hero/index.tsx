@@ -1,10 +1,17 @@
 "use client";
-import Image from "next/image";
 import styles from "./style.module.scss";
 import Description from "../description";
+import {
+  formattedApplicationDeadline,
+  isUpcomingDeadline,
+} from "@/src/config/applicationDeadline";
 
 const Hero = () => {
   const projects_app = "https://acmurl.com/projects-app";
+  const hasUpcomingDeadline = isUpcomingDeadline();
+  const applicationCopy = hasUpcomingDeadline
+    ? `Applications Due ${formattedApplicationDeadline}`
+    : "Applications currently closed";
 
   return (
     <div className={styles.container}>
@@ -34,7 +41,7 @@ const Hero = () => {
               </button>
             </a>
             <div className={styles.deadline}>
-              Applications Due <text>April 2nd, 11:59PM!</text>
+              <span>{applicationCopy}</span>
             </div>
           </div>
         </div>
