@@ -1,6 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import {
+  applicationDeadline,
+  isUpcomingDeadline,
+} from "@/src/config/applicationDeadline";
 import styles from "./style.module.scss";
 
 const Banner = () => {
@@ -8,11 +12,17 @@ const Banner = () => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const [isExpired, setIsExpired] = useState(() => !isUpcomingDeadline());
+
+  const target = useMemo(() => applicationDeadline, []);
 
   useEffect(() => {
-    const target = new Date("04/02/2024 23:59:59");
+    if (!target) {
+      setIsExpired(true);
+      return;
+    }
 
-    const interval = setInterval(() => {
+    const updateCountdown = () => {
       const now = new Date();
       const difference = target.getTime() - now.getTime();
 
@@ -22,7 +32,7 @@ const Banner = () => {
         setHours(0);
         setMinutes(0);
         setSeconds(0);
-        clearInterval(interval);
+        setIsExpired(true);
       } else {
         const d = Math.floor(difference / (1000 * 60 * 60 * 24));
         setDays(d);
@@ -37,19 +47,28 @@ const Banner = () => {
 
         const s = Math.floor((difference % (1000 * 60)) / 1000);
         setSeconds(s);
+        setIsExpired(false);
       }
-    }, 1000);
+    };
+
+    updateCountdown();
+
+    const interval = setInterval(updateCountdown, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [target]);
+
+  if (!target || isExpired) {
+    return null;
+  }
 
   return (
     <div>
       <div className={styles.bannerbg}>
         Projects applications close in{" "}
-        <text className={styles.date}>
+        <span className={styles.date}>
           {days} days {hours} hours {minutes} minutes {seconds} seconds
-        </text>
+        </span>
       </div>
     </div>
   );

@@ -14,6 +14,12 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Configuration
+
+### Application deadline
+
+The homepage countdown and hero call-to-action read the upcoming application deadline from the `NEXT_PUBLIC_APPLICATION_DEADLINE` environment variable. Provide this value in ISO-8601 format (for example, `2025-10-03T23:59:59-07:00` for October 3, 2025 at 11:59 PM PT). When the variable is omitted or invalid, the site falls back to that same October 3 deadline.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
