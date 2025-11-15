@@ -2,30 +2,31 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import ProjLogo from "../../../public/assets/proj_logo.png";
 import s from "./Navbar.module.scss";
 import { Size, useWindowSize } from "../../utils/general";
-import Banner from "../banner";
 
+const ProjLogo = "/assets/proj_logo.svg";
+
+// Nav link properties
 const navLinks = [
-  { href: "/", label: "Home" },
-  // { href: "/", label: "Apply" },
-  { href: "/about", label: "About" },
   { href: "/archive", label: "Archive" },
+  { href: "/resources", label: "Resources" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/events", label: "Events" },
+  { href: "/about", label: "About" },
 ];
 
+// Main navbar component
 const NavigationBar: React.FC = () => {
   const size: Size = useWindowSize();
 
+  // size.width !== undefined determines whether the viewport has rendered yet
+  const mobile = size.width !== undefined && size.width <= 956;
+
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mobile, setMobile] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  useEffect(() => {
-    size && size.width && setMobile(size.width <= 960);
-  }, [size]);
-
+  // close the mobile menu if no longer within mobile viewport width
   useEffect(() => {
     if (!mobile) setMenuOpen(false);
   }, [mobile]);
@@ -33,47 +34,46 @@ const NavigationBar: React.FC = () => {
   return (
     <div className={s.navbarWrapper}>
       <div className={s.navbar}>
-        {/* Navbar ACM Logo */}
+        {/* Projects Logo */}
         <div className={s.left}>
           <Link href={"/"}>
-            <img src={ProjLogo.src} className={s.logo} alt="ACM Logo" />
+            <img src={ProjLogo} alt="Projects Logo" className={s.logo} />
             <p className={s.logoText}>at UC San Diego</p>
           </Link>
         </div>
+
+        {/* Main Navbar Content */}
         <div className={s.right}>
-          <div className={`${s.navLinks} ${mobile && s.hidden}`}>
+          {/* Nav Links */}
+          <div className={s.navLinks}>
             {navLinks.map((link, key) => (
               <Link key={key} href={link.href}>
                 <p>{link.label}</p>
               </Link>
             ))}
           </div>
-        </div>
 
-        {/* Mobile Navbar Toggle */}
-        <button
-          className={`${s.toggleIcon} ${!mobile && s.hidden}`}
-          onClick={toggleMenu}
-        >
-          <div className={`${s.bar1} ${menuOpen && s.open}`} />
-          <div className={`${s.bar2} ${menuOpen && s.open}`} />
-        </button>
+          {/* Mobile Navbar Toggle */}
+          <button
+            className={s.toggleIcon}
+            onClick={toggleMenu}
+          >
+            <div className={`${s.bar1} ${menuOpen && s.open}`} />
+            <div className={`${s.bar2} ${menuOpen && s.open}`} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Dropdown */}
       <div className={`${s.mobileNav} ${menuOpen && s.open}`}>
         {navLinks.map((link, key) => (
           <Link key={key} href={link.href}>
-            <p className={`${s.navItem}`} onClick={() => setMenuOpen(false)}>
+            <p className={s.navItem} onClick={() => setMenuOpen(false)}>
               {link.label}
             </p>
           </Link>
         ))}
       </div>
-
-      {/* Bottom Rainbow */}
-      <div className={s.rainbow} />
-      <Banner />
     </div>
   );
 };

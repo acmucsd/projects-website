@@ -1,137 +1,121 @@
-import { useState } from "react";
-import Link from "next/link";
-import "src/components/footer/styles.scss";
-import FacebookIcon from "public/assets/embeds/facebook.svg";
-import MediumIcon from "public/assets/embeds/medium.svg";
-import GithubIcon from "public/assets/embeds/github.svg";
-import InstagramIcon from "public/assets/embeds/instagram.svg";
-import DiscordIcon from "public/assets/embeds/discord.svg";
-import EmailIcon from "public/assets/embeds/email.svg";
-import LinkedinIcon from "public/assets/embeds/linkedin.svg";
-import YoutubeIcon from "public/assets/embeds/youtube.svg";
-import VercelIcon from "public/assets/embeds/vercel.svg";
+import styles from "./styles.module.scss";
 
-const cardContents = [
-  { title: "Email", value: "contact@acmucsd.org", icon: EmailIcon },
+const ProjLogo = "/assets/footer_proj_logo.svg";
+const DiscordIcon = "/assets/embeds/discord.svg";
+const InstagramIcon = "/assets/embeds/instagram.svg";
+const EmailIcon = "/assets/embeds/email.svg";
+
+// Social links bundled with other associated content
+const socials = [
   {
     title: "Discord",
     value: "acmurl.com/discord",
     icon: DiscordIcon,
   },
-  { title: "Medium", value: "medium.com/acmucsd", icon: MediumIcon },
-  {
-    title: "Facebook",
-    value: "facebook.com/acmucsd",
-    icon: FacebookIcon,
-  },
-  { title: "Github", value: "github.com/acmucsd", icon: GithubIcon },
   {
     title: "Instagram",
-    value: "instagram.com/acm.ucsd",
+    value: "instagram.com/acm.at.ucsd",
     icon: InstagramIcon,
   },
-  {
-    title: "LinkedIn",
-    value: "acmurl.com/linkedin",
-    icon: LinkedinIcon,
-  },
-  {
-    title: "YouTube",
-    value: "acmurl.com/youtube",
-    icon: YoutubeIcon,
+  { title: "Email",
+    value: "contact@acmucsd.org",
+    icon: EmailIcon
   },
 ];
+
+// Nav link sections/columns
+const navLinkSections = [
+  {
+    title: "Projects",
+    pages: ["Resources", "Gallery", "Events", "About"]
+  },
+  {
+    title: "ACM at UCSD",
+    pages: ["Main", "AI", "Cyber", "Hack"]
+  },
+];
+
+// React component that represents the nav links
+const NavLinks = () => {
+  return navLinkSections.map((section, sectionKey) => {
+    const links = section.pages.map((page, pageKey) => {
+      let link : string = "https://"; // set default link prefix
+      let pageTitle : string = page;
+
+      if (section.title === "Projects") {
+        link = "/" + page.toLowerCase();
+      }
+      else
+      {
+        // if page is main website, link will just take you to acmucsd.com
+        if (page !== "Main") {
+          link += page.toLowerCase() + ".";
+        }
+
+        link += "acmucsd.com";
+        pageTitle += " Website";
+      }
+
+      return (
+        <div key={pageKey} className={styles.pageTitle}>
+          <a href={link}>{pageTitle}</a>
+        </div>
+      );
+    });
+
+    return (
+      <div key={sectionKey} className={styles.navSection}>
+        <h3>
+          {section.title}
+        </h3>
+        {links}
+      </div>
+    );
+  });
+}
+
+// React component that represents the contact section
+const Contact = () => {
+  return socials.map((item, key) => {
+    const linkprefix =
+      item.title === "Email" ? "mailto:" : "https://";
+    const href = `${linkprefix}${item.value}`; // assemble link
+    return (
+      <div key={key} className={styles.contactIcon}>
+        <a href={href}>
+          <img src={item.icon} alt={item.title} />
+        </a>
+      </div>
+    );
+  });
+}
+
+// Main footer component
 const Footer: React.FC = () => {
-  const [email, setEmail] = useState("");
   return (
-    <div className="footer" id="contact">
-      <div className="footerContainer">
-        <div className="footerContents">
-          <h2>Connect With Us!</h2>
-          <div className="footerContents__wrapper">
-            <div className="footerContents__contact">
-              {cardContents.map((item, key) => {
-                const linkprefix =
-                  item.title === "Email" ? "mailto:" : "https://";
-                const href = `${linkprefix}${item.value}`;
-                return (
-                  <div key={key} className="footerContents__contact__card">
-                    <Link href={href} legacyBehavior>
-                      <a>
-                        <img src={item.icon.src} alt={item.title} />
-                      </a>
-                    </Link>
-                    <div>
-                      <a href={href}>{item.title}</a>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="footerContents__newsletter">
-              <h2>Newsletter</h2>
-              <p>Receive weekly events and news!</p>
-              <a
-                href="https://acmurl.com/newsletter"
-                target="_blank"
-                rel="noreferrer"
-                className="subscribe-btn"
-              >
-                Subscribe!
-              </a>
-              <a href="https://vercel.com/?utm_source=acmucsd&utm_campaign=oss" className="vercel-btn">
-                <img src={VercelIcon.src} alt="Vercel" />
-              </a>
-            </div>
+    <div className={styles.footer}>
+      <div className={styles.footerContainer}>
+        <div className={styles.mainContent}>
+
+          {/* Projects Logo */}
+          <div className={styles.logo}>
+            <img src={ProjLogo} alt="Projects Logo" />
+            <h2>at UC San Diego</h2>
+          </div>
+
+          {/* Nav Links */}
+          <div className={styles.navLinks}>
+            <NavLinks />
           </div>
         </div>
-      </div>
-      <div className="mobileFooterContainer">
-        <h2>Connect With Us!</h2>
-        <div className="community-links">
-          <a href="mailto:contact@acmucsd.org">
-            <img src={EmailIcon.src} alt="Email" />
-          </a>
-          <a href="http://acmurl.com/discord">
-            <img src={DiscordIcon.src} alt="Discord" />
-          </a>
-          <a href="http://facebook.com/acmucsd/">
-            <img src={FacebookIcon.src} alt="Facebook" />
-          </a>
-          <a href="http://medium.com/acmucsd">
-            <img src={MediumIcon.src} alt="Medium" />
-          </a>
-          <a href="http://instagram.com/acm.ucsd">
-            <img src={InstagramIcon.src} alt="Instagram" />
-          </a>
-          <a href="http://github.com/acmucsd">
-            <img src={GithubIcon.src} alt="GitHub" />
-          </a>
-          <a href="http://acmurl.com/youtube">
-            <img src={YoutubeIcon.src} alt="Youtube" />
-          </a>
-          <a href="http://acmurl.com/linkedin">
-            <img src={LinkedinIcon.src} alt="Linkedin" />
-          </a>
+
+        {/* Contact Buttons */}
+        <div className={styles.contact}>
+          <Contact />
         </div>
-        <div className="mobileFooterContainer__newsletter">
-          <h2>Newsletter</h2>
-          <p>Receive weekly events and news!</p>
-          <a
-            href="https://acmurl.com/newsletter"
-            target="_blank"
-            rel="noreferrer"
-            className="mobile-subscribe-btn"
-          >
-            Subscribe!
-          </a>
-          <a
-            href="https://vercel.com/?utm_source=acmucsd&utm_campaign=oss"
-            className="mobile-vercel-btn"
-          >
-            <img src={VercelIcon.src} alt="Vercel" />
-          </a>
-        </div>
+
+        {/* Bottom Horizontal Line */}
+        <hr />
       </div>
     </div>
   );
