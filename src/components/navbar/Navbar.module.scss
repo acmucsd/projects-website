@@ -1,5 +1,13 @@
 @use "../../styles/vars.scss" as vars;
 
+$bottom-border-width: 4px;
+// the next 3 variables exist to calculate the initial position of the mobile nav dropdown (determined via its height relative to its contents) so that it is positioned off-screen
+$mobileNav-line-height: 3rem;
+$navItem-margin-bottom: 0.5rem;
+$num-navItems: 5; // change this according to how many navlinks there are
+$stmw: 956px; // small tablet max width
+
+// Base styles (Regular desktop view)
 .navbarWrapper {
   position: sticky;
   top: 0;
@@ -7,41 +15,21 @@
   width: 100%;
   z-index: 10;
   white-space: nowrap;
+  background-color: vars.$white; // this is a placeholder; the navbar bg color needs to match the page's bg color (bc of the gradient on the landing page)
 
   // container for fixed navbar (desktop and mobile)
   .navbar {
-    background-color: vars.$white;
+    $vert-padding: 1.25rem;
+
+    background-color: vars.$white; // this is a placeholder; the navbar bg color needs to match the page's bg color (bc of the gradient on the landing page)
     z-index: 20;
-    font-size: 18px;
-    width: 100vw;
-    height: 78px;
+    width: 100%;
     justify-content: space-between;
+    gap: 1rem;
     align-items: center;
     display: flex;
     flex-direction: row;
-
-    // left side of navbar is just the acm logo
-    .left {
-      height: 60px;
-      margin-left: 2rem;
-      display: flex;
-      flex-flow: row nowrap;
-    }
-
-    .logoText {
-      font-size: 16px;
-    }
-
-    .navLinks {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: flex-start;
-      gap: 1rem;
-
-      &.hidden {
-        display: none;
-      }
-    }
+    padding: $vert-padding 4rem calc($vert-padding - $bottom-border-width);
 
     a {
       display: flex;
@@ -54,189 +42,153 @@
         margin: 0;
       }
       > p {
-        font-size: 18px;
-        font-weight: 800;
+        font-size: 1.125rem;
+        font-weight: 700;
         color: vars.$black;
-        margin-left: 4px;
-        margin-bottom: 2px;
+        margin: 0px;
       }
     }
     a:hover {
       cursor: pointer;
     }
 
+    // left side of navbar is just the acm logo
+    .left {
+      display: flex;
+      flex-flow: row nowrap;
+
+      .logo {
+        width: 3.01644rem;
+        height: 3rem;
+        flex-shrink: 0;
+      }
+
+      .logoText {
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: vars.$proj-blue;
+        margin: 0;
+        margin-left: 0.5rem;
+      }
+    }
+
     // navbar right side contains all navlinks on desktop
     .right {
       display: flex;
       flex-flow: row nowrap;
-      margin-right: 2rem;
 
-      // justify-content: center;
-      // align-items: center;
-
-      //   a {
-      //     display: flex;
-      //     align-items: center;
-      //     text-decoration: none;
-      //     // padding: 0px 16px 0px 16px;
-      //     flex-shrink: 0;
-
-      //     > img {
-      //       height: 60px;
-      //       margin: 0;
-      //     }
-      //     > p {
-      //       font-size: 23px;
-      //       color: vars.$black;
-      //       margin-left: 4px;
-      //       margin-bottom: 2px;
-      //     }
-      //   }
-      //   a:hover {
-      //     cursor: pointer;
-      //   }
-
-      //   .divider {
-      //     display: flex;
-      //     align-items: center;
-      //     text-decoration: none;
-      //     padding-right: 16px;
-      //     span {
-      //       font-size: 23px;
-      //       color: vars.$black;
-      //       margin-left: 4px;
-      //       margin-bottom: 2px;
-      //     }
-      //   }
-
-      //   .navItem {
-      //     display: flex;
-      //     align-items: center;
-      //     flex-flow: row nowrap;
-      //     text-decoration: none;
-      //     color: vars.$black;
-      //     margin-right: 32px;
-      //   }
-
-      //   .loginButton {
-      //     height: 100%;
-      //     align-self: center;
-
-      //     display: flex;
-      //     justify-content: center;
-      //     align-items: center;
-      //     text-decoration: none;
-
-      //     height: 35px;
-      //     width: 150px;
-
-      //     color: vars.$white;
-      //     background-color: vars.$black;
-      //     border-radius: 0.5em;
-      //     margin-right: 32px;
-
-      //     &:hover {
-      //       opacity: 0.85;
-      //       transition: 0.3s;
-      //     }
-      //   }
-      //   &.hidden {
-      //     display: none;
-      //   }
-    }
-
-    // toggle button for mobile menu is only visible on mobile, otherwise hidden
-    .toggleIcon {
-      position: absolute;
-      top: 30px;
-      right: 0;
-      width: 40px;
-      height: 20px;
-      margin: 0 30px;
-      padding: 0;
-      border: none;
-      background-color: vars.$white;
-
-      // the toggle icon is composed of two bars we can separately animate between a hamburger icon and an x icon (default is hamburger, we have .open class we can toggle to rotate into the shape of an x)
-      .bar1 {
-        width: 40px;
-        height: 5px;
-        border-radius: 2px;
-        background-color: vars.$black;
-        position: absolute;
-        top: 1.5px;
-        transition: 0.3s ease-in-out all;
-
-        &.open {
-          transform: rotate(-45deg) translateY(-10px);
-          transform-origin: top right;
-        }
+      .navLinks {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        // finds gap size from line between points (957px, 2rem) and
+        // (1488px, 5rem)
+        gap: vars.calc-relative-size($stmw + 1px, 2rem, 1488px, 5rem);
       }
 
-      .bar2 {
-        width: 23px;
-        height: 5px;
-        border-radius: 2px;
-        background-color: vars.$black;
-        position: absolute;
-        right: 0;
-        bottom: 1.5px;
-        transition: 0.3s ease-in-out all;
-
-        &.open {
-          width: 40px;
-          transform: rotate(45deg) translateY(10px);
-          transform-origin: bottom right;
-        }
-      }
-      &.hidden {
+      // toggle button for mobile menu is only visible on mobile, otherwise hidden
+      .toggleIcon {
         display: none;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        width: 1.8125rem;
+        height: 2.0625rem;
+        padding: 0.64rem 0;
+        gap: 0.257813333rem;
+        border: none;
+        background-color: vars.$white;
+
+        // the toggle icon is composed of two bars we can separately animate between a hamburger icon and an x icon (default is hamburger, we have .open class we can toggle to rotate into the shape of an x)
+        .bar1 {
+          width: 1.8125rem;
+          height: 0.257813333rem;
+          border-radius: 4px;
+          background-color: vars.$black;
+          transition: 0.3s ease-in-out all;
+
+          &.open {
+            transform-origin: top right;
+            transform: rotate(-45deg) translateY(-0.49rem);
+          }
+        }
+
+        .bar2 {
+          width: 1.8125rem;
+          height: 0.257813333rem;
+          border-radius: 4px;
+          background-color: vars.$black;
+          transition: 0.3s ease-in-out all;
+
+          &.open {
+            transform-origin: bottom right;
+            transform: rotate(45deg) translateY(0.49rem);
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
 
   .mobileNav {
-    width: 100vw;
+    width: 100%;
     background-color: vars.$white;
-    position: relative;
+    position: absolute;
     z-index: -1;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    line-height: 300%;
-    transition: 0.3s ease-in-out;
-    // mobile menu is hidden by positioning under fixed navbar, we open it by sliding it out
-    // if you want to add or remove nav options, change this
-    margin-top: -17.5rem;
+    line-height: $mobileNav-line-height;
+    // mobile menu is hidden by positioning under fixed navbar by moving the top margin up; we open it by sliding it out w/ transition and changing margin-top to 0
+    margin-top:
+      -1 * $num-navItems * ($mobileNav-line-height + $navItem-margin-bottom);
+    border-bottom: $bottom-border-width solid vars.$proj-blue;
+    transition: margin-top 0.3s ease-in-out;
+
+    a {
+      text-decoration: none;
+    }
+
     &.open {
       margin-top: 0;
     }
     .navItem {
-      width: 100%;
+      margin-bottom: $navItem-margin-bottom;
       text-align: center;
+      font-size: 1.125rem;
+      font-weight: 700;
       color: vars.$black;
-      transition: 0.3s ease-in-out all;
-      text-decoration: underline solid transparent;
+
       &:hover {
         text-decoration: underline solid currentColor;
       }
     }
   }
+}
 
-  // rainbow bar is always visible below navbar, positioned to be at the bottom of the container even when mobile slides out and height changes
-  .rainbow {
-    width: 100vw;
-    height: 0.4em;
-    bottom: -0.4em;
-    background: linear-gradient(
-      270deg,
-      vars.$red 0%,
-      vars.$orange 18.75%,
-      vars.$green-success 36.98%,
-      vars.$blue-ap 55.73%,
-      vars.$blue 75%,
-      vars.$purple 100%
-    );
+// Small tablet view (956px)
+@media only screen and (max-width: $stmw) {
+  .navbarWrapper {
+    .navbar {
+      $vert-padding: 0.72rem;
+
+      padding:
+        calc($vert-padding + 2.06rem)
+        1.38rem
+        calc($vert-padding - $bottom-border-width);
+
+      .right {
+        .navLinks {
+          display: none;
+        }
+
+        .toggleIcon {
+          display: flex;
+        }
+      }
+    }
   }
 }

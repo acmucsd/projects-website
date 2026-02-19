@@ -1,4 +1,4 @@
-@use "/src/styles/vars.scss" as vars; // allows you to use pre-defined color
+@use "../../styles/vars.scss" as vars; // allows you to use pre-defined color
 
 .container {
     display: flex;

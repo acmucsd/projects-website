@@ -9,10 +9,35 @@ $red-warning: #ac303e;
 $green-success: #30ac9e;
 $blue-ap: #68b4fc;
 $blue-dark: #001d36;
-$dark-grey: #8d8d8d;
+$dark-gray: #8d8d8d;
 $hover-blue: #7cbdff;
 $turquoise: #51c0c0;
 $purple: #816dff;
 $black: #333333;
 $acm-blue-30: #a8d3ff;
 $acm-blue: #62b0ff;
+$proj-blue: #5777C0;
+$footer-blue: #4E78C6;
+
+// find the size relative to the viewport width between a min and max size
+// size is calculated using a linear function between two points
+// x-axis/input: viewport width (px)
+// y-axis/output: size (rem)
+@function calc-relative-size($minVW, $minSize, $maxVW, $maxSize) {
+  @return clamp(
+    $minSize,
+    calc(
+        /* relativeSize = (% of progress on line) * (change in size) + minSize */
+        /* calculate fraction of progress between max and min viewport widths
+        relative to the current viewport width */
+        ((100vw - #{$minVW}) / (#{$maxVW} - #{$minVW}))
+        /* multiply the fraction by the change in size between the max and min
+        sizes */
+        * (#{$maxSize} - #{$minSize})
+        /* add the min size to get the final size relative to the progress made
+        on the line between the min and max viewport widths */
+        + #{$minSize}
+    ),
+    $maxSize
+  );
+}

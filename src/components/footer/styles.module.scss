@@ -1,0 +1,226 @@
+@use "../../styles/vars.scss" as vars;
+
+$stmw: 834px; // small tablet max width
+$mmw: 530px; // mobile max width
+$mmmw: 375px; // medium mobile max width
+
+// Base styles (Regular desktop view)
+.footer {
+  width: 100%;
+  height: 100%;
+  background-color: vars.$footer-blue;
+  color: vars.$white;
+  z-index: 0;
+  position: relative;
+}
+
+.footerContainer {
+  padding: 3.625rem 7.5rem;
+
+  hr {
+    display: flex;
+    border: none; // this removes border control over styling
+    height: 1px;
+    background-color: vars.$white;
+    margin-bottom: 0;
+  }
+
+  .mainContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1.5625rem;
+
+      img {
+        width: 4.875rem;
+        height: 4.8125rem;
+        margin: 0;
+      }
+
+      h2 {
+        margin: 0;
+        white-space: nowrap;
+        font-size: 3.25rem;
+        font-weight: 700;
+      }
+    }
+
+    .navLinks {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      // finds gap size from line between points (1332px, 5rem) and
+      // (1844px, 15rem)
+      gap: vars.calc-relative-size(1332px, 5rem, 1844px, 15rem);
+      white-space: nowrap;
+      font-weight: 700;
+
+      h3 {
+        margin: 0;
+        font-size: 1.75rem;
+        color: vars.$white;
+      }
+
+      a {
+        font-size: 1.125rem;
+        color: vars.$white;
+        text-decoration: none;
+      }
+
+      .navSection {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .pageTitle {
+        a:hover {
+          // color change AND underline for accessibility reasons
+          color: #D6E2FF;
+          text-decoration: underline solid currentColor;
+        }
+      }
+    }
+  }
+
+  .contact {
+    display: flex;
+    gap: 0.9375rem;
+    margin-bottom: 1rem;
+    
+    .contactIcon {
+
+      a {
+        display: flex;
+      }
+
+      img {
+        width: 2.625rem;
+        height: 2.625rem;
+        margin: 0;
+      }
+
+      a:hover img {
+        transform: scale(1.05);
+        transition: transform 0.2s;
+      }
+    }
+  }
+}
+
+// Medium tablet view
+@media only screen and (max-width: 1331px) {
+  .footerContainer {
+    .mainContent {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 3.25rem;
+
+      .navLinks {
+        // finds gap size from line between points (835px, 8rem) and
+        // (1090px, 15rem)
+        gap: vars.calc-relative-size($stmw + 1px, 8rem, 1090px, 15rem);
+        margin-bottom: 3.625rem;
+      }
+    }
+  }
+}
+
+// Small tablet view (834px)
+@media only screen and (max-width: $stmw) {
+  .footerContainer {
+    display: flex;
+    flex-direction: column;
+    padding:
+      // finds top padding size from line between points (531px, 1.6875rem) and
+      // (834px, 3.625rem)
+      vars.calc-relative-size($mmw + 1px, 1.6875rem, $stmw, 3.625rem)
+      // finds side padding size from line between points (531px, 3.1875rem) and
+      // (834px, 7.5rem)
+      vars.calc-relative-size($mmw + 1px, 3.1875rem, $stmw, 7.5rem)
+      // finds bottom padding size from line between points (531px, 2.0625rem)
+      // and (834px, 3.625rem)
+      vars.calc-relative-size($mmw + 1px, 2.0625rem, $stmw, 3.625rem);
+    
+    .mainContent {
+      .logo {
+        h2 {
+          // finds font size from line between points (531px, 1.25rem) and
+          // (834px, 3.25rem)
+          font-size:
+            vars.calc-relative-size($mmw + 1px, 1.25rem, $stmw, 3.25rem);
+        }
+      }
+
+      .navLinks {
+        // finds gap size from line between points (531px, 4rem) and
+        // (834px, 8rem)
+        gap: vars.calc-relative-size($mmw + 1px, 4rem, $stmw, 8rem);
+        margin-bottom: 3.625rem;
+      }
+    }
+  }
+}
+
+// Mobile view (530px)
+@media only screen and (max-width: $mmw) {
+  .footerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3.625rem;
+    padding: 1.6875rem 3.1875rem 2.0625rem;
+
+    hr {
+      display: none;
+    }
+
+    .mainContent {
+      .logo {
+        gap: 1.5625rem;
+
+        h2 {
+          font-size: 1.25rem;
+        }
+      }
+
+      .navLinks {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 3.125rem;
+      }
+    }
+
+    .contact {
+      margin: 0;
+    }
+  }
+}
+
+// Medium mobile view (375px)
+@media only screen and (max-width: $mmmw) {
+  .footerContainer {
+    .mainContent {
+      .logo {
+        // finds gap size from line between points (320px, 1rem) and
+        // (375px, 1.5625rem)
+        gap: vars.calc-relative-size(320px, 1rem, $mmmw, 1.5625rem);
+
+        img {
+          // finds width from line between points (320px, 3.03896103rem) and
+          // (375px, 4.875rem)
+          width: vars.calc-relative-size(320px, 3.03896103rem, $mmmw, 4.875rem);
+          // finds width from line between points (320px, 3rem) and
+          // (375px, 4.8125rem)
+          height: vars.calc-relative-size(320px, 3rem, $mmmw, 4.8125rem);
+        }
+      }
+    }
+  }
+}
