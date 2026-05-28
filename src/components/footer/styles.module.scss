@@ -12,6 +12,7 @@ $mmmw: 375px; // medium mobile max width
   color: vars.$white;
   z-index: 0;
   position: relative;
+  margin-bottom: 0;
 }
 
 .footerContainer {
@@ -58,6 +59,7 @@ $mmmw: 375px; // medium mobile max width
       // finds gap size from line between points (1332px, 5rem) and
       // (1844px, 15rem)
       gap: vars.calc-relative-size(1332px, 5rem, 1844px, 15rem);
+      column-gap: 5rem;
       white-space: nowrap;
       font-weight: 700;
 
@@ -92,7 +94,7 @@ $mmmw: 375px; // medium mobile max width
   .contact {
     display: flex;
     gap: 0.9375rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     
     .contactIcon {
 
