@@ -12,7 +12,6 @@ $mmmw: 375px; // medium mobile max width
   color: vars.$white;
   z-index: 0;
   position: relative;
-  margin-bottom: 0;
 }
 
 .footerContainer {
@@ -94,7 +93,7 @@ $mmmw: 375px; // medium mobile max width
   .contact {
     display: flex;
     gap: 0.9375rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     
     .contactIcon {
 
