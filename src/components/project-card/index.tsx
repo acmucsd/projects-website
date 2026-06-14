@@ -133,7 +133,7 @@ const ProjectCards: React.FC<ProjectProps> = ({quarter}) => {
                         <a href={project.slides}>
                             <img className={s.links} src={slides} alt="Slides Logo"/>
                         </a>
-                        <a href={project.project_link}><img className={s.links} 
+                        <a href={project.project_link}><img className={s.links}
                         src={project.subgroup === "Hack" || project.subgroup === "AI" ? github : project.subgroup === "Design" ? figma : default_pic} alt="Project Repo Logo"/></a>
                         {project.other_links && (
                             <a href={project.other_links}><img className={s.links} src={other_links} alt="Other Links Logo"/></a>
