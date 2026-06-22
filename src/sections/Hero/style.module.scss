@@ -1,74 +1,75 @@
 @use "../../styles/vars.scss" as v; // allows you to use pre-defined colors
 
-.container {
-  min-height: 500px;
+.pageContent {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-self: start;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.44rem 5.44rem;
 
   @media screen and (max-width: 768px) {
     align-items: flex-start;
   }
-}
 
-.hero {
-  margin: auto;
-  max-width: 1000px;
-  padding: 2rem;
-  font-size: 20px;
-  word-wrap: normal;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "about image"
-    "button image";
-  align-items: start;
-  justify-content: center;
-}
-
-@media screen and (max-width: 768px) {
   .hero {
     display: flex;
-    flex-direction: column;
-  }
-}
-
-.title {
-  font-size: 56px;
-  font-weight: 200;
-}
-
-.hero_text {
-  grid-area: about;
-}
-
-.image {
-  grid-area: image;
-  border-radius: 10px;
-}
-
-.button {
-  background-color: v.$acm-blue;
-  color: v.$white;
-  padding: 12px 30px;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  border-width: 0;
-  grid-area: button;
-}
-
-.deadline {
-  padding-top: 1rem;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-@media screen and (max-width: 768px) {
-  .button {
     justify-content: center;
-    align-self: center;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero_main {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.125rem;
+
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+
+        .titleLogo {
+          width: 8rem;
+          height: auto;
+          margin: 0;
+        }
+
+        .titleText {
+          font-size: 5rem;
+          font-weight: 700;
+          margin: 0;
+        }
+      }
+
+      .description {
+        margin-bottom: 1.75rem;
+      }
+
+      .button {
+        background-color: v.$proj-blue;
+        color: v.$white;
+        padding: 1rem 2.25rem;
+        border-radius: 0.625rem;
+        border-width: 0;
+        font-size: 1.2rem;
+        font-weight: 500;
+        cursor: pointer;
+
+        @media screen and (max-width: 768px) {
+          justify-content: center;
+          align-self: center;
+        }
+      }
+    }
+
+    .countdownImage {
+      width: 100rem;
+      height: auto;
+      margin: -2rem -5rem -10rem -6rem;
+    }
   }
 }

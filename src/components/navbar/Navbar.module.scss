@@ -66,7 +66,7 @@ $stmw: 956px; // small tablet max width
       .logoText {
         font-size: 1.375rem;
         font-weight: 700;
-        color: vars.$proj-blue;
+        color: vars.$proj-blue-2;
         margin: 0;
         margin-left: 0.5rem;
       }
@@ -84,7 +84,6 @@ $stmw: 956px; // small tablet max width
         // finds gap size from line between points (957px, 2rem) and
         // (1488px, 5rem)
         gap: vars.calc-relative-size($stmw + 1px, 2rem, 1488px, 5rem);
-        column-gap: 3.25rem;
       }
 
       // toggle button for mobile menu is only visible on mobile, otherwise hidden
@@ -146,7 +145,7 @@ $stmw: 956px; // small tablet max width
     // mobile menu is hidden by positioning under fixed navbar by moving the top margin up; we open it by sliding it out w/ transition and changing margin-top to 0
     margin-top:
       -1 * $num-navItems * ($mobileNav-line-height + $navItem-margin-bottom);
-    border-bottom: $bottom-border-width solid vars.$proj-blue;
+    border-bottom: $bottom-border-width solid vars.$proj-blue-2;
     transition: margin-top 0.3s ease-in-out;
 
     a {
