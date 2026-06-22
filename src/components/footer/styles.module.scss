@@ -58,6 +58,7 @@ $mmmw: 375px; // medium mobile max width
       // finds gap size from line between points (1332px, 5rem) and
       // (1844px, 15rem)
       gap: vars.calc-relative-size(1332px, 5rem, 1844px, 15rem);
+      column-gap: 5rem;
       white-space: nowrap;
       font-weight: 700;
 
