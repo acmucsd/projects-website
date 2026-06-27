@@ -20,6 +20,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: v.$black;
 
     @media screen and (max-width: 768px) {
       display: flex;
@@ -106,19 +107,47 @@
       }
     }
 
-    .countdownImage {
-      flex-shrink: 0;
-      flex-grow: 0;
-      width: 42rem;
-      height: auto;
-      margin: -0.5rem -5rem -10rem -6rem;
+    .countdownImageWrapper {
+      flex: 0 0 auto;
+      position: relative;
+      margin: 0 -5rem 0 -6rem;
+
+      .countdownImage {
+        width: 42rem;
+        height: auto;
+        margin: -0.5rem 0 -10rem 0;
+      }
+
+      .countdown {
+        position: absolute;
+        top: 7.5rem;
+        right: 16.4rem;
+        transform: perspective(1000px) rotateX(-43deg) rotateY(-43deg);
+        transform-style: preserve-3d;
+      }
 
       @media screen and (max-width: 1190px) {
-        width: 35rem;
+        .countdownImage {
+          width: 35rem;
+        }
+
+        .countdown {
+          top: 6rem;
+          right: 13.3rem;
+          font-size: 1.2rem;
+        }
       }
 
       @media screen and (max-width: 1055px) {
-        width: 30rem;
+        .countdownImage {
+          width: 30rem;
+        }
+
+        .countdown {
+          top: 4.8rem;
+          right: 11.6rem;
+          font-size: 1rem;
+        }
       }
     }
   }
@@ -152,9 +181,17 @@
         }
       }
 
-      .countdownImage {
-        width: 20rem;
-        margin: 0 0 -3rem 0;
+      .countdownImageWrapper {
+        .countdownImage {
+          width: 20rem;
+          margin: 0 0 -3rem 0;
+        }
+
+        .countdown {
+          top: 3.4rem;
+          right: 7.4rem;
+          font-size: 0.8rem;
+        }
       }
     }
   }

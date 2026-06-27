@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./style.module.scss";
 import Description from "../description";
+import Countdown from "../../components/countdown";
 import { Size, useWindowSize } from "../../utils/general";
 
 const ProjLogo = "/assets/proj_logo.svg";
@@ -18,14 +19,16 @@ const Hero = () => {
   return (
     <div className={styles.pageContent}>
       <section className={styles.hero}>
-        <Image
-          className={styles.countdownImage}
-          src={CountdownImage}
-          width={1162}
-          height={1343}
-          alt="Countdown"
-          style={mobile ? {} : {display: "none"}}
-        />
+        <div className={styles.countdownImageWrapper} style={mobile ? {} : {display: "none"}}>
+          <Image
+            className={styles.countdownImage}
+            src={CountdownImage}
+            width={1162}
+            height={1343}
+            alt="Countdown"
+          />
+          <Countdown className={styles.countdown} />
+        </div>
         <div className={styles.hero_main}>
           <div className={styles.title}>
             <Image 
@@ -54,14 +57,16 @@ const Hero = () => {
             </a>
           </div>
         </div>
-        <Image
-          className={styles.countdownImage}
-          src={CountdownImage}
-          width={1162}
-          height={1343}
-          alt="Countdown"
-          style={mobile ? {display: "none"} : {}}
-        />
+        <div className={styles.countdownImageWrapper} style={mobile ? {display: "none"} : {}}>
+          <Image
+            className={styles.countdownImage}
+            src={CountdownImage}
+            width={1162}
+            height={1343}
+            alt="Countdown"
+          />
+          <Countdown className={styles.countdown} />
+        </div>
       </section>
       <Description />
     </div>
