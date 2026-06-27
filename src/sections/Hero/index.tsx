@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./style.module.scss";
 import Description from "../description";
+import { Size, useWindowSize } from "../../utils/general";
 
 const ProjLogo = "/assets/proj_logo.svg";
 const CountdownImage = "/assets/countdown_image.png";
@@ -9,9 +10,22 @@ const CountdownImage = "/assets/countdown_image.png";
 const Hero = () => {
   const projects_app = "https://acmurl.com/projects-app";
 
+  const size: Size = useWindowSize();
+
+  // size.width !== undefined determines whether the viewport has rendered yet
+  const mobile = size.width !== undefined && size.width <= 920;
+
   return (
     <div className={styles.pageContent}>
       <section className={styles.hero}>
+        <Image
+          className={styles.countdownImage}
+          src={CountdownImage}
+          width={1162}
+          height={1343}
+          alt="Countdown"
+          style={mobile ? {} : {display: "none"}}
+        />
         <div className={styles.hero_main}>
           <div className={styles.title}>
             <Image 
@@ -46,6 +60,7 @@ const Hero = () => {
           width={1162}
           height={1343}
           alt="Countdown"
+          style={mobile ? {display: "none"} : {}}
         />
       </section>
       <Description />
