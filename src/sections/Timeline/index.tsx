@@ -57,8 +57,9 @@ const Timeline = () => {
         href={timelineData.applyLink}
         target="_blank"
         rel="noopener noreferrer"
+        className={styles.applyButton}
       >
-        <button className={styles.applyButton}>Apply Here</button>
+        Apply Here
       </a>
     </section>
   );

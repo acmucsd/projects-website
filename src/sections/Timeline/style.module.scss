@@ -9,7 +9,7 @@
 }
 
 .heading {
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: 800;
   align-self: flex-start;
   margin-bottom: 2rem;
@@ -52,16 +52,17 @@
 .eventInfo {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.7rem;
 }
 
 .eventDate {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
+  margin: 0;
 }
 
 .eventDescription {
-  font-size: 20px;
+  font-size: 1.125rem;
   line-height: 1.5;
   color: v.$black;
 }
@@ -112,7 +113,7 @@
 }
 
 .milestoneLabel {
-  font-size: 20px;
+  font-size: 1.125rem;
   text-align: center;
   white-space: pre-line;
   font-weight: 400;
@@ -125,14 +126,15 @@
 }
 
 .applyButton {
+  display: inline-block;
   background-color: v.$proj-blue;
   color: v.$white;
   padding: 12px 40px;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  border: none;
+  text-decoration: none;
   margin-top: 1rem;
 }
 
@@ -142,7 +144,7 @@
   }
 
   .heading {
-    font-size: 28px;
+    font-size: 1.75rem;
     align-self: center;
   }
 
@@ -190,7 +192,7 @@
   }
 
   .milestoneLabel {
-    font-size: 16px;
+    font-size: 1rem;
     text-align: left;
     white-space: nowrap;
   }
