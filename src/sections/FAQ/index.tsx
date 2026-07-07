@@ -1,11 +1,10 @@
-'use client';
 import { useState } from 'react';
 import type { ReactNode } from 'react';
 import s from './style.module.scss';
 import FAQItem from './faq';
 
 // list of questions and answers
-const faqs: { question: string; answer: ReactNode }[] = [
+const faqs: { question: ReactNode; answer: ReactNode }[] = [
   {
     question: 'Do I need to be on campus to participate in Summer Projects?',
     answer: 'No! Meetings throughout the summer are 100% remote!',
@@ -31,11 +30,18 @@ const faqs: { question: string; answer: ReactNode }[] = [
   },
   {
     question: "What if I've never done a project before?",
-    answer:
-      "No worries! This is a super great beginner-friendly opportunity to apply your course level knowledge on a real project and level up your resume!",
+    answer: (
+      <>
+        No worries! This is a super great <u>beginner-friendly</u> opportunity to apply your course level knowledge on a real project and level up your resume!
+      </>
+    ),
   },
   {
-    question: 'What do I actually do if I am accepted into ACM Projects?',
+    question: (
+      <>
+        What do I <u>actually</u> do if I am accepted into ACM Projects?
+      </>
+    ),
     answer: (
       <ul>
         <li>Work with your team and mentors to come up with a project idea to complete by the end of the program</li>
