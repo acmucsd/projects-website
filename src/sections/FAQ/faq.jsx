@@ -1,5 +1,3 @@
-'use client';
-
 import s from './style.module.scss';
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {

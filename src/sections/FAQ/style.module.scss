@@ -32,6 +32,7 @@ $faq-bg: #dce6f7;
   background-color: $faq-bg;
   border-radius: 8px;
   overflow: hidden;
+  overscroll-behavior: auto; //override overscroll behavior in globals.css
 }
 
 .question {
@@ -76,6 +77,7 @@ $faq-bg: #dce6f7;
 
 .answer {
   overflow: hidden;
+  overscroll-behavior: auto; // override overscroll-behavior in globals.css
   padding: 0 1.25rem;
   font-size: 0.95rem;
   line-height: 1.65;
