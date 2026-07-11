@@ -4,4 +4,10 @@
   color: black;
   font-size: 1.25rem;
   font-weight: 700;
+
+  .digit {
+    display: inline-block;
+    width: 1ch;
+    text-align: center;
+  }
 }

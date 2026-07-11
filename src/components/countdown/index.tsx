@@ -12,6 +12,7 @@ const Countdown = ({ className = "" }: CountdownProps) => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  let countdownComponents : number[] = [days, hours, minutes, seconds];
 
   useEffect(() => {
     const target = new Date("10/02/2026 23:59:59");
@@ -25,6 +26,7 @@ const Countdown = ({ className = "" }: CountdownProps) => {
         setHours(0);
         setMinutes(0);
         setSeconds(0);
+        countdownComponents = [days, hours, minutes, seconds];
         clearInterval(interval);
       } else {
         setDays(Math.floor(difference / (1000 * 60 * 60 * 24)));
@@ -37,6 +39,7 @@ const Countdown = ({ className = "" }: CountdownProps) => {
           Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
         );
         setSeconds(Math.floor((difference % (1000 * 60)) / 1000));
+        countdownComponents = [days, hours, minutes, seconds];
       }
     }, 1000);
 
@@ -45,10 +48,17 @@ const Countdown = ({ className = "" }: CountdownProps) => {
 
   return (
     <div className={`${styles.date} ${className}`}>
-      {String(days).padStart(2, '0')}:
-      {String(hours).padStart(2, '0')}:
-      {String(minutes).padStart(2, '0')}:
-      {String(seconds).padStart(2, '0')}
+      {countdownComponents.map((comp, key) => {
+        const digits = String(comp).padStart(2, '0').split('');
+
+        return (
+          <span key={key}>
+            <span className={styles.digit}>{digits[0]}</span>
+            <span className={styles.digit}>{digits[1]}</span>
+            <span>{key != 3 ? ":" : ""}</span>
+          </span>
+        );
+      })}
     </div>
   );
 };
