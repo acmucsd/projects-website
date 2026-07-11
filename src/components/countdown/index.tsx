@@ -55,7 +55,7 @@ const Countdown = ({ className = "" }: CountdownProps) => {
           <span key={key}>
             <span className={styles.digit}>{digits[0]}</span>
             <span className={styles.digit}>{digits[1]}</span>
-            <span>{key != 3 ? ":" : ""}</span>
+            {key < 3 ? <span>:</span> : null}
           </span>
         );
       })}
