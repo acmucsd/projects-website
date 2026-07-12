@@ -5,8 +5,16 @@ import Image from "next/image";
 import styles from "./style.module.scss";
 import timelineData from "./timelineData.json";
 
+function getInitialIndex(): number {
+  const now = new Date();
+  const index = timelineData.events.findIndex(
+    (event) => new Date(event.date) >= now
+  );
+  return index === -1 ? timelineData.events.length - 1 : index;
+}
+
 const Timeline = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(getInitialIndex);
   const activeEvent = timelineData.events[activeIndex];
 
   return (
