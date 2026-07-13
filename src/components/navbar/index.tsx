@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import s from "./Navbar.module.scss";
 import { Size, useWindowSize } from "../../utils/general";
 
-const ProjLogo = "/assets/proj_logo.svg";
+const ProjLogo = "/assets/navbar_proj_logo.svg";
 
 // Nav link properties
 const navLinks = [
