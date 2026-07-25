@@ -1,9 +1,118 @@
 @use "../../styles/vars.scss" as vars; // allows you to use pre-defined colors
 
+$stmw: 834px; // small tablet max width
+$mmw: 530px; // mobile max width
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
-    padding-top: 3rem;
+    padding: 3rem 7.5rem;
+}
+
+@media only screen and (max-width: $stmw) {
+    .container {
+        padding:
+            3rem
+            vars.calc-relative-size($mmw + 1px, 3.1875rem, $stmw, 7.5rem);
+    }
+}
+
+@media only screen and (max-width: $mmw) {
+    .container {
+        padding: 3rem 3.1875rem;
+    }
+}
+
+.headerRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.header {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.project_selector {
+    appearance: none;
+    background: vars.$white url("/assets/chevron-down.svg") no-repeat right 0.75rem center;
+    border: 1.5px solid #5777C0;
+    border-radius: 0.75rem;
+    padding: 0.625rem 2rem 0.625rem 1.25rem;
+    font-size: 1rem;
+    color: vars.$black;
+    cursor: pointer;
+    outline: none;
+}
+
+.filters {
+    display: flex;
+    gap: 1.25rem;
+    align-self: flex-start;
+    margin-bottom: 2rem;
+}
+
+.filterButton {
+    background: transparent;
+    border: 2px solid;
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.filterDesign {
+    border-color: vars.$pink;
+    color: vars.$black;
+}
+
+.filterHack {
+    border-color: vars.$orange;
+    color: vars.$black;
+}
+
+.filterAI {
+    border-color: vars.$red;
+    color: vars.$black;
+}
+
+.filterActive {
+    &.filterDesign {
+        background-color: rgba(vars.$pink, 0.15);
+    }
+    &.filterHack {
+        background-color: rgba(vars.$orange, 0.15);
+    }
+    &.filterAI {
+        background-color: rgba(vars.$red, 0.15);
+    }
+}
+
+.subheadingRow {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    align-self: flex-start;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.subheading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: vars.$black;
+}
+
+.dateLabel {
+    font-size: 1rem;
+    color: vars.$dark-gray;
 }
