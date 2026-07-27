@@ -7,6 +7,8 @@ import { Size, useWindowSize } from "../../utils/general";
 
 const ProjLogo = "/assets/proj_logo.svg";
 const CountdownImage = "/assets/countdown_image.png";
+const Gradient = "/assets/hero-gradient.png";
+const GradientMobile = "/assets/hero-gradient-mobile.png";
 
 const Hero = () => {
   const projects_app = "https://acmurl.com/projects-app";
@@ -18,6 +20,13 @@ const Hero = () => {
 
   return (
     <div className={styles.pageContent}>
+      <Image
+        className={styles.gradient}
+        src={mobile ? GradientMobile : Gradient}
+        width={1440}
+        height={1879}
+        alt="Gradient"
+      />
       <section className={styles.hero}>
         <div className={styles.countdownImageWrapper} style={mobile ? {} : {display: "none"}}>
           <Image
