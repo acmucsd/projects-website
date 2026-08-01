@@ -9,19 +9,40 @@ $stmw: 956px; // small tablet max width
 
 // Base styles (Regular desktop view)
 .navbarWrapper {
+  $vert-padding: 1.25rem;
+  
   position: sticky;
   top: 0;
   font-weight: 400;
   width: 100%;
+  height: auto;
   z-index: 10;
   white-space: nowrap;
-  background-color: vars.$white; // this is a placeholder; the navbar bg color needs to match the page's bg color (bc of the gradient on the landing page)
+  background-color: vars.$white;
+
+  .gradientWrapper {
+    position: absolute;
+    z-index: -10;
+    width: 100%;
+    height: $vert-padding * 2 + 3rem; // 3rem-tall project logo
+    background-color: vars.$white;
+    overflow: hidden;
+
+    .gradient {
+      width: 100%;
+      height: 85rem;
+      user-select: none;
+      will-change: transform;
+
+      @media screen and (max-width: 920px) {
+        height: 50rem;
+      }
+    }
+  }
 
   // container for fixed navbar (desktop and mobile)
   .navbar {
-    $vert-padding: 1.25rem;
-
-    background-color: vars.$white; // this is a placeholder; the navbar bg color needs to match the page's bg color (bc of the gradient on the landing page)
+    position: relative;
     z-index: 20;
     width: 100%;
     justify-content: space-between;
@@ -52,7 +73,7 @@ $stmw: 956px; // small tablet max width
       cursor: pointer;
     }
 
-    // left side of navbar is just the acm logo
+    // left side of navbar is just the project logo
     .left {
       display: flex;
       flex-flow: row nowrap;
@@ -97,7 +118,7 @@ $stmw: 956px; // small tablet max width
         padding: 0.64rem 0;
         gap: 0.257813333rem;
         border: none;
-        background-color: vars.$white;
+        background-color: transparent;
 
         // the toggle icon is composed of two bars we can separately animate between a hamburger icon and an x icon (default is hamburger, we have .open class we can toggle to rotate into the shape of an x)
         .bar1 {
@@ -135,7 +156,6 @@ $stmw: 956px; // small tablet max width
 
   .mobileNav {
     width: 100%;
-    background-color: vars.$white;
     position: absolute;
     z-index: -1;
     display: flex;
@@ -143,11 +163,10 @@ $stmw: 956px; // small tablet max width
     justify-content: center;
     align-items: center;
     line-height: $mobileNav-line-height;
-    // mobile menu is hidden by positioning under fixed navbar by moving the top margin up; we open it by sliding it out w/ transition and changing margin-top to 0
+    // mobile menu is hidden by positioning under fixed navbar by moving the top margin up; we open it by sliding it out w/ transition (in index.tsx) and changing margin-top to 0
     margin-top:
       -1 * $num-navItems * ($mobileNav-line-height + $navItem-margin-bottom);
     border-bottom: $bottom-border-width solid vars.$proj-blue-2;
-    transition: margin-top 0.3s ease-in-out;
 
     a {
       text-decoration: none;
@@ -155,13 +174,20 @@ $stmw: 956px; // small tablet max width
 
     &.open {
       margin-top: 0;
+
+      .navItem {
+        color: vars.$black;
+        user-select: auto;
+      }
     }
+
     .navItem {
       margin-bottom: $navItem-margin-bottom;
       text-align: center;
       font-size: 1.125rem;
       font-weight: 700;
-      color: vars.$black;
+      color: transparent;
+      user-select: none;
 
       &:hover {
         text-decoration: underline solid currentColor;
@@ -173,9 +199,17 @@ $stmw: 956px; // small tablet max width
 // Small tablet view (956px)
 @media only screen and (max-width: $stmw) {
   .navbarWrapper {
-    .navbar {
-      $vert-padding: 0.72rem;
+    $vert-padding: 0.72rem;
 
+    .gradientWrapper {
+      height: $vert-padding * 2 + 5.06rem; // 3rem-tall project logo + 2.06rem top padding
+
+      &.mobileNavOpen {
+        height: ($vert-padding * 2 + 5.06rem) + ($num-navItems * ($mobileNav-line-height + $navItem-margin-bottom));
+      }
+    }
+
+    .navbar {
       padding:
         calc($vert-padding + 2.06rem)
         1.38rem

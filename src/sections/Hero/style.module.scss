@@ -1,6 +1,7 @@
 @use "../../styles/vars.scss" as v; // allows you to use pre-defined colors
 
 .pageContent {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,6 +15,24 @@
 
   @media screen and (max-width: 500px) {
     padding-inline: 1.69rem;
+  }
+
+  .gradient {
+    position: absolute;
+    z-index: -10;
+    top: calc(-5.5rem + 4px);
+    left: 0;
+    width: 100%;
+    height: 85rem;
+    user-select: none;
+
+    @media screen and (max-width: 956px) {
+      top: calc(-6.5rem + 4px)
+    }
+
+    @media screen and (max-width: 920px) {
+      height: 50rem;
+    }
   }
 
   .hero {
@@ -116,6 +135,7 @@
         width: 42rem;
         height: auto;
         margin: -0.5rem 0 -10rem 0;
+        user-select: none;
       }
 
       .countdown {
@@ -150,6 +170,22 @@
         }
       }
     }
+
+    .countdownImageWrapperMobile {
+      @extend .countdownImageWrapper;
+      display: none;
+
+      .countdownImage {
+        width: 20rem;
+        margin: 0 0 -3rem 0;
+      }
+
+      .countdown {
+        top: 3.4rem;
+        right: 7.4rem;
+        font-size: 0.7rem;
+      }
+    }
   }
 }
 
@@ -182,16 +218,11 @@
       }
 
       .countdownImageWrapper {
-        .countdownImage {
-          width: 20rem;
-          margin: 0 0 -3rem 0;
-        }
+        display: none;
+      }
 
-        .countdown {
-          top: 3.4rem;
-          right: 7.4rem;
-          font-size: 0.7rem;
-        }
+      .countdownImageWrapperMobile {
+        display: inline;
       }
     }
   }
