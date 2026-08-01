@@ -163,11 +163,10 @@ $stmw: 956px; // small tablet max width
     justify-content: center;
     align-items: center;
     line-height: $mobileNav-line-height;
-    // mobile menu is hidden by positioning under fixed navbar by moving the top margin up; we open it by sliding it out w/ transition and changing margin-top to 0
+    // mobile menu is hidden by positioning under fixed navbar by moving the top margin up; we open it by sliding it out w/ transition (in index.tsx) and changing margin-top to 0
     margin-top:
       -1 * $num-navItems * ($mobileNav-line-height + $navItem-margin-bottom);
     border-bottom: $bottom-border-width solid vars.$proj-blue-2;
-    transition: margin-top 0.3s ease-in-out;
 
     a {
       text-decoration: none;
@@ -189,7 +188,6 @@ $stmw: 956px; // small tablet max width
       font-weight: 700;
       color: transparent;
       user-select: none;
-      transition: color 0.1s linear;
 
       &:hover {
         text-decoration: underline solid currentColor;
@@ -205,8 +203,6 @@ $stmw: 956px; // small tablet max width
 
     .gradientWrapper {
       height: $vert-padding * 2 + 5.06rem; // 3rem-tall project logo + 2.06rem top padding
-      // match transition from mobile nav slide-out
-      transition: height 0.3s ease-in-out;
 
       &.mobileNavOpen {
         height: ($vert-padding * 2 + 5.06rem) + ($num-navItems * ($mobileNav-line-height + $navItem-margin-bottom));

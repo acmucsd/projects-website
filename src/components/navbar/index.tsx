@@ -32,8 +32,16 @@ const NavigationBar: React.FC = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [gradientOffset, setGradientOffset] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    setIsTransitioning(true);
+
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 300);
+  }
 
   // close the mobile menu if no longer within mobile viewport width
   useEffect(() => {
@@ -58,7 +66,10 @@ const NavigationBar: React.FC = () => {
 
   return (
     <div className={s.navbarWrapper}>
-      <div className={`${s.gradientWrapper} ${menuOpen && s.mobileNavOpen}`}>
+      <div
+        className={`${s.gradientWrapper} ${menuOpen && s.mobileNavOpen}`}
+        style={isTransitioning ? {transition: "height 0.3s ease-in-out"} : {}}
+      >
         <Image
           className={s.gradient}
           src={mobileGrad ? GradientMobile : Gradient}
@@ -103,10 +114,19 @@ const NavigationBar: React.FC = () => {
       </div>
 
       {/* Mobile Menu Dropdown */}
-      <div className={`${s.mobileNav} ${menuOpen && s.open}`}>
+      <div
+        className={`${s.mobileNav} ${menuOpen && s.open}`}
+        style={
+          isTransitioning ? {transition: "margin-top 0.3s ease-in-out"} : {}
+        }
+      >
         {navLinks.map((link, key) => (
           <Link key={key} href={link.href}>
-            <p className={s.navItem} onClick={() => setMenuOpen(false)}>
+            <p
+              className={s.navItem}
+              onClick={() => setMenuOpen(false)}
+              style={isTransitioning ? {transition: "color 0.1s linear"} : {}}
+            >
               {link.label}
             </p>
           </Link>
