@@ -170,6 +170,22 @@
         }
       }
     }
+
+    .countdownImageWrapperMobile {
+      @extend .countdownImageWrapper;
+      display: none;
+
+      .countdownImage {
+        width: 20rem;
+        margin: 0 0 -3rem 0;
+      }
+
+      .countdown {
+        top: 3.4rem;
+        right: 7.4rem;
+        font-size: 0.7rem;
+      }
+    }
   }
 }
 
@@ -202,16 +218,11 @@
       }
 
       .countdownImageWrapper {
-        .countdownImage {
-          width: 20rem;
-          margin: 0 0 -3rem 0;
-        }
+        display: none;
+      }
 
-        .countdown {
-          top: 3.4rem;
-          right: 7.4rem;
-          font-size: 0.7rem;
-        }
+      .countdownImageWrapperMobile {
+        display: inline;
       }
     }
   }

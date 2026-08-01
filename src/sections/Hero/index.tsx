@@ -28,13 +28,14 @@ const Hero = () => {
         alt="Gradient"
       />
       <section className={styles.hero}>
-        <div className={styles.countdownImageWrapper} style={mobile ? {} : {display: "none"}}>
+        <div className={styles.countdownImageWrapperMobile}>
           <Image
             className={styles.countdownImage}
             src={CountdownImage}
             width={1162}
             height={1343}
             alt="Countdown"
+            priority={true}
           />
           <Countdown className={styles.countdown} />
         </div>
@@ -66,13 +67,14 @@ const Hero = () => {
             </a>
           </div>
         </div>
-        <div className={styles.countdownImageWrapper} style={mobile ? {display: "none"} : {}}>
+        <div className={styles.countdownImageWrapper}>
           <Image
             className={styles.countdownImage}
             src={CountdownImage}
             width={1162}
             height={1343}
             alt="Countdown"
+            priority={true}
           />
           <Countdown className={styles.countdown} />
         </div>
