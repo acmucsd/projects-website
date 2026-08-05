@@ -40,7 +40,6 @@ const Archive: React.FC = () => {
             </div>
             <div className={s.subheadingRow}>
                 <h2 className={s.subheading}>Highlighted Projects</h2>
-                <span className={s.dateLabel}>2023 – 2024</span>
             </div>
             <ProjectCards quarter={quarter} highlighted={true} subgroup={activeFilter}/>
             <div className={s.subheadingRow}>

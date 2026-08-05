@@ -100,10 +100,12 @@ const ProjectCards: React.FC<ProjectProps> = ({ quarter, highlighted, subgroup }
                             <a href={`/archive/${project.project_title.toLowerCase().replace(/\s+/g, "-")}`} className={`${s.exploreButton} ${config.color}`}>
                                 Explore Project
                             </a>
-                            <a href={project.project_link} className={s.repoButton} target="_blank" rel="noopener noreferrer">
-                                <img className={s.repoIcon} src={config.repoIcon} alt={config.repoLabel} />
-                                {config.repoLabel}
-                            </a>
+                            {project.project_link && (
+                                <a href={project.project_link} className={s.repoButton} target="_blank" rel="noopener noreferrer">
+                                    <img className={s.repoIcon} src={config.repoIcon} alt={config.repoLabel} />
+                                    {config.repoLabel}
+                                </a>
+                            )}
                         </div>
                     </div>
                 );
