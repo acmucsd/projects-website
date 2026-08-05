@@ -7,6 +7,7 @@ const FILTERS = [
     { label: 'Design', className: s.filterDesign },
     { label: 'Hack', className: s.filterHack },
     { label: 'AI', className: s.filterAI },
+    { label: 'Robotics', className: s.filterRobotics },
 ];
 
 const Archive: React.FC = () => {
@@ -41,11 +42,11 @@ const Archive: React.FC = () => {
                 <h2 className={s.subheading}>Highlighted Projects</h2>
                 <span className={s.dateLabel}>2023 – 2024</span>
             </div>
-            <ProjectCards quarter={quarter} highlighted={true}/>
+            <ProjectCards quarter={quarter} highlighted={true} subgroup={activeFilter}/>
             <div className={s.subheadingRow}>
                 <h2 className={s.subheading}>Other Projects</h2>
             </div>
-            <ProjectCards quarter={quarter} highlighted={false}/>
+            <ProjectCards quarter={quarter} highlighted={false} subgroup={activeFilter}/>
         </div>
     )
 }

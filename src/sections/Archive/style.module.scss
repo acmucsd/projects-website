@@ -23,6 +23,31 @@ $mmw: 530px; // mobile max width
     .container {
         padding: 3rem 3.1875rem;
     }
+
+    .headerRow {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+    }
+
+    .header {
+        text-align: center;
+        font-size: 1.75rem;
+        white-space: nowrap;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+        width: 100%;
+    }
+
+    .filterButton {
+        width: 55%;
+        text-align: center;
+        white-space: nowrap;
+    }
 }
 
 .headerRow {
@@ -84,6 +109,11 @@ $mmw: 530px; // mobile max width
     color: vars.$black;
 }
 
+.filterRobotics {
+    border-color: vars.$robotics-green;
+    color: vars.$black;
+}
+
 .filterActive {
     &.filterDesign {
         background-color: rgba(vars.$pink, 0.15);
@@ -93,6 +123,9 @@ $mmw: 530px; // mobile max width
     }
     &.filterAI {
         background-color: rgba(vars.$red, 0.15);
+    }
+    &.filterRobotics {
+        background-color: rgba(vars.$robotics-green, 0.15);
     }
 }
 
@@ -115,4 +148,19 @@ $mmw: 530px; // mobile max width
 .dateLabel {
     font-size: 1rem;
     color: vars.$dark-gray;
+}
+
+@media only screen and (max-width: $stmw) and (min-width: 531px) {
+    .filters {
+        align-self: stretch;
+        gap: 0.75rem;
+    }
+
+    .filterButton {
+        flex: 1;
+        padding: 0.5rem;
+        font-size: vars.calc-relative-size($mmw + 1px, 0.75rem, $stmw, 1rem);
+        white-space: nowrap;
+        text-align: center;
+    }
 }
