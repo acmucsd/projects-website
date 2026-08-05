@@ -69,12 +69,13 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ slug }) => {
                     </a>
                     {project.slides && (
                         <a href={project.slides} className={s.repoButton} target="_blank" rel="noopener noreferrer">
+                            <img className={s.repoIcon} src="/assets/embeds/slides.png" alt="Slides" />
                             Slides
                         </a>
                     )}
                     {project.other_links && (
                         <a href={project.other_links} className={s.repoButton} target="_blank" rel="noopener noreferrer">
-                            Live Demo
+                            Additional Link
                         </a>
                     )}
                 </div>
