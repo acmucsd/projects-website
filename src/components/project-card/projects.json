@@ -11,7 +11,8 @@
     "members": ["Greg Weber", "Julie Nguyen", "Josh Chen", "Tim Liu", "Gonzalo Allen-Perez", "Annie Ping"],
     "slides": "https://docs.google.com/presentation/d/1xPRnYbfmZHW8l7_jo7gmTAxowV3PmLO39MvzfHht_Dk/edit?usp=sharing",
     "project_link": "https://github.com/acmucsd-projects/sp23-hack-team-1",
-    "other_links": "https://codenames-acm.netlify.app/"
+    "other_links": "https://codenames-acm.netlify.app/",
+    "technology": null
   },
   {
     "id": "sp23-hack-2",
@@ -25,7 +26,8 @@
     "members": ["Calvin Nguyen", "Kane Li"],
     "slides": "https://docs.google.com/presentation/d/1W-3JfpnNEghKXsuuCe1638ZBUkyCkntRNy6yUnFhr_4/edit?usp=sharing",
     "project_link": "https://github.com/acmucsd-projects/sp23-hack-team-2",
-    "other_links": "https://ucsdgamed.onrender.com/"
+    "other_links": "https://ucsdgamed.onrender.com/",
+    "technology": null
   },
   {
     "id": "sp23-hack-3",
@@ -39,7 +41,8 @@
     "members": ["Gavyn Ezell", "Cho Jung (Angela) Tsai", "Qijun (Mary) Hu", "Jae Whan Lee", "Rachel Chau", "Willey Zhou"],
     "slides": "https://docs.google.com/presentation/d/1U93WsdyVuFDbvgWZ931oakEpL7zgzbZz8vNolmMZtFI/edit?usp=sharing",
     "project_link": "https://github.com/acmucsd-projects/sp23-hack-team-3",
-    "other_links": "https://www.figma.com/file/KqvP7N6lLUu8NnT2ZnYK3o/Eventify?type=design&node-id=0%3A1&mode=design&t=hnFUTSx4agxe4CNT-1"
+    "other_links": "https://www.figma.com/file/KqvP7N6lLUu8NnT2ZnYK3o/Eventify?type=design&node-id=0%3A1&mode=design&t=hnFUTSx4agxe4CNT-1",
+    "technology": null
   },
   {
     "id": "wi23-hack-1",
@@ -53,7 +56,8 @@
     "members": ["Angela Hu", "Nicholas Cheah", "Kinan Alatasi", "Alexis Vergnet", "Charvi Shukla", "Jason Wong"],
     "slides": "https://docs.google.com/presentation/d/1g0pEKT7Rx_hoZDnC27zxxPs2UqipDLffgUC0Z0v5xUE/edit?usp=sharing",
     "project_link": "https://github.com/acmucsd-projects/wi23-hack-team-1",
-    "other_links": "https://www.figma.com/file/lX9VzkvBHesJT4e2zK6LOr/IGFood-Web-App-Design?type=design&node-id=0%3A1&mode=design&t=Z6gg0vyLGspHj7r5-1"
+    "other_links": "https://www.figma.com/file/lX9VzkvBHesJT4e2zK6LOr/IGFood-Web-App-Design?type=design&node-id=0%3A1&mode=design&t=Z6gg0vyLGspHj7r5-1",
+    "technology": null
   },
   {
     "id": "wi23-design-1",
@@ -65,7 +69,8 @@
     "mentor": "Anmol",
     "members": ["Cindy Peng", "Thomas Wang", "Dianne Natanauan", "Amy To"],
     "slides": "https://docs.google.com/presentation/d/1eCxEr19T1yPc1zffcvXHE9n0KPUSUy6G87tE_Ub_9Fk/edit?usp=sharing",
-    "project_link": "https://www.figma.com/file/0r2ncVSKHqBY9pOQCGrHvq/Mobile-Order-Prototypes?type=design&node-id=0%3A1&t=33a883iMHphAA1U1-1"
+    "project_link": "https://www.figma.com/file/0r2ncVSKHqBY9pOQCGrHvq/Mobile-Order-Prototypes?type=design&node-id=0%3A1&t=33a883iMHphAA1U1-1",
+    "technology": null
   },
   {
     "id": "fa22-ai-1",
@@ -78,7 +83,8 @@
     "members": ["Jenny Mar", "Nitya Pillai", "Ada He", "Han Hoang", "Rushil Chandrupatla", "Serena Chen"],
     "slides": "https://docs.google.com/presentation/d/1qANpLZvhv5F0lOkbUxtlJU5UF4KqsDzuy0Dy6E2BG-0/edit?usp=sharing",
     "project_link": "https://github.com/acmucsd-projects/fa22-ai-team-1",
-    "other_links": "https://deepnote.com/join-team?token=02d34e715c9e4f6"
+    "other_links": "https://deepnote.com/join-team?token=02d34e715c9e4f6",
+    "technology": null
   },
   {
     "id": "fa22-ai-2",
@@ -91,7 +97,8 @@
     "members": ["Samvrit Srinath", "Calvin Nguyen", "Peter Gao", "Benjamin Johnson", "Skyler Goh", "Joon Kim"],
     "slides": "https://docs.google.com/presentation/d/1s7W3E9Wv5RXAzmgQYjCN166xycIJuxyFnCbs_IpVBlw/edit?usp=sharing",
     "project_link": "https://github.com/acmucsd-projects/fa22-ai-team-2",
-    "other_links": "https://colab.research.google.com/drive/1zfL2UtCyJnwAMzqeAAvfTigUU6rVxCca?usp=sharing"
+    "other_links": "https://colab.research.google.com/drive/1zfL2UtCyJnwAMzqeAAvfTigUU6rVxCca?usp=sharing",
+    "technology": null
   },
   {
     "id": "fa22-design-1",
@@ -103,6 +110,7 @@
     "mentor": "Anthony Manrique",
     "members": ["Tammy Ding", "Khoi Nguyen", "Caitlyn Cielo", "Sashwat Nayak"],
     "slides": "https://docs.google.com/presentation/d/1NBU4o8cFqalW_I9UUo_t_h7XsHVtjGcQ7hVZUzqO0qg/edit?usp=sharing",
-    "project_link": "https://www.figma.com/file/8kuHJXTZcIGVjm88OCYi1W/Final-Draft?type=design&node-id=1%3A2&t=K7vUmdAhPcQpWj6O-1"
+    "project_link": "https://www.figma.com/file/8kuHJXTZcIGVjm88OCYi1W/Final-Draft?type=design&node-id=1%3A2&t=K7vUmdAhPcQpWj6O-1",
+    "technology": null
   }
 ]

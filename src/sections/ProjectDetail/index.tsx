@@ -58,6 +58,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ slug }) => {
                 <div className={s.meta}>
                     <p><strong>Created by:</strong> {project.members.join(", ")}</p>
                     <p><strong>Mentored by:</strong> {project.mentor}</p>
+                    {project.technology && (
+                        <p><strong>Technology:</strong> {project.technology}</p>
+                    )}
                 </div>
 
                 <p className={s.description}>{project.description}</p>

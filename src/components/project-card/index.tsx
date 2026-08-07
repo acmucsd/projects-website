@@ -87,6 +87,9 @@ const ProjectCards: React.FC<ProjectProps> = ({ quarter, highlighted, subgroup }
                         <div className={s.projectDetails}>
                             <p><strong>Created by:</strong> {project.members.join(", ")}</p>
                             <p><strong>Mentored by:</strong> {project.mentor}</p>
+                            {project.technology && (
+                                <p><strong>Technology:</strong> {project.technology}</p>
+                            )}
                         </div>
 
                         <div
