@@ -19,11 +19,15 @@ const navLinks = [
   { href: "/about", label: "About" },
 ];
 
+interface NavigationBarProps {
+  gradientOn?: boolean;
+}
+
 const DESKTOP_GRADIENT_HEIGHT = 85 * 18; // 85rem for 18px font
 const MOBILE_GRADIENT_HEIGHT = 50 * 18; // 50rem for 18px font
 
 // Main navbar component
-const NavigationBar: React.FC = () => {
+const NavigationBar: React.FC<NavigationBarProps> = ({ gradientOn = false }) => {
   const size: Size = useWindowSize();
 
   // size.width !== undefined determines whether the viewport has rendered yet
@@ -70,16 +74,18 @@ const NavigationBar: React.FC = () => {
         className={`${s.gradientWrapper} ${menuOpen && s.mobileNavOpen}`}
         style={isTransitioning ? {transition: "height 0.3s ease-in-out"} : {}}
       >
-        <Image
-          className={s.gradient}
-          src={mobileGrad ? GradientMobile : Gradient}
-          width={1440}
-          height={1879}
-          alt="Gradient"
-          style={{
-            transform: `translateY(-${gradientOffset}px)`,
-          }}
-        />
+        { gradientOn &&
+          <Image
+            className={s.gradient}
+            src={mobileGrad ? GradientMobile : Gradient}
+            width={1440}
+            height={1879}
+            alt="Gradient"
+            style={{
+              transform: `translateY(-${gradientOffset}px)`,
+            }}
+          />
+        }
       </div>
       
       <div className={s.navbar}>

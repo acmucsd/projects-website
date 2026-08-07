@@ -11,7 +11,7 @@ import Timeline from "@/src/sections/Timeline";
 const Home: NextPage = () => {
   return (
     <main>
-      <NavigationBar />
+      <NavigationBar gradientOn={true} />
       <Hero />
       <Timeline />
       <FAQ />
