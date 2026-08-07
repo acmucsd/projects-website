@@ -4,14 +4,50 @@ import s from "./style.module.scss";
 import projects_data from "./projects.json";
 import highlighted_ids from "./highlighted.json";
 
-const SUBGROUP_CONFIG: Record<string, { logo: string; border: string; color: string; repoIcon: string; repoLabel: string }> = {
-    Design: { logo: "/assets/design.svg", border: s.borderDesign, color: s.colorDesign, repoIcon: "/assets/embeds/figma-icon.svg", repoLabel: "Figma" },
-    Hack: { logo: "/assets/hack.svg", border: s.borderHack, color: s.colorHack, repoIcon: "/assets/embeds/github-icon.svg", repoLabel: "GitHub File" },
-    AI: { logo: "/assets/ai.svg", border: s.borderAI, color: s.colorAI, repoIcon: "/assets/embeds/github-icon.svg", repoLabel: "GitHub File" },
-    Robotics: { logo: "/assets/robotics.svg", border: s.borderRobotics, color: s.colorRobotics, repoIcon: "/assets/embeds/github-icon.svg", repoLabel: "GitHub File" },
+const SUBGROUP_CONFIG: Record<string, {
+    logo: string;
+    border: string;
+    color: string;
+    repoIcon: string;
+    repoLabel: string;
+}> = {
+    Design: {
+        logo: "/assets/design.svg",
+        border: s.borderDesign,
+        color: s.colorDesign,
+        repoIcon: "/assets/embeds/figma-icon.svg",
+        repoLabel: "Figma",
+    },
+    Hack: {
+        logo: "/assets/hack.svg",
+        border: s.borderHack,
+        color: s.colorHack,
+        repoIcon: "/assets/embeds/github-icon.svg",
+        repoLabel: "GitHub File",
+    },
+    AI: {
+        logo: "/assets/ai.svg",
+        border: s.borderAI,
+        color: s.colorAI,
+        repoIcon: "/assets/embeds/github-icon.svg",
+        repoLabel: "GitHub File",
+    },
+    Robotics: {
+        logo: "/assets/robotics.svg",
+        border: s.borderRobotics,
+        color: s.colorRobotics,
+        repoIcon: "/assets/embeds/github-icon.svg",
+        repoLabel: "GitHub File",
+    },
 };
 
-const DEFAULT_CONFIG = { logo: "/assets/proj_logo.png", border: "", color: "", repoIcon: "/assets/embeds/github-icon.svg", repoLabel: "GitHub File" };
+const DEFAULT_CONFIG = {
+    logo: "/assets/proj_logo.png",
+    border: "",
+    color: "",
+    repoIcon: "/assets/embeds/github-icon.svg",
+    repoLabel: "GitHub File",
+};
 
 interface ProjectProps {
     quarter: string;
@@ -86,7 +122,7 @@ const ProjectCards: React.FC<ProjectProps> = ({ quarter, highlighted, subgroup }
 
                         <div className={s.projectDetails}>
                             <p><strong>Created by:</strong> {project.members.join(", ")}</p>
-                            <p><strong>Mentored by:</strong> {project.mentor}</p>
+                            <p><strong>Mentored by:</strong> {project.mentors.join(", ")}</p>
                             {project.technology && (
                                 <p><strong>Technology:</strong> {project.technology}</p>
                             )}

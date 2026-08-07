@@ -3,14 +3,50 @@ import Link from 'next/link';
 import s from './style.module.scss';
 import projects_data from '../../components/project-card/projects.json';
 
-const SUBGROUP_CONFIG: Record<string, { logo: string; border: string; color: string; repoIcon: string; repoLabel: string }> = {
-    Design:   { logo: "/assets/design.svg",    border: s.borderDesign,   color: s.colorDesign,   repoIcon: "/assets/embeds/figma-icon.svg", repoLabel: "Figma File" },
-    Hack:     { logo: "/assets/hack.svg",      border: s.borderHack,     color: s.colorHack,     repoIcon: "/assets/embeds/github-icon.svg", repoLabel: "GitHub File" },
-    AI:       { logo: "/assets/ai.svg",         border: s.borderAI,       color: s.colorAI,       repoIcon: "/assets/embeds/github-icon.svg", repoLabel: "GitHub File" },
-    Robotics: { logo: "/assets/robotics.svg",   border: s.borderRobotics, color: s.colorRobotics, repoIcon: "/assets/embeds/github-icon.svg", repoLabel: "GitHub File" },
+const SUBGROUP_CONFIG: Record<string, {
+    logo: string;
+    border: string;
+    color: string;
+    repoIcon: string;
+    repoLabel: string;
+}> = {
+    Design: {
+        logo: "/assets/design.svg",
+        border: s.borderDesign,
+        color: s.colorDesign,
+        repoIcon: "/assets/embeds/figma-icon.svg",
+        repoLabel: "Figma File",
+    },
+    Hack: {
+        logo: "/assets/hack.svg",
+        border: s.borderHack,
+        color: s.colorHack,
+        repoIcon: "/assets/embeds/github-icon.svg",
+        repoLabel: "GitHub File",
+    },
+    AI: {
+        logo: "/assets/ai.svg",
+        border: s.borderAI,
+        color: s.colorAI,
+        repoIcon: "/assets/embeds/github-icon.svg",
+        repoLabel: "GitHub File",
+    },
+    Robotics: {
+        logo: "/assets/robotics.svg",
+        border: s.borderRobotics,
+        color: s.colorRobotics,
+        repoIcon: "/assets/embeds/github-icon.svg",
+        repoLabel: "GitHub File",
+    },
 };
 
-const DEFAULT_CONFIG = { logo: "/assets/proj_logo.png", border: "", color: "", repoIcon: "/assets/embeds/github-icon.svg", repoLabel: "GitHub File" };
+const DEFAULT_CONFIG = {
+    logo: "/assets/proj_logo.png",
+    border: "",
+    color: "",
+    repoIcon: "/assets/embeds/github-icon.svg",
+    repoLabel: "GitHub File",
+};
 
 interface ProjectDetailProps {
     slug: string;
@@ -57,7 +93,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ slug }) => {
 
                 <div className={s.meta}>
                     <p><strong>Created by:</strong> {project.members.join(", ")}</p>
-                    <p><strong>Mentored by:</strong> {project.mentor}</p>
+                    <p><strong>Mentored by:</strong> {project.mentors.join(", ")}</p>
                     {project.technology && (
                         <p><strong>Technology:</strong> {project.technology}</p>
                     )}
