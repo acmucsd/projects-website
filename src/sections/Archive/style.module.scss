@@ -1,9 +1,140 @@
-@use "../../styles/vars.scss" as vars; // allows you to use pre-defined colors
+@use "../../styles/vars.scss" as vars;
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
-    padding-top: 3rem;
+    padding: 3rem vars.calc-relative-size(531px, 3.1875rem, 834px, 7.5rem);
 }
+
+.headerRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.header {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.project_selector {
+    appearance: none;
+    background: vars.$white url("/assets/chevron-down.svg") no-repeat right 0.75rem center;
+    border: 1.5px solid #5777C0;
+    border-radius: 0.75rem;
+    padding: 0.625rem 2rem 0.625rem 1.25rem;
+    font-size: 1rem;
+    color: vars.$black;
+    cursor: pointer;
+    outline: none;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-self: flex-start;
+    margin-bottom: 2rem;
+}
+
+.filterButton {
+    background: transparent;
+    border: 2px solid;
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.filterDesign {
+    border-color: vars.$pink;
+    color: vars.$black;
+}
+
+.filterHack {
+    border-color: vars.$orange;
+    color: vars.$black;
+}
+
+.filterAI {
+    border-color: vars.$red;
+    color: vars.$black;
+}
+
+.filterRobotics {
+    border-color: vars.$robotics-green;
+    color: vars.$black;
+}
+
+.filterActive {
+    &.filterDesign {
+        background-color: rgba(vars.$pink, 0.15);
+    }
+    &.filterHack {
+        background-color: rgba(vars.$orange, 0.15);
+    }
+    &.filterAI {
+        background-color: rgba(vars.$red, 0.15);
+    }
+    &.filterRobotics {
+        background-color: rgba(vars.$robotics-green, 0.15);
+    }
+}
+
+.subheadingRow {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    align-self: flex-start;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.subheading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: vars.$black;
+}
+
+.dateLabel {
+    font-size: 1rem;
+    color: vars.$dark-gray;
+}
+
+@media only screen and (max-width: 530px) {
+    .headerRow {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+    }
+
+    .header {
+        text-align: center;
+        font-size: 1.75rem;
+        white-space: nowrap;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+        width: 100%;
+    }
+
+    .filterButton {
+        width: 55%;
+        text-align: center;
+    }
+}
+
