@@ -3,7 +3,7 @@
 .container {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
     gap: 2rem;
 }
 
@@ -146,6 +146,7 @@
 
 .cardActions {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.75rem;
     align-items: center;
 }
