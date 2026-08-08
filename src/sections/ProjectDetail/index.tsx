@@ -32,7 +32,7 @@ const SUBGROUP_CONFIG: Record<string, {
         repoLabel: "GitHub File",
     },
     Robotics: {
-        logo: "/assets/robotics.svg",
+        logo: "/assets/robo.svg",
         border: s.borderRobotics,
         color: s.colorRobotics,
         repoIcon: "/assets/embeds/github-icon.svg",
