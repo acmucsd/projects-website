@@ -60,7 +60,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ slug }) => {
     if (!project) {
         return (
             <div className={s.container}>
-                <Link href="/archive" className={s.backLink}>Back to Archive</Link>
+                <Link href="/archive" className={s.backLink}>Project Archive</Link>
                 <h1 className={s.notFound}>Project not found</h1>
             </div>
         );
@@ -70,7 +70,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ slug }) => {
 
     return (
         <div className={s.container}>
-            <Link href="/archive" className={s.backLink}>Back to Archive</Link>
+            <Link href="/archive" className={s.backLink}>Project Archive</Link>
 
             <div className={`${s.detail} ${config.border}`}>
                 <div className={s.header}>
