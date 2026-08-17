@@ -5,7 +5,21 @@
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
+    padding: 3rem 7.5rem;
     padding: 3rem vars.calc-relative-size(531px, 3.1875rem, 834px, 7.5rem);
+}
+
+@media only screen and (max-width: 834px) {
+    .container {
+        padding: 3rem 3.1875rem;
+        padding: 3rem vars.calc-relative-size(531px, 3.1875rem, 834px, 7.5rem);
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    .container {
+        padding: 3rem 3.1875rem;
+    }
 }
 
 .headerRow {
