@@ -8,54 +8,46 @@ type CountdownProps = {
 };
 
 const Countdown = ({ className = "" }: CountdownProps) => {
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-  let countdownComponents : number[] = [days, hours, minutes, seconds];
+  const [timeLeft, setTimeLeft] = useState(0);
 
   useEffect(() => {
-    const target = new Date("10/02/2026 23:59:59");
+    const target = new Date("2026-10-02T23:59:59-07:00").getTime();
+    
+    setTimeLeft(target - Date.now());
 
     const interval = setInterval(() => {
-      const now = new Date();
-      const difference = target.getTime() - now.getTime();
+      const remaining = target - Date.now();
 
-      if (difference <= 0) {
-        setDays(0);
-        setHours(0);
-        setMinutes(0);
-        setSeconds(0);
-        countdownComponents = [days, hours, minutes, seconds];
+      if (remaining <= 0) {
+        setTimeLeft(0);
         clearInterval(interval);
       } else {
-        setDays(Math.floor(difference / (1000 * 60 * 60 * 24)));
-        setHours(
-          Math.floor(
-            (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-          )
-        );
-        setMinutes(
-          Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
-        );
-        setSeconds(Math.floor((difference % (1000 * 60)) / 1000));
-        countdownComponents = [days, hours, minutes, seconds];
+        setTimeLeft(remaining);
       }
-    }, 1000);
+    }, 100);
 
     return () => clearInterval(interval);
   }, []);
 
+  const displayTime = timeLeft > 0 ? timeLeft : 0;
+  const days = Math.floor(displayTime / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((displayTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((displayTime % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((displayTime % (1000 * 60)) / 1000);
+
+  const countdownComponents = [days, hours, minutes, seconds];
+
   return (
     <div className={`${styles.date} ${className}`}>
-      {countdownComponents.map((comp, key) => {
+      {countdownComponents.map((comp, compIdx) => {
         const digits = String(comp).padStart(2, '0').split('');
 
         return (
-          <span key={key}>
-            <span className={styles.digit}>{digits[0]}</span>
-            <span className={styles.digit}>{digits[1]}</span>
-            {key < 3 ? <span>:</span> : null}
+          <span key={compIdx}>
+            {digits.map((digit, digitIdx) =>
+              <span key={digitIdx} className={styles.digit}>{digit}</span>
+            )}
+            {compIdx < countdownComponents.length - 1 ? <span>:</span> : null}
           </span>
         );
       })}
