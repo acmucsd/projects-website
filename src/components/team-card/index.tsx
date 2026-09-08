@@ -19,7 +19,8 @@ const TeamCards: React.FC = () => {
     async function fetchBoard() {
       try {
         const response = await fetch(
-          "https://acmucsd.com/api/board?team=projects"
+          "https://acmucsd.com/api/board?team=projects",
+          { next: { revalidate: 3600 }}
         );
 
         if (!response.ok) {
