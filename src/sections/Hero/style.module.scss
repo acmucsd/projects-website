@@ -1,74 +1,229 @@
 @use "../../styles/vars.scss" as v; // allows you to use pre-defined colors
 
-.container {
-  min-height: 500px;
+.pageContent {
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-self: start;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.44rem 5.44rem;
 
   @media screen and (max-width: 768px) {
     align-items: flex-start;
+    padding-inline: 3rem;
   }
-}
 
-.hero {
-  margin: auto;
-  max-width: 1000px;
-  padding: 2rem;
-  font-size: 20px;
-  word-wrap: normal;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "about image"
-    "button image";
-  align-items: start;
-  justify-content: center;
-}
+  @media screen and (max-width: 500px) {
+    padding-inline: 1.69rem;
+  }
 
-@media screen and (max-width: 768px) {
+  .gradient {
+    position: absolute;
+    z-index: -10;
+    top: calc(-5.5rem + 4px);
+    left: 0;
+    width: 100%;
+    height: 85rem;
+    user-select: none;
+
+    @media screen and (max-width: 956px) {
+      top: calc(-6.5rem + 4px)
+    }
+
+    @media screen and (max-width: 920px) {
+      height: 50rem;
+    }
+  }
+
   .hero {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: v.$black;
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero_main {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.125rem;
+
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+
+        .titleLogo {
+          width: 8rem;
+          height: auto;
+          margin: 0;
+        }
+
+        .titleText {
+          font-size: 5rem;
+          font-weight: 700;
+          margin: 0;
+        }
+
+        @media screen and (max-width: 1500px) {
+          .titleLogo {
+            width: 6rem;
+          }
+
+          .titleText {
+            font-size: 4rem;
+          }
+        }
+
+        @media screen and (max-width: 1340px) {
+          gap: 0.8rem;
+
+          .titleLogo {
+            width: 4rem;
+          }
+
+          .titleText {
+            font-size: 3rem;
+          }
+        }
+
+        @media screen and (max-width: 965px) {
+          gap: 0.6rem;
+
+          .titleText {
+            font-size: 2.5rem;
+          }
+        }
+      }
+
+      .description {
+        margin-bottom: 1.75rem;
+      }
+
+      .button {
+        background-color: v.$proj-blue;
+        color: v.$white;
+        padding: 1rem 2.25rem;
+        border-radius: 0.625rem;
+        border-width: 0;
+        font-size: 1.2rem;
+        font-weight: 500;
+        cursor: pointer;
+
+        @media screen and (max-width: 1340px) {
+          padding: 0.7rem 1.8rem;
+          font-size: 1rem;
+        }
+
+        @media screen and (max-width: 768px) {
+          justify-content: center;
+          align-self: center;
+        }
+      }
+    }
+
+    .countdownImageWrapper {
+      flex: 0 0 auto;
+      position: relative;
+      margin: 0 -5rem 0 -6rem;
+
+      .countdownImage {
+        width: 42rem;
+        height: auto;
+        margin: -0.5rem 0 -10rem 0;
+        user-select: none;
+      }
+
+      .countdown {
+        position: absolute;
+        top: 7.5rem;
+        right: 16.1rem;
+        transform: perspective(1000px) rotateX(-43deg) rotateY(-43deg);
+        transform-style: preserve-3d;
+      }
+
+      @media screen and (max-width: 1190px) {
+        .countdownImage {
+          width: 35rem;
+        }
+
+        .countdown {
+          top: 6rem;
+          right: 13rem;
+          font-size: 1.2rem;
+        }
+      }
+
+      @media screen and (max-width: 1055px) {
+        .countdownImage {
+          width: 30rem;
+        }
+
+        .countdown {
+          top: 4.9rem;
+          right: 11.2rem;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .countdownImageWrapperMobile {
+      @extend .countdownImageWrapper;
+      display: none;
+
+      .countdownImage {
+        width: 20rem;
+        margin: 0 0 -3rem 0;
+      }
+
+      .countdown {
+        top: 3.4rem;
+        right: 7.4rem;
+        font-size: 0.7rem;
+      }
+    }
   }
 }
 
-.title {
-  font-size: 56px;
-  font-weight: 200;
-}
+@media screen and (max-width: 920px) {
+  .pageContent {
+    .hero {
+      flex-direction: column;
 
-.hero_text {
-  grid-area: about;
-}
+      .hero_main {
+        align-items: center;
 
-.image {
-  grid-area: image;
-  border-radius: 10px;
-}
+        .title {
+          .titleLogo {
+            display: none;
+          }
 
-.button {
-  background-color: v.$acm-blue;
-  color: v.$white;
-  padding: 12px 30px;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  border-width: 0;
-  grid-area: button;
-}
+          .titleText {
+            font-size: 1.875rem;
+          }
+        }
 
-.deadline {
-  padding-top: 1rem;
-  font-size: 16px;
-  font-weight: 700;
-}
+        .description {
+          margin-bottom: 2.5rem;
+          text-align: center;
+        }
 
-@media screen and (max-width: 768px) {
-  .button {
-    justify-content: center;
-    align-self: center;
+        .button {
+          padding: 0.625rem 2.5rem;
+        }
+      }
+
+      .countdownImageWrapper {
+        display: none;
+      }
+
+      .countdownImageWrapperMobile {
+        display: inline;
+      }
+    }
   }
 }

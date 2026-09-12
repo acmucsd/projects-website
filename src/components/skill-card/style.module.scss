@@ -1,0 +1,87 @@
+@use "../../styles/vars.scss" as vars;
+
+$stmw: 956px; // small tablet/mobile max width
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 2rem;
+    place-items: center;
+    .card {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        border: 4px solid;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        padding-top: 2rem;
+        background-color: vars.$white;
+        height: 32rem;
+        width: 24rem;
+
+        &.borderDesign {
+            border-color: vars.$pink;
+        }
+
+        &.borderHack {
+            border-color: vars.$orange;
+        }
+
+        &.borderAI {
+            border-color: vars.$red;
+        }
+
+        &.borderRobotics {
+            border-color: vars.$robotics-green;
+        }
+
+        .subteam {
+            &.colorDesign {
+                color: vars.$pink;
+            }
+
+            &.colorHack {
+                color: vars.$orange;
+            }
+
+            &.colorAI {
+                color: vars.$red;
+            }
+
+            &.colorRobotics {
+                color: vars.$robotics-green;
+            }
+            margin-bottom: 0.3rem;
+            font-size: 14px;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: xx-large;
+            margin-bottom: 0.3rem;
+        }
+
+        .description {
+            height: 4lh;
+        }
+    }
+}
+
+@media only screen and (max-width: $stmw) {
+    .container {
+        grid-template-columns: 1fr;
+        .card {
+            width: 22rem;
+            height: 20rem;
+            .skillIcon {
+                width: 8rem;
+                height: 8rem;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
