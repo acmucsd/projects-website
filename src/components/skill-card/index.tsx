@@ -44,15 +44,13 @@ const SkillCards = () => {
           <div className={`${s.subteam} ${skill.color}`}>
             ACM {skill.subteam}
           </div>
-          <div className={s.title}>
-            <h2>
-              {skill.title}
-            </h2>
-          </div>
+          <h2 className={s.title}>
+            {skill.title}
+          </h2>
           <div className={s.description}>
             {skill.description}
           </div>
-          <div>
+          <div className={s.skillIcon}>
             <Image
               alt=""
               src={skill.image}
