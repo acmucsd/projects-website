@@ -54,6 +54,7 @@ $mmmw: 375px; // medium mobile max width
     .navLinks {
       display: flex;
       flex-direction: row;
+      flex-grow: 0.3;
       justify-content: space-between;
       // finds gap size from line between points (1332px, 5rem) and
       // (1844px, 15rem)
