@@ -31,8 +31,8 @@ const skills_data = [
         "title": "AI Projects",
         "description": "No experience is necessary. AI projects typically use Github, CoLab, and Google Slides.",
         "image": "/assets/embeds/colab-icon.svg",
-        "color": s.colorHack,
-        "border": s.borderHack,
+        "color": s.colorAI,
+        "border": s.borderAI,
     }
 ]
 
