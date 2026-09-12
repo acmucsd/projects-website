@@ -15,6 +15,28 @@ $stmw: 956px; // small tablet/mobile max width
     }
 }
 
+
+.card {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    border: 4px solid;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    padding-top: 3rem;
+    background-color: vars.$white;
+    height: 32rem;
+    width: 24rem;
+}
+
+@media only screen and (max-width: $stmw) {
+    .card {
+        width: 20rem;
+    }
+}
+
+
 .colorDesign { // duplication in project-card style, TODO: consolidate
     color: vars.$pink;
 }
@@ -46,27 +68,6 @@ $stmw: 956px; // small tablet/mobile max width
 .borderRobotics {
     border-color: vars.$robotics-green;
 }
-
-.card {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    border: 4px solid;
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-    padding-top: 3rem;
-    background-color: vars.$white;
-    height: 32rem;
-    width: 24rem;
-}
-
-@media only screen and (max-width: $stmw) {
-    .card {
-        width: 24rem;
-    }
-}
-
 .subteam {
     margin-bottom: 0.3rem;
     font-size: 14px;
@@ -79,27 +80,4 @@ $stmw: 956px; // small tablet/mobile max width
 .title > h2 {
     font-weight: bold;
     font-size: xx-large;
-}
-
-.borderDesign {
-    border-color: vars.$pink;
-}
-
-.borderHack {
-    border-color: vars.$orange;
-}
-
-.borderAI {
-    border-color: vars.$red;
-}
-
-.borderRobotics {
-    border-color: vars.$robotics-green;
-}
-
-.cardHeader {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
 }
