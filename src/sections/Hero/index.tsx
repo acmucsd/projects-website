@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import styles from "./style.module.scss";
-import Description from "../description";
 import Countdown from "../../components/countdown";
 import { Size, useWindowSize } from "../../utils/general";
 
@@ -79,7 +78,6 @@ const Hero = () => {
           <Countdown className={styles.countdown} />
         </div>
       </section>
-      <Description />
     </div>
   );
 };

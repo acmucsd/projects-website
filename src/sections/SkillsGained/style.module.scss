@@ -1,0 +1,24 @@
+@use "../../styles/vars.scss" as v;
+
+$stmw: 956px; // small tablet/mobile max width
+
+.heading {
+  font-size: 2.25rem;
+  font-weight: 800;
+  align-self: center;
+  margin-bottom: 2rem;
+}
+
+.container {
+  width: 100%;
+  padding: 2rem 7.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: $stmw) {
+    .container {
+      padding: 0px;
+    }
+}
