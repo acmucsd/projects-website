@@ -1,0 +1,25 @@
+{
+  "applyLink": "https://acmurl.com/projects-app",
+  "events": [
+    {
+      "label": "Application\nOpens",
+      "date": "Wednesday, September 24, 2026",
+      "description": "Applications are now open! Submit your application to join ACM Projects for the Fall 2026 quarter."
+    },
+    {
+      "label": "Application\nDeadline",
+      "date": "Friday, October 2, 2026",
+      "description": "Last day to submit your application. Make sure to apply before 11:59 PM!"
+    },
+    {
+      "label": "Decisions",
+      "date": "Thursday, October 9, 2026",
+      "description": "Decisions will be released. Check your email for your acceptance status."
+    },
+    {
+      "label": "Final\nShowcase",
+      "date": "Tuesday, January 13, 2027",
+      "description": "Present your completed project to the community at the Final Showcase!"
+    }
+  ]
+}
