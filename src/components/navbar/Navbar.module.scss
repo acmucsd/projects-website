@@ -4,7 +4,7 @@ $bottom-border-width: 4px;
 // the next 3 variables exist to calculate the initial position of the mobile nav dropdown (determined via its height relative to its contents) so that it is positioned off-screen
 $mobileNav-line-height: 3rem;
 $navItem-margin-bottom: 0.5rem;
-$num-navItems: 5; // change this according to how many navlinks there are
+$num-navItems: 3; // change this according to how many navlinks there are
 $stmw: 956px; // small tablet max width
 
 // Base styles (Regular desktop view)
@@ -105,7 +105,7 @@ $stmw: 956px; // small tablet max width
         // finds gap size from line between points (957px, 2rem) and
         // (1488px, 5rem)
         gap: vars.calc-relative-size($stmw + 1px, 2rem, 1488px, 5rem);
-        column-gap: 3.25rem;
+        column-gap: 5rem;
       }
 
       // toggle button for mobile menu is only visible on mobile, otherwise hidden

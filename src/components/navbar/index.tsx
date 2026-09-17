@@ -12,11 +12,9 @@ const GradientMobile = "/assets/hero-gradient-mobile.png";
 
 // Nav link properties
 const navLinks = [
-  { href: "/archive", label: "Archive" },
-  { href: "/resources", label: "Resources" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/events", label: "Events" },
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/archive", label: "Archive" },
 ];
 
 const DESKTOP_GRADIENT_HEIGHT = 85 * 18; // 85rem for 18px font
