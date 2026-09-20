@@ -3,53 +3,22 @@ import Link from 'next/link';
 import s from './style.module.scss';
 import projects_data from '../../components/project-card/projects.json';
 import highlighted_ids from '../../components/project-card/highlighted.json';
+import { SUBGROUP_ORDER, SUBGROUP_META, DEFAULT_META } from '../../components/project-card/subgroup-config';
 
-const SUBGROUP_ORDER = ['Hack', 'AI', 'Design', 'Robotics'];
-
-const SUBGROUP_CONFIG: Record<string, {
-  logo: string;
-  border: string;
-  button: string;
-  repoIcon: string;
-  repoLabel: string;
-}> = {
-  Design: {
-    logo: "/assets/design.svg",
-    border: s.borderDesign,
-    button: s.buttonDesign,
-    repoIcon: '/assets/embeds/figma-icon.svg',
-    repoLabel: 'Figma'
-  },
-  Hack: {
-    logo: "/assets/hack.svg",
-    border: s.borderHack,
-    button: s.buttonHack,
-    repoIcon: '/assets/embeds/github-icon.svg',
-    repoLabel: 'GitHub File'
-  },
-  AI: {
-    logo: "/assets/ai.svg",
-    border: s.borderAI,
-    button: s.buttonAI,
-    repoIcon: '/assets/embeds/github-icon.svg',
-    repoLabel: 'GitHub File'
-  },
-  Robotics: {
-    logo: "/assets/robo.svg",
-    border: s.borderRobotics,
-    button: s.buttonRobotics,
-    repoIcon: '/assets/embeds/github-icon.svg',
-    repoLabel: 'GitHub File'
-  },
+// style-independent data b/c the css is different between files
+const SUBGROUP_STYLE: Record<string, { border: string; button: string }> = {
+  Design: { border: s.borderDesign, button: s.buttonDesign },
+  Hack: { border: s.borderHack, button: s.buttonHack },
+  AI: { border: s.borderAI, button: s.buttonAI },
+  Robotics: { border: s.borderRobotics, button: s.buttonRobotics },
 };
 
-const DEFAULT_CONFIG = {
-  logo: "/assets/proj_logo.png",
-  border: "",
-  color: "",
-  repoIcon: "/assets/embeds/github-icon.svg",
-  repoLabel: "GitHub File",
-};
+const DEFAULT_STYLE = { border: "", button: "" };
+
+const getConfig = (subgroup: string) => ({
+  ...(SUBGROUP_META[subgroup] ?? DEFAULT_META),
+  ...(SUBGROUP_STYLE[subgroup] ?? DEFAULT_STYLE),
+});
 
 const highlightedProjects = projects_data.filter((project) => highlighted_ids.includes(project.id));
 
@@ -66,7 +35,7 @@ const HomePastProjects: React.FC = () => {
       <h1 className={s.header}>See Past Projects</h1>
       <div className={s.list}>
         {displayProjects.map((project) => {
-          const config = SUBGROUP_CONFIG[project.subgroup];
+          const config = getConfig(project.subgroup);
           const slug = project.project_title.toLowerCase().replace(/\s+/g, '-');
           return (
             <div className={s.row} key={project.id}>

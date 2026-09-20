@@ -3,51 +3,22 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 import s from "./style.module.scss";
 import projects_data from "./projects.json";
 import highlighted_ids from "./highlighted.json";
+import { SUBGROUP_META, DEFAULT_META } from "./subgroup-config";
 
-const SUBGROUP_CONFIG: Record<string, {
-    logo: string;
-    border: string;
-    color: string;
-    repoIcon: string;
-    repoLabel: string;
-}> = {
-    Design: {
-        logo: "/assets/design.svg",
-        border: s.borderDesign,
-        color: s.colorDesign,
-        repoIcon: "/assets/embeds/figma-icon.svg",
-        repoLabel: "Figma",
-    },
-    Hack: {
-        logo: "/assets/hack.svg",
-        border: s.borderHack,
-        color: s.colorHack,
-        repoIcon: "/assets/embeds/github-icon.svg",
-        repoLabel: "GitHub File",
-    },
-    AI: {
-        logo: "/assets/ai.svg",
-        border: s.borderAI,
-        color: s.colorAI,
-        repoIcon: "/assets/embeds/github-icon.svg",
-        repoLabel: "GitHub File",
-    },
-    Robotics: {
-        logo: "/assets/robo.svg",
-        border: s.borderRobotics,
-        color: s.colorRobotics,
-        repoIcon: "/assets/embeds/github-icon.svg",
-        repoLabel: "GitHub File",
-    },
+// style-independent data b/c the css is different between files
+const SUBGROUP_STYLE: Record<string, { border: string; color: string }> = {
+    Design: { border: s.borderDesign, color: s.colorDesign },
+    Hack: { border: s.borderHack, color: s.colorHack },
+    AI: { border: s.borderAI, color: s.colorAI },
+    Robotics: { border: s.borderRobotics, color: s.colorRobotics },
 };
 
-const DEFAULT_CONFIG = {
-    logo: "/assets/proj_logo.png",
-    border: "",
-    color: "",
-    repoIcon: "/assets/embeds/github-icon.svg",
-    repoLabel: "GitHub File",
-};
+const DEFAULT_STYLE = { border: "", color: "" };
+
+const getConfig = (subgroup: string) => ({
+    ...(SUBGROUP_META[subgroup] ?? DEFAULT_META),
+    ...(SUBGROUP_STYLE[subgroup] ?? DEFAULT_STYLE),
+});
 
 interface ProjectProps {
     quarter: string;
@@ -99,7 +70,7 @@ const ProjectCards: React.FC<ProjectProps> = ({ quarter, highlighted, subgroup }
     return (
         <div className={s.container}>
             {projects.map((project, index) => {
-                const config = SUBGROUP_CONFIG[project.subgroup] ?? DEFAULT_CONFIG;
+                const config = getConfig(project.subgroup);
                 return (
                     <div className={`${s.card} ${config.border}`} key={project.id}>
                         <div className={s.cardHeader}>
