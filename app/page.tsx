@@ -6,6 +6,7 @@ import NavigationBar from "@/src/components/navbar";
 import Hero from "@/src/sections/Hero";
 import SkillsGained from "@/src/sections/SkillsGained";
 import Timeline from "@/src/sections/Timeline";
+import HomePastProjects from "@/src/sections/Home-Past-Projects";
 import FAQ from "@/src/sections/FAQ";
 import Footer from "@/src/components/footer";
 // here we will compile all the sections of the website together
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
       <NavigationBar gradientOn={true} />
       <Hero />
       <SkillsGained />
+      <HomePastProjects />
       <Timeline />
       <FAQ />
       <Footer />
