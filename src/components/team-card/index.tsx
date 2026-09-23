@@ -4,9 +4,20 @@ import Image from "next/image";
 
 const default_pic = "/assets/acm_logo.png";
 
+const getBorderClass = (title: string) => {
+  const position = title.toLowerCase();
+
+  if (position.includes("robotics")) return "borderRobotics";
+  if (position.includes("design")) return "borderDesign";
+  if (position.includes("hack")) return "borderHack";
+  if (position.includes("ai")) return "borderAi";
+  return "borderProjects";
+};
+
 interface BoardMember {
   name: string;
   title: string;
+  description?: string | null;
   profile_image: string;
   linkedin_link: string | null;
   discord: string | null;
@@ -41,38 +52,63 @@ const TeamCards: React.FC = () => {
   return (
     <div className={s.container}>
       {board.map((person, index) => (
-        <div className={`${s.personItem}`} key={index}>
-          {/* right now I am manually cropping to 3:4 */}
-          <img
-            className={s.profilePic}
-            src={person.profile_image || default_pic}
-            alt={`${person.name}'s Picture`}
-          />
+        <div
+          className={`${s.personItem} ${s[getBorderClass(person.title)]}`}
+          key={index}
+        >
+          <div className={s.picContainer}>
+            <img
+              className={s.profilePic}
+              src={person.profile_image || default_pic}
+              alt={`${person.name}'s Picture`}
+            />
+          </div>
           {/* trying to set the picture so that it automatically goes to 3:4 aspect ratio with Image, but doesnt work */}
           {/* <div className={s.picContainer}>
                         <Image src={person.picture || default_pic} alt={person.alt} fill sizes='100vw' />
                     </div> */}
           <div className={s.textContainer}>
             <h3 className={s.personName}>{person.name}</h3>
-            <div className={s.logo_text}>
-              <Image
-                className={s.icon}
-                src="assets/embeds/role_icon.svg"
-                alt="role icon"
-                width={20}
-                height={20}
-              />
-              <h5>{person.title}</h5>
+            {person.description ? (
+              <p className={s.description}>{person.description}</p>
+            ) : null}
+            <div className={s.role_text}>
+              <h5>
+                <span>Role: </span>
+                <strong>{person.title}</strong>
+              </h5>
             </div>
-            <div className={s.logo_text}>
-              <Image
-                className={s.icon}
-                src="assets/embeds/discord.svg"
-                alt="discord icon"
-                width={20}
-                height={20}
-              />
-              <h5>{person.discord}</h5>
+            <div className={s.social_links}>
+              <div className={s.logo_text}>
+                <Image
+                  className={s.icon}
+                  src="assets/embeds/discord.svg"
+                  alt="discord icon"
+                  width={20}
+                  height={20}
+                />
+                <h5>{person.discord}</h5>
+              </div>
+              {person.linkedin_link ? (
+                <div className={s.logo_text}>
+                  <Image
+                    className={s.icon}
+                    src="assets/embeds/linkedin_blue.svg"
+                    alt="LinkedIn icon"
+                    width={20}
+                    height={20}
+                  />
+                  <h5>
+                    <a
+                      href={person.linkedin_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      LinkedIn
+                    </a>
+                  </h5>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
