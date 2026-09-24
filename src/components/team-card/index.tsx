@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import s from "./style.module.scss";
 import Image from "next/image";
 
-const default_pic = "/assets/acm_logo.png";
-
 const getBorderClass = (title: string) => {
   const position = title.toLowerCase();
 
@@ -67,15 +65,17 @@ const TeamCards: React.FC = () => {
           key={index}
         >
           <div className={s.picContainer}>
-            <img
-              className={s.profilePic}
-              src={person.profile_image || default_pic}
-              alt={`${person.name}'s Picture`}
-            />
+            {person.profile_image ? (
+              <img
+                className={s.profilePic}
+                src={person.profile_image}
+                alt={`${person.name}'s Picture`}
+              />
+            ) : null}
           </div>
           {/* trying to set the picture so that it automatically goes to 3:4 aspect ratio with Image, but doesnt work */}
           {/* <div className={s.picContainer}>
-                        <Image src={person.picture || default_pic} alt={person.alt} fill sizes='100vw' />
+                  <Image src={person.profile_image} alt={`${person.name}'s Picture`} fill sizes='100vw' />
                     </div> */}
           <div className={s.textContainer}>
             <Image
@@ -100,7 +100,7 @@ const TeamCards: React.FC = () => {
               <div className={s.logo_text}>
                 <Image
                   className={s.icon}
-                  src="assets/embeds/discord.svg"
+                  src="assets/embeds/discord_solid.svg"
                   alt="discord icon"
                   width={20}
                   height={20}
