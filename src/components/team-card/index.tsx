@@ -108,7 +108,7 @@ const TeamCards: React.FC = () => {
                 <h5>{person.discord}</h5>
               </div>
               {person.linkedin_link ? (
-                <div className={s.logo_text}>
+                <div className={`${s.logo_text} ${s.linkedin_text}`}>
                   <Image
                     className={s.icon}
                     src="assets/embeds/linkedin_blue.svg"

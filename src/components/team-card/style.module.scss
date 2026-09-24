@@ -78,7 +78,7 @@
         border-top-color: inherit;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-        padding: 3rem 2rem 3rem;
+        padding: 3rem 1.5rem 3rem;
         margin: -5px 0 0;
         position: relative;
         z-index: 1;
@@ -107,6 +107,7 @@
             h5 {
                 margin-left: 0.25rem;
                 color: vars.$dark-gray;
+                font-size: small;
             }
         }
 
@@ -134,6 +135,10 @@
 
             > .logo_text {
                 flex: 0 0 50%;
+            }
+
+            .linkedin_text {
+                justify-content: flex-end;
             }
         }
     }
