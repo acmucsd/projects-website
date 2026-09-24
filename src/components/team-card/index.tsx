@@ -14,6 +14,16 @@ const getBorderClass = (title: string) => {
   return "borderProjects";
 };
 
+const getTeamLogo = (title: string) => {
+  const position = title.toLowerCase();
+
+  if (position.includes("robotics")) return "/assets/robo.svg";
+  if (position.includes("design")) return "/assets/design.svg";
+  if (position.includes("hack")) return "/assets/hack.svg";
+  if (position.includes("ai")) return "/assets/ai.svg";
+  return "/assets/proj_logo.svg";
+};
+
 interface BoardMember {
   name: string;
   title: string;
@@ -30,7 +40,7 @@ const TeamCards: React.FC = () => {
     async function fetchBoard() {
       try {
         const response = await fetch(
-          "https://acmucsd.com/api/board?team=projects",
+          "http://localhost:3001/api/board?team=projects",
           { next: { revalidate: 3600 }}
         );
 
@@ -68,6 +78,14 @@ const TeamCards: React.FC = () => {
                         <Image src={person.picture || default_pic} alt={person.alt} fill sizes='100vw' />
                     </div> */}
           <div className={s.textContainer}>
+            <Image
+              className={s.teamLogo}
+              src={getTeamLogo(person.title)}
+              alt=""
+              width={96}
+              height={96}
+              aria-hidden="true"
+            />
             <h3 className={s.personName}>{person.name}</h3>
             {person.description ? (
               <p className={s.description}>{person.description}</p>

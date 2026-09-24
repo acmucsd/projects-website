@@ -23,7 +23,7 @@
         padding-bottom: 0.5rem;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         width: 18rem;
-        height: 26rem;
+        height: 28rem;
         box-sizing: border-box;
     }
 
@@ -78,12 +78,21 @@
         border-top-color: inherit;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-        padding: 0.75rem 2rem 0.5rem;
+        padding: 3rem 2rem 3rem;
         margin: -5px 0 0;
         position: relative;
         z-index: 1;
         flex: 1;
         min-height: 0;
+        
+        .teamLogo {
+            position: absolute;
+            width: 5rem;
+            height: 5rem;
+            top: -2.5rem;
+            left: 3rem;
+            z-index: 2;
+        }
 
         .logo_text {
             display: flex;
@@ -154,7 +163,6 @@
 
     .picContainer {
         position: relative;
-        width: 18rem;
         height: 18rem;
         flex: 0 0 auto;
         overflow: hidden;
