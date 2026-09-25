@@ -104,6 +104,13 @@
         margin-bottom: 1.75rem;
       }
 
+      .application {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 1rem;
+      }
+
       .button {
         background-color: v.$proj-blue;
         color: v.$white;

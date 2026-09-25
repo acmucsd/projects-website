@@ -12,6 +12,7 @@ const GradientMobile = "/assets/hero-gradient-mobile.png";
 
 const Hero = () => {
   const projects_app = "https://acmurl.com/projects-app";
+  const mentor_app = "https://acmurl.com/mentor-app";
 
   const size: Size = useWindowSize();
 
@@ -64,6 +65,9 @@ const Hero = () => {
                 Apply Now
                 {/* Close */}
               </button>
+            </a>
+            <a href={mentor_app} target="_blank">
+              <button className={styles.button}>Mentor Application</button>
             </a>
           </div>
         </div>
