@@ -58,12 +58,13 @@ const Hero = () => {
             <h1 className={styles.titleText}>ACM Projects</h1>
           </div>
           <p className={styles.description}>
-            ACM Projects is our quarterly projects program where students work
-            in a tight knit team. The program gives students the opportunity
-            to be hands-on outside of courses in fields such as AI, design,
-            and software engineering. The program culminates in a projects
-            showcase and the finished product looks great on resumes. We
-            welcome all skill levels to apply!
+          ACM Projects is our quarterly project program where students collaborate in
+          close-knit teams alongside dedicated mentors. It’s an opportunity to gain 
+          hands-on experience beyond the classroom while exploring fields like AI, 
+          design, software engineering, and robotics. The program culminates in a 
+          projects showcase, giving teams the chance to share what they’ve built. 
+          Whether you’re a beginner or an experienced builder, all skill levels are 
+          welcome to apply!
           </p>
           <div className={styles.application}>
             <p className={styles.applicationDeadline}>
