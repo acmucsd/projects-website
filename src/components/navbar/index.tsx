@@ -12,9 +12,11 @@ const GradientMobile = "/assets/hero-gradient-mobile.png";
 
 // Nav link properties
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/archive", label: "Archive" },
+  { href: "/resources", label: "Resources" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/events", label: "Events" },
+  { href: "/about", label: "About" },
 ];
 
 interface NavigationBarProps {
