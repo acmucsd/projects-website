@@ -13,15 +13,15 @@ const skills_data = [
     {
         "subteam": "Robotics",
         "title": "Robotics Projects",
-        "description": "No experience is necessary. Robotics projects typically use Arduino.",
-        "image": "/assets/embeds/arduino-icon.svg",
+        "description": "No experience is necessary. Robotics projects typically use Python, Arduino, and GitHub.",
+        "image": "/assets/embeds/python-icon.svg",
         "color": s.colorRobotics,
         "border": s.borderRobotics,
     },
     {
         "subteam": "Design",
         "title": "Design Projects",
-        "description": "No experience is necessary. Design projects typically use Figma, FigJam, and Google Slides.",
+        "description": "No experience is necessary. Design projects typically use Figma and Google Workspace.",
         "image": "/assets/embeds/figma-icon.svg",
         "color": s.colorDesign,
         "border": s.borderDesign,
@@ -29,8 +29,8 @@ const skills_data = [
     {
         "subteam": "AI",
         "title": "AI Projects",
-        "description": "No experience is necessary. AI projects typically use Github, CoLab, and Google Slides.",
-        "image": "/assets/embeds/colab-icon.svg",
+        "description": "No experience is necessary. AI projects typically use Python, Kaggle, and GitHub.",
+        "image": "/assets/embeds/pytorch-icon.svg",
         "color": s.colorAI,
         "border": s.borderAI,
     }
