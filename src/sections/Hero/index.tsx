@@ -93,7 +93,6 @@ const Hero = () => {
           <Countdown className={styles.countdown} />
         </div>
       </section>
-      <Description />
     </div>
   );
 };
