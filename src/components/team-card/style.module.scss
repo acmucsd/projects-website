@@ -25,6 +25,7 @@
         width: 18rem;
         height: 28rem;
         box-sizing: border-box;
+        overscroll-behavior: auto;
     }
 
     .borderRobotics {
@@ -90,7 +91,7 @@
             width: 5rem;
             height: 5rem;
             top: -2.5rem;
-            left: 3rem;
+            left: 1.5rem;
             z-index: 2;
         }
 
@@ -172,6 +173,7 @@
         flex: 0 0 auto;
         overflow: hidden;
         background-color: #666666;
+        overscroll-behavior: auto;
     }
 }
 

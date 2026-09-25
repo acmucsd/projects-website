@@ -38,7 +38,7 @@ const TeamCards: React.FC = () => {
     async function fetchBoard() {
       try {
         const response = await fetch(
-          "https://acmucsd.com/api/board?team=projects",
+          "http://localhost:3001/api/board?team=projects",
           { next: { revalidate: 3600 }}
         );
 
