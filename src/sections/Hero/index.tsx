@@ -1,7 +1,10 @@
 "use client";
 import Image from "next/image";
 import styles from "./style.module.scss";
-import Countdown from "../../components/countdown";
+import Description from "../description";
+import Countdown, {
+  APPLICATION_DEADLINE,
+} from "../../components/countdown";
 import { Size, useWindowSize } from "../../utils/general";
 
 const ProjLogo = "/assets/proj_logo.svg";
@@ -11,6 +14,12 @@ const GradientMobile = "/assets/hero-gradient-mobile.png";
 
 const Hero = () => {
   const projects_app = "https://acmurl.com/projects-app";
+  const mentor_app = "https://acmurl.com/mentor-app";
+  const formattedDeadline = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(APPLICATION_DEADLINE);
 
   const size: Size = useWindowSize();
 
@@ -58,11 +67,17 @@ const Hero = () => {
             welcome all skill levels to apply!
           </p>
           <div className={styles.application}>
+            <p className={styles.applicationDeadline}>
+              Applications Due 11:59 PM (PST) on {formattedDeadline}
+            </p>
             <a href={projects_app} target="_blank">
               <button className={styles.button}>
                 Apply Now
                 {/* Close */}
               </button>
+            </a>
+            <a href={mentor_app} target="_blank">
+              <button className={styles.button}>Mentor Application</button>
             </a>
           </div>
         </div>
@@ -78,6 +93,7 @@ const Hero = () => {
           <Countdown className={styles.countdown} />
         </div>
       </section>
+      <Description />
     </div>
   );
 };

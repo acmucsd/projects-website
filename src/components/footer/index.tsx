@@ -27,7 +27,7 @@ const socials = [
 const navLinkSections = [
   {
     title: "Projects",
-    pages: ["Home", "About", "Archive"]
+    pages: ["Resources", "Gallery", "Events", "About"]
   },
   {
     title: "ACM at UCSD",
@@ -43,12 +43,10 @@ const NavLinks = () => {
       let pageTitle : string = page;
 
       if (section.title === "Projects") {
-        if (page !== "Home") {
-          link = "/" + page.toLowerCase();
-        } else {
-          link = "/";
-        }
-      } else {
+        link = "/" + page.toLowerCase();
+      }
+      else
+      {
         // if page is main website, link will just take you to acmucsd.com
         if (page !== "Main") {
           link += page.toLowerCase() + ".";
