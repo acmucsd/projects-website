@@ -1,45 +1,98 @@
 "use client";
 import Image from "next/image";
 import styles from "./style.module.scss";
-import Description from "../description";
+import Countdown, {
+  APPLICATION_DEADLINE,
+} from "../../components/countdown";
+import { Size, useWindowSize } from "../../utils/general";
+
+const ProjLogo = "/assets/proj_logo.svg";
+const CountdownImage = "/assets/countdown_image.png";
+const Gradient = "/assets/hero-gradient.png";
+const GradientMobile = "/assets/hero-gradient-mobile.png";
 
 const Hero = () => {
   const projects_app = "https://acmurl.com/projects-app";
+  const mentor_app = "https://acmurl.com/mentor-app";
+  const formattedDeadline = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(APPLICATION_DEADLINE);
+
+  const size: Size = useWindowSize();
+
+  // size.width !== undefined determines whether the viewport has rendered yet
+  const mobile = size.width !== undefined && size.width <= 920;
 
   return (
-    <div className={styles.container}>
-      <div className={styles.pageContent}>
-        <div className={styles.hero}>
-          <div className={styles.hero_text}>
-            <h1 className={styles.title}>ACM Projects</h1>
-            <p className={styles.description}>
-              ACM Projects is our quarterly projects program where students work
-              in a tight knit team. The program gives students the opportunity
-              to be hands-on outside of courses in fields such as AI, design,
-              and software engineering. The program culminates in a projects
-              showcase and the finished product looks great on resumes. We
-              welcome all skill levels to apply!
-            </p>
-          </div>
-          <img
-            className={styles.image}
-            src="/assets/nicole_team.jpg"
-            alt="ACM Projects"
+    <div className={styles.pageContent}>
+      <Image
+        className={styles.gradient}
+        src={mobile ? GradientMobile : Gradient}
+        width={1440}
+        height={1879}
+        alt="Gradient"
+      />
+      <section className={styles.hero}>
+        <div className={styles.countdownImageWrapperMobile}>
+          <Image
+            className={styles.countdownImage}
+            src={CountdownImage}
+            width={1162}
+            height={1343}
+            alt="Countdown"
+            priority={true}
           />
+          <Countdown className={styles.countdown} />
+        </div>
+        <div className={styles.hero_main}>
+          <div className={styles.title}>
+            <Image 
+              className={styles.titleLogo}
+              src={ProjLogo}
+              width={500}
+              height={500}
+              alt="Projects Logo"
+            />
+            <h1 className={styles.titleText}>ACM Projects</h1>
+          </div>
+          <p className={styles.description}>
+          ACM Projects is our quarterly project program where students collaborate in
+          close-knit teams alongside dedicated mentors. It’s an opportunity to gain 
+          hands-on experience beyond the classroom while exploring fields like AI, 
+          design, software engineering, and robotics. The program culminates in a 
+          projects showcase, giving teams the chance to share what they’ve built. 
+          Whether you’re a beginner or an experienced builder, all skill levels are 
+          welcome to apply!
+          </p>
           <div className={styles.application}>
+            <p className={styles.applicationDeadline}>
+              Applications Due 11:59 PM (PST) on {formattedDeadline}
+            </p>
             <a href={projects_app} target="_blank">
               <button className={styles.button}>
-                Apply Now!
+                Apply Now
                 {/* Close */}
               </button>
             </a>
-            <div className={styles.deadline}>
-              Applications Due <text>April 2nd, 11:59PM!</text>
-            </div>
+            <a href={mentor_app} target="_blank">
+              <button className={styles.button}>Mentor Application</button>
+            </a>
           </div>
         </div>
-      </div>
-      <Description />
+        <div className={styles.countdownImageWrapper}>
+          <Image
+            className={styles.countdownImage}
+            src={CountdownImage}
+            width={1162}
+            height={1343}
+            alt="Countdown"
+            priority={true}
+          />
+          <Countdown className={styles.countdown} />
+        </div>
+      </section>
     </div>
   );
 };
