@@ -7,11 +7,13 @@ type CountdownProps = {
   className?: string;
 };
 
+export const APPLICATION_DEADLINE = new Date("2026-10-04T23:59:59-07:00");
+
 const Countdown = ({ className = "" }: CountdownProps) => {
   const [timeLeft, setTimeLeft] = useState(0);
 
   useEffect(() => {
-    const target = new Date("2026-10-04T23:59:59-07:00").getTime();
+    const target = APPLICATION_DEADLINE.getTime();
     
     setTimeLeft(target - Date.now());
 

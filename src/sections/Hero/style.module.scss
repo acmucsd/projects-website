@@ -109,6 +109,13 @@
         flex-wrap: wrap;
         justify-content: flex-start;
         gap: 1rem;
+
+        .applicationDeadline {
+          flex-basis: 100%;
+          margin: 0;
+          color: v.$red;
+          font-weight: 600;
+        }
       }
 
       .button {
