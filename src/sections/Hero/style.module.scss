@@ -211,6 +211,11 @@
       .hero_main {
         align-items: center;
 
+        .application {
+          justify-content: center;
+          text-align: center;
+        }
+
         .title {
           .titleLogo {
             display: none;
